@@ -1,0 +1,1865 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+<!-- 添加DaoVioce -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/imagess/玮.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/imagess/玮_32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/imagess/玮_16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/imagess/玮.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="NLP,Word2vec,Wikipedia,Embedding,Gensim,Opencc" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Cape of Good Hope" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="由于课题任务需要一个繁体中文的word3vec, 折腾经过记录在此。希望以后少掉几个坑。训练好的embedding放在网盘中， 密码：2um0后来又按照这个方法训练了简体中文维度分别为50、100、200、300的embedding，一并放出来网盘链接 密码：751d">
+<meta name="keywords" content="NLP,Word2vec,Wikipedia,Embedding,Gensim,Opencc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="wikipedia 训练繁（简）体中文 embedding(word2vec)模型">
+<meta property="og:url" content="https://imbowei.com/2018/07/22/wikipedia-train-traditional-chinese-embedding（word2vec）model/index.html">
+<meta property="og:site_name" content="Cape of Good Hope">
+<meta property="og:description" content="由于课题任务需要一个繁体中文的word3vec, 折腾经过记录在此。希望以后少掉几个坑。训练好的embedding放在网盘中， 密码：2um0后来又按照这个方法训练了简体中文维度分别为50、100、200、300的embedding，一并放出来网盘链接 密码：751d">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-08-10T03:37:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="wikipedia 训练繁（简）体中文 embedding(word2vec)模型">
+<meta name="twitter:description" content="由于课题任务需要一个繁体中文的word3vec, 折腾经过记录在此。希望以后少掉几个坑。训练好的embedding放在网盘中， 密码：2um0后来又按照这个方法训练了简体中文维度分别为50、100、200、300的embedding，一并放出来网盘链接 密码：751d">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: 'FHEEI2Y7D7',
+      apiKey: '702daefe9c477cadc0f4905f578f5bf3',
+      indexName: 'personal_blog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"不好意思，木有'${query}'的搜索结果😂","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://imbowei.com/2018/07/22/wikipedia-train-traditional-chinese-embedding（word2vec）model/"/>
+
+
+
+
+
+
+<!-- 网页加载条 -->
+<script src="https://neveryu.github.io/js/src/pace.min.js"></script>
+
+
+
+  <title>wikipedia 训练繁（简）体中文 embedding(word2vec)模型 | Cape of Good Hope</title>
+  
+
+
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-122082724-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Cape of Good Hope</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">I miss you</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-top">
+          <a href="/top/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-signal"></i> <br />
+            
+            Top
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+
+           <!-- 自定义High一下的功能 -->
+           <!-- 现有歌单  1、#Lov3 #Ngẫu Hứng 2、骄傲的少年 3、博主原有-->
+      <li class="menu-item"> <a title="把这个链接拖到你的工具栏中,任何网页都可以High" href='javascript:(
+    /*
+     * Copyright (C) 2016 Never_yu (Neveryu.github.io) <React.dong.yu@gmail.com>
+     * Sina Weibo (http://weibo.com/Neveryu)
+     *
+     * Licensed under the Apache License, Version 2.0 (the "License");
+     * you may not use this file except in compliance with the License.
+     * You may obtain a copy of the License at
+     *
+     *      http://www.apache.org/licenses/LICENSE-2.0
+     *
+     * Unless required by applicable law or agreed to in writing, software
+     * distributed under the License is distributed on an "AS IS" BASIS,
+     * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     * See the License for the specific language governing permissions and
+     * limitations under the License.
+     */
+
+
+
+
+    function go() {
+
+    var songs = [
+         "http://www.170mv.com/kw/other.web.ri01.sycdn.kuwo.cn/resource/n3/43/85/4088203395.mp3",
+         "http://www.170mv.com/kw/other.web.rm01.sycdn.kuwo.cn/resource/n3/10/77/3147640053.mp3",
+         "http://7xoiki.com1.z0.glb.clouddn.com/Music-sunburst.mp3",
+         ""
+    ];
+
+
+    function c() {
+        var e = document.createElement("link");
+        e.setAttribute("type", "text/css");
+        e.setAttribute("rel", "stylesheet");
+        e.setAttribute("href", f);
+        e.setAttribute("class", l);
+        document.body.appendChild(e)
+    }
+
+    function h() {
+        var e = document.getElementsByClassName(l);
+        for (var t = 0; t < e.length; t++) {
+            document.body.removeChild(e[t])
+        }
+    }
+
+    function p() {
+        var e = document.createElement("div");
+        e.setAttribute("class", a);
+        document.body.appendChild(e);
+        setTimeout(function() {
+            document.body.removeChild(e)
+        }, 100)
+    }
+
+    function d(e) {
+        return {
+            height : e.offsetHeight,
+            width : e.offsetWidth
+        }
+    }
+
+    function v(i) {
+        var s = d(i);
+        return s.height > e && s.height < n && s.width > t && s.width < r
+    }
+
+    function m(e) {
+        var t = e;
+        var n = 0;
+        while (!!t) {
+            n += t.offsetTop;
+            t = t.offsetParent
+        }
+        return n
+    }
+
+    function g() {
+        var e = document.documentElement;
+        if (!!window.innerWidth) {
+            return window.innerHeight
+        } else if (e && !isNaN(e.clientHeight)) {
+            return e.clientHeight
+        }
+        return 0
+    }
+
+    function y() {
+        if (window.pageYOffset) {
+            return window.pageYOffset
+        }
+        return Math.max(document.documentElement.scrollTop, document.body.scrollTop)
+    }
+
+    function E(e) {
+        var t = m(e);
+        return t >= w && t <= b + w
+    }
+
+    function S() {
+        var e = document.getElementById("audio_element_id");
+        if(e != null){
+            var index = parseInt(e.getAttribute("curSongIndex"));
+            if(index > songs.length - 2) {
+                index = 0;
+            } else {
+                index++;
+            }
+            e.setAttribute("curSongIndex", index);
+            N();
+        }
+
+        e.src = i;
+        e.play()
+    }
+
+    function x(e) {
+        e.className += " " + s + " " + o
+    }
+
+    function T(e) {
+        e.className += " " + s + " " + u[Math.floor(Math.random() * u.length)]
+    }
+
+    function N() {
+        var e = document.getElementsByClassName(s);
+        var t = new RegExp("\\b" + s + "\\b");
+        for (var n = 0; n < e.length; ) {
+            e[n].className = e[n].className.replace(t, "")
+        }
+    }
+
+    function initAudioEle() {
+        var e = document.getElementById("audio_element_id");
+        if(e === null){
+            e = document.createElement("audio");
+            e.setAttribute("class", l);
+            e.setAttribute("curSongIndex", 0);
+            e.id = "audio_element_id";
+            e.loop = false;
+            e.bgcolor = 0;
+            e.addEventListener("canplay", function() {
+            setTimeout(function() {
+                x(k)
+            }, 500);
+            setTimeout(function() {
+                N();
+                p();
+                for (var e = 0; e < O.length; e++) {
+                    T(O[e])
+                }
+            }, 15500)
+        }, true);
+        e.addEventListener("ended", function() {
+            N();
+            h();
+            go();
+        }, true);
+        e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+        document.body.appendChild(e);
+        }
+    }
+
+    initAudioEle();
+    var e = 30;
+    var t = 30;
+    var n = 350;
+    var r = 350;
+
+    var curSongIndex = parseInt(document.getElementById("audio_element_id").getAttribute("curSongIndex"));
+    var i = songs[curSongIndex];
+
+    var s = "mw-harlem_shake_me";
+    var o = "im_first";
+    var u = ["im_drunk", "im_baked", "im_trippin", "im_blown"];
+    var a = "mw-strobe_light";
+
+    /* harlem-shake-style.css，替换成你的位置，也可以直接使用：//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css */
+    var f = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css";
+
+    var l = "mw_added_css";
+    var b = g();
+    var w = y();
+    var C = document.getElementsByTagName("*");
+    var k = null;
+    for (var L = 0; L < C.length; L++) {
+        var A = C[L];
+        if (v(A)) {
+            if (E(A)) {
+                k = A;
+                break
+            }
+        }
+    }
+    if (A === null) {
+        console.warn("Could not find a node of the right size. Please try a different page.");
+        return
+    }
+    c();
+    S();
+    var O = [];
+    for (var L = 0; L < C.length; L++) {
+        var A = C[L];
+        if (v(A)) {
+            O.push(A)
+        }
+    }
+    })()'><i class="menu-item-icon fa fa-music fa-fw"></i>Interesting</a> </li>
+      <!-- end High一下 -->
+
+    </ul>
+
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://imbowei.com/2018/07/22/wikipedia-train-traditional-chinese-embedding（word2vec）model/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Christmas">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/christmas_ID_round.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cape of Good Hope">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">wikipedia 训练繁（简）体中文 embedding(word2vec)模型</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+
+              <!-- 注释掉图片 --->
+        <!--  <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span> -->
+
+
+              
+                <span class="post-meta-item-text">Posted on:</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-22T22:52:39+08:00">
+                2018-07-22
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+
+              <!-- 注释掉图片 --->
+       <!--   <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>  -->
+
+
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2018-08-10T11:37:36+08:00">
+                2018-08-10
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            <!-- 注释掉图片 -->
+        <!--  <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span> -->
+
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NLP/" itemprop="url" rel="index">
+                    <span itemprop="name">NLP</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NLP/Word2vex/" itemprop="url" rel="index">
+                    <span itemprop="name">Word2vex</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/07/22/wikipedia-train-traditional-chinese-embedding（word2vec）model/" class="leancloud_visitors" data-flag-title="wikipedia 训练繁（简）体中文 embedding(word2vec)模型">
+               <span class="post-meta-divider">|</span>
+
+               <!-- 注释掉了图片 -->
+          <!-- <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>   -->
+
+               
+                 <span class="post-meta-item-text">Heat&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+
+                <!-- 注释掉图片 -->
+         <!--   <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>  -->
+
+                
+                  <span class="post-meta-item-text">Words&#58;</span>
+                
+                <span title="Words">
+                  1,502
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>由于课题任务需要一个繁体中文的word3vec, 折腾经过记录在此。希望以后少掉几个坑。<br>训练好的embedding放在<a href="https://pan.baidu.com/s/1DB_Sft8N9XMyDP9cpVMpBw" target="_blank" rel="noopener">网盘</a>中， 密码：<code>2um0</code><br>后来又按照这个方法训练了简体中文维度分别为50、100、200、300的embedding，一并放出来<a href="https://pan.baidu.com/s/1JgjRBWwwrcJSy4taPFtLhA" target="_blank" rel="noopener">网盘链接</a> 密码：<code>751d</code></p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2><h5 id="get-wiki"><a href="#get-wiki" class="headerlink" title="get wiki"></a>get wiki</h5><p><a href="https://dumps.wikimedia.org/zhwiki/latest/zhwiki-latest-pages-articles.xml.bz2" target="_blank" rel="noopener">最新的wiki datas下载地址</a>，目前有1.6G大小。</p>
+<p>里面的内容以XML格式保存。节点信息如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;page&gt;</span><br><span class="line">  &lt;title&gt;&lt;/title&gt;</span><br><span class="line">  &lt;id&gt;&lt;/id&gt;</span><br><span class="line">  &lt;timestamp&gt;&lt;/timestamp&gt;</span><br><span class="line">  &lt;username&gt;&lt;/username&gt;</span><br><span class="line">  &lt;comment&gt;&lt;/comment&gt;</span><br><span class="line">  &lt;text xml:space=&quot;preserve&quot;&gt;&lt;/text&gt;</span><br><span class="line">&lt;/page&gt;</span><br></pre></td></tr></table></figure></p>
+<h5 id="初步处理"><a href="#初步处理" class="headerlink" title="初步处理"></a>初步处理</h5><p>我顺手直接解压真的too young。<br>为了节省时间，免去自己写代码处理Wiki的烦恼，Wikipedia Extractor先初步处理。（服务器非root用户，安装命令加上<code>--user</code>）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/attardi/wikiextractor.git wikiextractor</span><br><span class="line">cd wikiextractor</span><br><span class="line">python setup.py install --user</span><br><span class="line">python WikiExtractor.py -b 1024M -o extracted zhwiki-latest-pages-articles.xml.bz2</span><br></pre></td></tr></table></figure>
+<p>执行过程如下，可以看到一共处理了1012693篇文章，输出如下所示：</p>
+<blockquote>
+<p>INFO: 6205533    手語新聞<br>INFO: 6205536    班傑明·古根海姆<br>INFO: 6205549    同意<br>INFO: 6205556    2018年荷蘭網路監控法公民投票<br>INFO: 6205594    李儒新<br>INFO: 6205610    深圳信息职业技术学院<br>INFO: 6205626    停下來等著你 (2018年電視劇)<br>INFO: 6205642    簡單矩陣的快速演算法設計<br>INFO: 6205644    斯義桂<br>INFO: 6205646    焦耳效应<br>INFO: 6205648    1925年世界大賽<br>INFO: 6205653    True (方力申專輯)<br>INFO: 6205657    华睿2号<br>INFO: 6205664    河內郡 (大阪府)<br>INFO: 6205691    京都寺町三条商店街的福爾摩斯<br>INFO: 6205675    莫莉·比什死亡事件<br>INFO: 6205703    都筑郡<br>INFO: 6205701    皇座法庭所屬分庭庭長<br>INFO: 6205709    冬瓜餅<br>INFO: 6205710    吸血鬼莫比亞斯<br>INFO: 6205712    淘綾郡<br>INFO: 6205714    明石香織<br>INFO: Finished 71-process extraction of 1012693 articles in 1114.1s (909.0 art/s)</p>
+</blockquote>
+<p>通过以上抽取后得到两个文件<code>wiki_00</code>和<code>wiki_01</code>。里面的格式类似下面<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;doc id=&quot;5323477&quot; url=&quot;https://zh.wikipedia.org/wiki?curid=5323477&quot; title=&quot;結構與能動性&quot;&gt;</span><br><span class="line">文章内容</span><br><span class="line">&lt;/doc&gt;</span><br></pre></td></tr></table></figure></p>
+<p>在上面的基础上，我们在去掉一些不需要的特殊符号。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">import re</span><br><span class="line">import sys</span><br><span class="line">import codecs</span><br><span class="line">def filte(input_file):</span><br><span class="line">    p5 = re.compile(&apos;&lt;doc (.*)&gt;&apos;)</span><br><span class="line">    p6 = re.compile(&apos;&lt;/doc&gt;&apos;)</span><br><span class="line">    outfile = codecs.open(&apos;std_&apos; + input_file, &apos;w&apos;, &apos;utf-8&apos;)</span><br><span class="line">    with codecs.open(input_file, &apos;r&apos;, &apos;utf-8&apos;) as myfile:</span><br><span class="line">        for line in myfile:</span><br><span class="line">            line = p5.sub(&apos;&apos;, line)</span><br><span class="line">            line = p6.sub(&apos;&apos;, line)</span><br><span class="line">            outfile.write(line)</span><br><span class="line">    outfile.close()</span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">filte(input_file)</span><br><span class="line">    input_file = sys.argv[1]</span><br></pre></td></tr></table></figure></p>
+<h5 id="简体转繁体"><a href="#简体转繁体" class="headerlink" title="简体转繁体"></a>简体转繁体</h5><p>首先安装<a href="https://github.com/yichen0831/opencc-python.git" target="_blank" rel="noopener">opencc-python</a><br>网上一大堆教程，全是深坑！其实直接按照代码仓库作者的方法安装就好了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/yichen0831/opencc-python.git</span><br><span class="line">cd opencc-python</span><br><span class="line">python setup.py install --user</span><br></pre></td></tr></table></figure></p>
+<p>但是，如果追求效率，可以安装<a href="https://github.com/BYVoid/OpenCC" target="_blank" rel="noopener">opencc C++ 版本</a>，python代码的效率堪忧。</p>
+<p>看文档不难发现，繁体字也分为香港区和台湾省，要用怎么样的转换看具体需求就好<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> opencc <span class="keyword">import</span> OpenCC</span><br><span class="line"></span><br><span class="line">opencc = OpenCC(<span class="string">'s2hk'</span>)</span><br><span class="line"><span class="keyword">for</span> filename <span class="keyword">in</span> [<span class="string">'wiki_01'</span>,<span class="string">'wiki_00'</span>]:</span><br><span class="line">true<span class="keyword">with</span> open(<span class="string">'std_'</span>+filename,<span class="string">'r'</span>,encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> fin, open(<span class="string">'hk_'</span>+filename,<span class="string">'w'</span>,encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> fou:</span><br><span class="line">truetrue<span class="keyword">for</span> index , line <span class="keyword">in</span> enumerate(fin.readlines()):</span><br><span class="line">truetruetruehk = opencc.convert(line)</span><br><span class="line">truetruetrue<span class="keyword">if</span> index % <span class="number">10000</span> == <span class="number">0</span>:</span><br><span class="line">truetruetruetrueprint(index,hk)</span><br><span class="line">truetruetruefou.write(hk)</span><br></pre></td></tr></table></figure></p>
+<p>得到了两个文件分别大小为 <code>1024M</code> 和<code>154M</code></p>
+<h5 id="jieba-Segment"><a href="#jieba-Segment" class="headerlink" title="jieba Segment"></a>jieba Segment</h5><p>先把两个wiki文件合并<code>cat hk_wiki_00 hk_wiki_01 &gt; hk_wiki</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m jieba -d " " ./hk_wiki &gt; ./SegHk_wiki</span><br></pre></td></tr></table></figure>
+<h5 id="train-word2vec"><a href="#train-word2vec" class="headerlink" title="train word2vec"></a>train word2vec</h5><p>运行下面写好的脚本，<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> gensim.models <span class="keyword">import</span> word2vec</span><br><span class="line"><span class="keyword">from</span> gensim.models <span class="keyword">import</span> KeyedVectors</span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(<span class="string">'./word2vec_tradiCN/'</span>):</span><br><span class="line">trueos.makedirs(<span class="string">'./word2vec_tradiCN/'</span>)</span><br><span class="line"></span><br><span class="line">logging.basicConfig(format=<span class="string">'%(asctime)s : %(levelname)s : %(message)s'</span>, level=logging.INFO)</span><br><span class="line">sentences = word2vec.LineSentence(<span class="string">'./SegHk_wiki'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> number <span class="keyword">in</span> [<span class="number">50</span>,<span class="number">100</span>,<span class="number">200</span>,<span class="number">300</span>]:</span><br><span class="line">truemodel = word2vec.Word2Vec(sentences,size=number,window=<span class="number">5</span>,min_count=<span class="number">5</span>,workers=<span class="number">20</span>)</span><br><span class="line">true<span class="comment"># min-count 表示设置最低频率，默认为5，如果一个词语在文档中出现的次数小于该阈值，那么该词就会被舍弃; size代表词词向量的维度</span></span><br><span class="line">true<span class="comment"># 为了后续建模读取vector方便，我们的保存格式应该和glove vector 保持一致</span></span><br><span class="line">truemodel.wv.save_word2vec_format(<span class="string">'./word2vec_tradiCN/Wiki'</span>+str(number)+<span class="string">'.txt'</span>, binary=<span class="keyword">False</span>)</span><br></pre></td></tr></table></figure></p>
+<p>然而出现了<code>Intel MKL FATAL ERROR: Cannot load libmkl_avx2.so or libmkl_def.so.</code>这个错误<br>运行<code>conda install nomkl</code>安装nomkl，这是anaconda的问题。</p>
+<h5 id="test-word2vec"><a href="#test-word2vec" class="headerlink" title="test word2vec"></a>test word2vec</h5><p>如果用python2，运行下面的测试脚本可能会出现如下错误<code>KeyError: &quot;word &#39;\xe7\xb8\xbd\xe7\xb5\xb1&#39; not in vocabulary&quot;</code><br>这个是python2对于中文的支持不太友好造成的，用python3即可表现正常。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> gensim.models.keyedvectors <span class="keyword">import</span> KeyedVectors</span><br><span class="line"><span class="keyword">for</span> number <span class="keyword">in</span> [<span class="number">50</span>,<span class="number">100</span>,<span class="number">200</span>,<span class="number">300</span>]:</span><br><span class="line">    wv = KeyedVectors.load_word2vec_format(<span class="string">'./word2vec_tradiCN/Wiki'</span>+ str(number)+<span class="string">'.txt'</span>, binary=<span class="keyword">False</span>)</span><br><span class="line">    print(number, wv.similarity(<span class="string">'總統'</span>,<span class="string">'民國'</span>)) <span class="comment">#两个词的相关性</span></span><br><span class="line">    print(number, wv.most_similar([<span class="string">'倫敦'</span>,<span class="string">'中國'</span>],[<span class="string">'北京'</span>]),<span class="string">'\n\n'</span>) <span class="comment"># 北京is to中国 as 伦敦is to？</span></span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>注意，繁体中文，测试的时候也要用繁体的</li>
+<li>这里直接测试了四组不同大小的embedding，可以对比效果。以这个简单的测试来说，200d embedding效果比较好。</li>
+<li>当然，在实际中，效果怎么样，还是要实际测试。</li>
+</ul>
+<blockquote>
+<p>50 0.08906988<br>50 [(‘美國’, 0.8497380614280701), (‘英國’, 0.8156374096870422), (‘荷蘭’, 0.7635571956634521), (‘加拿大’, 0.7618951201438904), (‘蘇格蘭’, 0.7564111948013306), (‘法國’, 0.7498287558555603), (‘冰島’, 0.7447660565376282), (‘愛爾蘭’, 0.7290477752685547), (‘德國’, 0.7261558175086975), (‘哥倫比亞’, 0.715803861618042)]</p>
+<p>100 0.0021609096<br>100 [(‘英國’, 0.7518529891967773), (‘美國’, 0.716768741607666), (‘蘇格蘭’, 0.706271767616272), (‘德國’, 0.6398693323135376), (‘法國’, 0.6289862394332886), (‘愛爾蘭’, 0.6286278963088989), (‘荷蘭’, 0.6277433633804321), (‘英格蘭’, 0.625410795211792), (‘加拿大’, 0.6076068878173828), (‘威爾斯’, 0.6075741052627563)]</p>
+<p>200 0.044366393<br>200 [(‘英國’, 0.6959728598594666), (‘蘇格蘭’, 0.6404226422309875), (‘美國’, 0.6401909589767456), (‘英格蘭’, 0.6158463358879089), (‘愛爾蘭’, 0.5740842223167419), (‘德國’, 0.5558757781982422), (‘威爾斯’, 0.5539498925209045), (‘法國’, 0.5375431776046753), (‘荷蘭’, 0.5276069641113281), (‘威爾士’, 0.5051602721214294)]</p>
+<p>300 0.034565542<br>300 [(‘英國’, 0.6512337923049927), (‘蘇格蘭’, 0.5884094834327698), (‘英格蘭’, 0.5666802525520325), (‘美國’, 0.5420516729354858), (‘愛爾蘭’, 0.5202239751815796), (‘威爾斯’, 0.48060378432273865), (‘荷蘭’, 0.4763559103012085), (‘德國’, 0.4744102358818054), (‘法國’, 0.4675533175468445), (‘北愛爾蘭’, 0.46320733428001404)]</p>
+</blockquote>
+<h5 id="网盘链接"><a href="#网盘链接" class="headerlink" title="网盘链接"></a>网盘链接</h5><p>训练好的四个embedding包含892594个词，都放到了<a href="https://pan.baidu.com/s/1DB_Sft8N9XMyDP9cpVMpBw" target="_blank" rel="noopener">网盘</a>中，可以按需下载。 密码：<code>2um0</code></p>
+<h5 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h5><p><a href="https://blog.csdn.net/qq_32166627/article/details/68942216" target="_blank" rel="noopener">word2vec实战：获取和预处理中文维基百科(Wikipedia)语料库，并训练成word2vec模型</a></p>
+
+      
+    </div>
+    
+    
+    
+
+
+    <div>
+      
+        <div>
+    
+        <blockquote class="blockquote-center">
+        <div style="text-align:center;color: #FF5733;font-size:24px;">-------------本文结束 <i class="fa fa-heart"></i> 感谢您的时间-------------</div>
+        </blockquote>
+    
+</div>
+      
+    </div>
+
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/Wachat_money.png" alt="Christmas WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay_money.png" alt="Christmas Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:</strong>
+    Christmas
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link:</strong>
+    <a href="https://imbowei.com/2018/07/22/wikipedia-train-traditional-chinese-embedding（word2vec）model/" title="wikipedia 训练繁（简）体中文 embedding(word2vec)模型">https://imbowei.com/2018/07/22/wikipedia-train-traditional-chinese-embedding（word2vec）model/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice: </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Wikipedia/" <i class="fa fa-tag"></i> Wikipedia</a>
+          
+            <a href="/tags/Gensim/" <i class="fa fa-tag"></i> Gensim</a>
+          
+            <a href="/tags/Embedding/" <i class="fa fa-tag"></i> Embedding</a>
+          
+            <a href="/tags/Opencc/" <i class="fa fa-tag"></i> Opencc</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/14/Hexo_Next_博客搭建记/" rel="next" title="Hexo_Next_博客搭建记">
+                <i class="fa fa-chevron-left"></i> Hexo_Next_博客搭建记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/26/linux-uploading-baiduyunpan/" rel="prev" title="Linux服务器命令行上传数据到百度云盘">
+                Linux服务器命令行上传数据到百度云盘 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/christmas_ID_round.png"
+                alt="Christmas" />
+            
+              <p class="site-author-name" itemprop="name">Christmas</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/OnlyChristmas" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:m_christmas@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i></a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://imbowei.com/" title="(●ˇ∀ˇ●)" target="_blank">(●ˇ∀ˇ●)</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">1.</span> <span class="nav-text"></span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#get-wiki"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">get wiki</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#初步处理"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">初步处理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#简体转繁体"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">简体转繁体</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#jieba-Segment"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">jieba Segment</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#train-word2vec"><span class="nav-number">1.0.0.5.</span> <span class="nav-text">train word2vec</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#test-word2vec"><span class="nav-number">1.0.0.6.</span> <span class="nav-text">test word2vec</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#网盘链接"><span class="nav-number">1.0.0.7.</span> <span class="nav-text">网盘链接</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#参考文献"><span class="nav-number">1.0.0.8.</span> <span class="nav-text">参考文献</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="heart">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Christmas</span>
+
+  
+    <span class="post-meta-divider">|</span>
+
+    <span class="post-meta-item-icon">
+      <i class="fa fa-thumbs-up"></i>
+    </span>
+
+
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">24.4k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="footer-custom">Hosted by <a href="https://pages.coding.me" >Coding Pages</a> and <a href="https://pages.github.com">GitHub Pages</a></div>
+
+
+
+
+
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("07/06/2018 11:11:00");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+setInterval("createtime()",250);
+
+
+</script>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 你是第
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      个小伙伴
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      人次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: '1532271159000' , 
+            owner: 'OnlyChristmas',
+            repo: 'OnlyChristmas.github.io',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '4ff9a983c2a12891885a77a529cb04ce17400d46',
+            
+                client_id: '8fc5c130c7429cb7d9aa'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("CYiT0KdkmU0LEo3kFuLb4TPP-gzGzoHsz", "6RIqigijTviGwWrSUQgaVMP7");</script>
+  <script>
+
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+
+
+  <!-- 页面点击小红心 -->
+ <!--  <script type="text/javascript" src="/js/src/love.js"></script> -->
+
+
+  <!-- 背景动画(不知道为什么，不起作用) -->
+  <!-- <script type="text/javascript" src="/js/src/particle.js"></script> -->
+
+
+  <!-- 页面点击烟花爆炸 -->
+  
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+  
+
+
+  <!-- 加载加速 -->
+  <script type="text/javascript" src= "/js/src/instantclick.min.js" data-no-instant></script>
+  <script data-no-instant>InstantClick.init();</script>
+
+  <!--崩溃欺骗-->
+  <!-- <script type="text/javascript" src="/js/src/custom_title.js"></script> -->
+
+
+  <!-- 代码块复制功能 -->
+  <script type="text/javascript" src="/js/src/clipboard.min.js"></script>
+  <script type="text/javascript" src="/js/src/clipboard-use.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+<script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>

@@ -1,0 +1,1894 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+<!-- 添加DaoVioce -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/imagess/玮.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/imagess/玮_32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/imagess/玮_16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/imagess/玮.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="blog,Github pages,Coding pages,SSL,Domain,DNSpod,博客,域名" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Cape of Good Hope" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="本来博客已经搭建好了，可是总觉得用Github一个二级域名怪怪的，非要折腾自己来绑定自己的域名，并申请SSL（就是喜欢看那个小绿锁！）前前后后花了不少时间，走了不少弯路，将踩过的坑记录下来。">
+<meta name="keywords" content="blog,Github pages,Coding pages,SSL,Domain,DNSpod,博客,域名">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用Github和Coding双线绑定自定义域名">
+<meta property="og:url" content="https://imbowei.com/2018/07/29/Github-and-Coding-bulid-blog/index.html">
+<meta property="og:site_name" content="Cape of Good Hope">
+<meta property="og:description" content="本来博客已经搭建好了，可是总觉得用Github一个二级域名怪怪的，非要折腾自己来绑定自己的域名，并申请SSL（就是喜欢看那个小绿锁！）前前后后花了不少时间，走了不少弯路，将踩过的坑记录下来。">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://i.loli.net/2018/07/29/5b5dd61453e66.png">
+<meta property="og:image" content="https://i.loli.net/2018/07/30/5b5e66fe8bec0.png">
+<meta property="og:image" content="https://i.loli.net/2018/07/29/5b5dd74a5f2e6.png">
+<meta property="og:image" content="https://i.loli.net/2018/07/30/5b5e625ebaacc.png">
+<meta property="og:image" content="https://i.loli.net/2018/07/30/5b5e62c7adf58.png">
+<meta property="og:image" content="https://i.loli.net/2018/07/30/5b5e62ff63ffc.png">
+<meta property="og:updated_time" content="2018-08-17T10:13:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="用Github和Coding双线绑定自定义域名">
+<meta name="twitter:description" content="本来博客已经搭建好了，可是总觉得用Github一个二级域名怪怪的，非要折腾自己来绑定自己的域名，并申请SSL（就是喜欢看那个小绿锁！）前前后后花了不少时间，走了不少弯路，将踩过的坑记录下来。">
+<meta name="twitter:image" content="https://i.loli.net/2018/07/29/5b5dd61453e66.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: 'FHEEI2Y7D7',
+      apiKey: '702daefe9c477cadc0f4905f578f5bf3',
+      indexName: 'personal_blog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"不好意思，木有'${query}'的搜索结果😂","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://imbowei.com/2018/07/29/Github-and-Coding-bulid-blog/"/>
+
+
+
+
+
+
+<!-- 网页加载条 -->
+<script src="https://neveryu.github.io/js/src/pace.min.js"></script>
+
+
+
+  <title>用Github和Coding双线绑定自定义域名 | Cape of Good Hope</title>
+  
+
+
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-122082724-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Cape of Good Hope</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">I miss you</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-top">
+          <a href="/top/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-signal"></i> <br />
+            
+            Top
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+
+           <!-- 自定义High一下的功能 -->
+           <!-- 现有歌单  1、#Lov3 #Ngẫu Hứng 2、骄傲的少年 3、博主原有-->
+      <li class="menu-item"> <a title="把这个链接拖到你的工具栏中,任何网页都可以High" href='javascript:(
+    /*
+     * Copyright (C) 2016 Never_yu (Neveryu.github.io) <React.dong.yu@gmail.com>
+     * Sina Weibo (http://weibo.com/Neveryu)
+     *
+     * Licensed under the Apache License, Version 2.0 (the "License");
+     * you may not use this file except in compliance with the License.
+     * You may obtain a copy of the License at
+     *
+     *      http://www.apache.org/licenses/LICENSE-2.0
+     *
+     * Unless required by applicable law or agreed to in writing, software
+     * distributed under the License is distributed on an "AS IS" BASIS,
+     * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     * See the License for the specific language governing permissions and
+     * limitations under the License.
+     */
+
+
+
+
+    function go() {
+
+    var songs = [
+         "http://www.170mv.com/kw/other.web.ri01.sycdn.kuwo.cn/resource/n3/43/85/4088203395.mp3",
+         "http://www.170mv.com/kw/other.web.rm01.sycdn.kuwo.cn/resource/n3/10/77/3147640053.mp3",
+         "http://7xoiki.com1.z0.glb.clouddn.com/Music-sunburst.mp3",
+         ""
+    ];
+
+
+    function c() {
+        var e = document.createElement("link");
+        e.setAttribute("type", "text/css");
+        e.setAttribute("rel", "stylesheet");
+        e.setAttribute("href", f);
+        e.setAttribute("class", l);
+        document.body.appendChild(e)
+    }
+
+    function h() {
+        var e = document.getElementsByClassName(l);
+        for (var t = 0; t < e.length; t++) {
+            document.body.removeChild(e[t])
+        }
+    }
+
+    function p() {
+        var e = document.createElement("div");
+        e.setAttribute("class", a);
+        document.body.appendChild(e);
+        setTimeout(function() {
+            document.body.removeChild(e)
+        }, 100)
+    }
+
+    function d(e) {
+        return {
+            height : e.offsetHeight,
+            width : e.offsetWidth
+        }
+    }
+
+    function v(i) {
+        var s = d(i);
+        return s.height > e && s.height < n && s.width > t && s.width < r
+    }
+
+    function m(e) {
+        var t = e;
+        var n = 0;
+        while (!!t) {
+            n += t.offsetTop;
+            t = t.offsetParent
+        }
+        return n
+    }
+
+    function g() {
+        var e = document.documentElement;
+        if (!!window.innerWidth) {
+            return window.innerHeight
+        } else if (e && !isNaN(e.clientHeight)) {
+            return e.clientHeight
+        }
+        return 0
+    }
+
+    function y() {
+        if (window.pageYOffset) {
+            return window.pageYOffset
+        }
+        return Math.max(document.documentElement.scrollTop, document.body.scrollTop)
+    }
+
+    function E(e) {
+        var t = m(e);
+        return t >= w && t <= b + w
+    }
+
+    function S() {
+        var e = document.getElementById("audio_element_id");
+        if(e != null){
+            var index = parseInt(e.getAttribute("curSongIndex"));
+            if(index > songs.length - 2) {
+                index = 0;
+            } else {
+                index++;
+            }
+            e.setAttribute("curSongIndex", index);
+            N();
+        }
+
+        e.src = i;
+        e.play()
+    }
+
+    function x(e) {
+        e.className += " " + s + " " + o
+    }
+
+    function T(e) {
+        e.className += " " + s + " " + u[Math.floor(Math.random() * u.length)]
+    }
+
+    function N() {
+        var e = document.getElementsByClassName(s);
+        var t = new RegExp("\\b" + s + "\\b");
+        for (var n = 0; n < e.length; ) {
+            e[n].className = e[n].className.replace(t, "")
+        }
+    }
+
+    function initAudioEle() {
+        var e = document.getElementById("audio_element_id");
+        if(e === null){
+            e = document.createElement("audio");
+            e.setAttribute("class", l);
+            e.setAttribute("curSongIndex", 0);
+            e.id = "audio_element_id";
+            e.loop = false;
+            e.bgcolor = 0;
+            e.addEventListener("canplay", function() {
+            setTimeout(function() {
+                x(k)
+            }, 500);
+            setTimeout(function() {
+                N();
+                p();
+                for (var e = 0; e < O.length; e++) {
+                    T(O[e])
+                }
+            }, 15500)
+        }, true);
+        e.addEventListener("ended", function() {
+            N();
+            h();
+            go();
+        }, true);
+        e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+        document.body.appendChild(e);
+        }
+    }
+
+    initAudioEle();
+    var e = 30;
+    var t = 30;
+    var n = 350;
+    var r = 350;
+
+    var curSongIndex = parseInt(document.getElementById("audio_element_id").getAttribute("curSongIndex"));
+    var i = songs[curSongIndex];
+
+    var s = "mw-harlem_shake_me";
+    var o = "im_first";
+    var u = ["im_drunk", "im_baked", "im_trippin", "im_blown"];
+    var a = "mw-strobe_light";
+
+    /* harlem-shake-style.css，替换成你的位置，也可以直接使用：//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css */
+    var f = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css";
+
+    var l = "mw_added_css";
+    var b = g();
+    var w = y();
+    var C = document.getElementsByTagName("*");
+    var k = null;
+    for (var L = 0; L < C.length; L++) {
+        var A = C[L];
+        if (v(A)) {
+            if (E(A)) {
+                k = A;
+                break
+            }
+        }
+    }
+    if (A === null) {
+        console.warn("Could not find a node of the right size. Please try a different page.");
+        return
+    }
+    c();
+    S();
+    var O = [];
+    for (var L = 0; L < C.length; L++) {
+        var A = C[L];
+        if (v(A)) {
+            O.push(A)
+        }
+    }
+    })()'><i class="menu-item-icon fa fa-music fa-fw"></i>Interesting</a> </li>
+      <!-- end High一下 -->
+
+    </ul>
+
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://imbowei.com/2018/07/29/Github-and-Coding-bulid-blog/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Christmas">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/christmas_ID_round.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cape of Good Hope">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">用Github和Coding双线绑定自定义域名</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+
+              <!-- 注释掉图片 --->
+        <!--  <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span> -->
+
+
+              
+                <span class="post-meta-item-text">Posted on:</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-29T17:26:57+08:00">
+                2018-07-29
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+
+              <!-- 注释掉图片 --->
+       <!--   <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>  -->
+
+
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2018-08-17T18:13:06+08:00">
+                2018-08-17
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            <!-- 注释掉图片 -->
+        <!--  <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span> -->
+
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/blog/" itemprop="url" rel="index">
+                    <span itemprop="name">blog</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/07/29/Github-and-Coding-bulid-blog/" class="leancloud_visitors" data-flag-title="用Github和Coding双线绑定自定义域名">
+               <span class="post-meta-divider">|</span>
+
+               <!-- 注释掉了图片 -->
+          <!-- <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>   -->
+
+               
+                 <span class="post-meta-item-text">Heat&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+
+                <!-- 注释掉图片 -->
+         <!--   <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>  -->
+
+                
+                  <span class="post-meta-item-text">Words&#58;</span>
+                
+                <span title="Words">
+                  2,337
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本来博客已经搭建好了，可是总觉得用Github一个二级域名怪怪的，非要折腾自己来绑定自己的域名，并申请SSL（就是喜欢看那个小绿锁！）前前后后花了不少时间，走了不少弯路，将踩过的坑记录下来。</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2><h3 id="域名设计原则"><a href="#域名设计原则" class="headerlink" title="域名设计原则"></a>域名设计原则</h3><p>域名的设置应该根据什么原则呢？参考<a href="http://www.nuobg.com/reed/439.html" target="_blank" rel="noopener">域名价值评估</a>，我们可以根据如下因素来</p>
+<p><strong>域名的长短</strong>:1位：10万，2位：5万，3位：1万，4位：5000，5位以上1000，6位以上500<br><strong>域名的组成结构</strong>：纯字母的*2，数字与字母杂的*1，中划线/3<br><strong>域名的组合方式</strong>：单词*3，纯数及单词组合*2，拼音及其它*1<br><strong>域名的形式分类</strong>：行业词*3，通用词*2，创单词*1<br><strong>域名的商业价值</strong>：搜索数量：1000以下/3，1000到1万/2，1万到10万*1，10万到100万*2，100万*3，100万以后搜索数量多一个0就*3的倍数，百度以100万，google以300万为参数。<br><strong>域名的后缀</strong>：com结尾的大于net，net结尾的大约cn的，cn结尾的大于<a href="http://com.cn(org、gov排除例外一般不属于商业险域名)，http://com.cn大于其他尾缀域名" target="_blank" rel="noopener">http://com.cn(org、gov排除例外一般不属于商业险域名)，http://com.cn大于其他尾缀域名</a><br><strong>域名的历史记录</strong>：自己衡量。<br><strong>域名记忆性标准</strong>：跟实际生活中某些词汇重叠，跟语言、语音发声重叠适用性较强<br><strong>域名的合法性标准</strong>：域名是否符合法律，是否涉及到知识产品争议方面。<br><strong>域名的潜在商业价值</strong>：域名所涉及的行业规模及互联网的相关性。</p>
+<h3 id="域名服务商选择"><a href="#域名服务商选择" class="headerlink" title="域名服务商选择"></a>域名服务商选择</h3><p>心中构思好了自己的域名后，就可以着手选择一个靠谱的域名购买商。如果懒得备案，那就将我们的目光锁定在国外。<br>参考<a href="https://www.zhihu.com/question/19551906/answer/31986656" target="_blank" rel="noopener">分析域名购买商</a>，<a href="https://www.1deng.me/2017-best-domain-registrars.html" target="_blank" rel="noopener">2018最佳国外域名注册商，不需要备案</a>这两篇文章，我将目光初步锁定在namesilo和namecheap两家口碑较好、服务稳定、价格尚可的服务商身上。</p>
+<p>这里有两个网站来查询你所想好的域名目前的状况，以及价格对比。<br><a href="https://namebeta.com/" target="_blank" rel="noopener">查域名是否被注册（中文站）</a>，<a href="https://www.domcomp.com/" target="_blank" rel="noopener">domcomp——国外多家域名购买网站的价格对比</a><br>如果准备购买，从domcomp内点击对应的域名服务商还有额外的优惠。</p>
+<p>我最终选择的是Namesilo，因为更便宜……口碑也还不错。<a href="https://www.namesilo.com/?rid=cffdf56sr" target="_blank" rel="noopener">namesilo传送门</a> Namesilo还免费提供隐私服务（即不公开域名持有者的信息）。对了， Namesilo 支持支付宝付款。<br>从传送门进去，注册新用户，选好合适的域名后填入下面两个优惠码其中任意一个都可以优惠一美元。（截止日期：2020年12月31日）</p>
+<div class="note success"><p>NameSilo 新用户购物优惠码一 <span id="inline-blue">imbowei</span>
+
+     NameSilo 新用户购物优惠码二 <span id="inline-blue">miaomiao</span>  </p></div>
+
+
+
+<h3 id="域名购买及配置"><a href="#域名购买及配置" class="headerlink" title="域名购买及配置"></a>域名购买及配置</h3><p>namesilo购买域名之前记得填写优惠码，并且提交（提交按钮一直都是灰色的！），提交后可以便宜一美元。<br><img src="https://i.loli.net/2018/07/29/5b5dd61453e66.png" alt="namesilo购买域名"><br>经过以上步骤，就可以最终购买域名了。</p>
+<p>购买得到域名，要紧接着配置。新域名默认有四条停靠的广告记录，不要犹豫，直接全部删除！<br><img src="https://i.loli.net/2018/07/30/5b5e66fe8bec0.png" alt="Namesilo需要删除的默认配置"><br>然后我选用了<a href="https://www.dnspod.cn/" target="_blank" rel="noopener">DNSpod</a>的域名解析服务。中文网站，简单易懂。它有两个默认的解析记录，我们直接添加到<code>namesilo</code>购买的域名中，如下图所示。（注意：不需要第三条记录。）<br>这样就可以放心关闭Namesilo的网站了。<br><img src="https://i.loli.net/2018/07/29/5b5dd74a5f2e6.png" alt="namesilo第三方服务器设置"></p>
+<h3 id="Coding配置"><a href="#Coding配置" class="headerlink" title="Coding配置"></a>Coding配置</h3><p>如果Coding和GitHub的用户名和注册邮箱完全一样，就不用再次配置Git，只要找到<code>.ssh</code>文件夹下对应的<code>id_ras.pub</code>文件，再去coding以相同的方式设置一次公钥即可。</p>
+<p>如果用户名或者注册邮箱并不是完全一致，那么按照如下步骤在进行一遍配置。<br>注意，需要先将配置GitHub时候生成的公钥密钥文件备份，或者生成Coding配置的时候改掉生成的文件名。</p>
+<ul>
+<li><code>git config --global user.name &quot;OnlyChristmas&quot;</code> 设置Coding用户名</li>
+<li><code>git config --global user.email &quot;OnlyChristmas@hh.com&quot;</code>设置注册Coding邮箱</li>
+<li><code>ssh-keygen -t rsa &quot;OnlyChristmas@hh.com&quot;</code> 在bash中执行命令，连着三个回车（不需要密码）。</li>
+<li>生成两个文件 id_rsa 和 id_rsa.pub ，而 id_rsa 是密钥，id_rsa.pub 就是公钥。生成文件目录`C:/用户/你的用户名/</li>
+</ul>
+<p>输入 <code>ssh -T git@coding.net</code> 如果出现如下字样不要慌张，因为可能是本地网络禁止了22端口，我们换个端口就好。</p>
+<blockquote>
+<p>ssh: connect to host coding.net port 22: Connection refused</p>
+</blockquote>
+<p>再次输入 <code>ssh -T -p 443 git@git-ssh.coding.net</code> 出现如下字样，说明配置coding成功。</p>
+<blockquote>
+<p>The authenticity of host …………………<br>Coding 提示: Hello OnlyChristmas, You’ve connected to Coding.net via SSH. This is a personal key.<br>OnlyChristmas，你好，你已经通过 SSH 协议认证 Coding.net 服务，这是一个个人公钥</p>
+</blockquote>
+<h3 id="将博客托管到Coding和GitHub"><a href="#将博客托管到Coding和GitHub" class="headerlink" title="将博客托管到Coding和GitHub"></a>将博客托管到Coding和GitHub</h3><p>首先，在本地<code>博客根目录/source/</code>下建立一个名为 <code>CNAME</code>的文件，里面写填入你购买的域名。例如<a href="imbowei.com">imbowei.com</a>, 不需要任何的其他字符，例如“www”,”https”之类。</p>
+<p>在本地博客文件夹下的srouce文件夹下新建<span id="inline-green">Staticfile</span>文件，接下来就可以同时向coding和GitHub上传博客了。</p>
+<p>向coding提交代码遇到了如下问题怎么办？</p>
+<blockquote>
+<p>remote: Coding 提示: Authentication failed! 认证失败，请确认您输入了正确的账号密码</p>
+</blockquote>
+<p>我是因为配置出现了问题，改成如下样式，即可同时上传github和coding<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo:</span><br><span class="line">    github: https://github.com/OnlyChristmas/OnlyChristmas.github.io.git</span><br><span class="line">    coding: git@git.coding.net:OnlyChristmas/OnlyChristmas.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></p>
+<p>代码上传之后，在coding项目的<code>代码/pages 服务</code>中选取master分支，开启静态pages服务，即可访问coding的<a href="https://onlychristmas.coding.me" target="_blank" rel="noopener">主页</a>了。</p>
+<h3 id="Github-and-Coding-双线部署并申请SSL"><a href="#Github-and-Coding-双线部署并申请SSL" class="headerlink" title="Github and Coding 双线部署并申请SSL"></a>Github and Coding 双线部署并申请SSL</h3><p>现在Coding pages和Github pages 已经都可以使用了。<br>那么我们现在要做的就是设置他们同时解析到我们刚才购买的域名<a href="imbowei.com">imbowei.com</a>，实现双线访问。<br>这里的坑比较多。<br>首先要在DNSpod先设置解析Coding，并且在Coding项目的pages界面申请SSL证书。申请配置如下图所示。<br>否则Let’s Encrypt主机根据域名解析记录验证域名所有权时，会定位到GitHub Page的主机上，导致Let’s EncryptSSL证书申请失败。<br><img src="https://i.loli.net/2018/07/30/5b5e625ebaacc.png" alt="Coding pages SSL 申请成功"></p>
+<p>然后在DNSpod再配置Github pages的解析，并在Github博客项目的设置中绑定主页。</p>
+<p>然而，Github pages 出现了如下的错误信息，</p>
+<blockquote>
+<p>Domain’s DNS record could not be retrieved.<br>不要着急，这是因为github pages的自定义HTTPS请求没有配置成功（2018年5月1日新推出的良心服务），在刚才的DNSpod中添加一条A记录即可,其中IP指向在下面的地址中任选其一即可（一项不行，就换另外一个）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">185.199.108.153</span><br><span class="line">185.199.109.153</span><br><span class="line">185.199.110.153</span><br><span class="line">185.199.111.153</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>Gituhb pages的配置成功界面如下所示。<br><img src="https://i.loli.net/2018/07/30/5b5e62c7adf58.png" alt="Gituhb pages SSL配置成功"><br>最终的DNSpod解析配置如下图所示。<br><img src="https://i.loli.net/2018/07/30/5b5e62ff63ffc.png" alt="DNSpod 配置"></p>
+<h3 id="去除Coding的广告……"><a href="#去除Coding的广告……" class="headerlink" title="去除Coding的广告……"></a>去除Coding的广告……</h3><p>配置好之后很开心，然而发现，Coding会自动给你的博客加一个滞留好几秒钟的跳转页面，感觉非常非常的不好。<br>还好除了升级为它的黄金会员之外还有其他解决方法。</p>
+<p>只要在博客主页为它打一点点广告就好了（要两个工作日才会通过！）……毕竟托管在上面还是很方便的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;Hosted by &lt;a href=&quot;https://pages.coding.me&quot; style=&quot;font-weight: bold&quot;&gt;Coding Pages&lt;/a&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>对于Next主题来说，在<code>themes/next/layout/_partials/footer.swig</code>的文件末尾加入上述代码就可以把Coding要求的小广告加入到主页的页脚位置。</p>
+<p>但是Coding这种强制要求真的很烦人，一点互联网精神都没有！货比货，感觉Coding距离Github还差几个光年吧。<br>既然打广告，也顺便带上良心的Github吧！</p>
+<h3 id="资源配置"><a href="#资源配置" class="headerlink" title="资源配置"></a>资源配置</h3><p>现在部署好了HTTPS，那为什么还是没有出现小绿锁？刷新页面出现的小绿锁一闪而过，让我们空欢喜一场！<br>因为网站没有全站HTTPS，也就是说，我们引用了http的资源，要将对应资源全部换成HTTPS才能出现小绿锁。</p>
+<p>怎么知道自己什么还没有换成HTTPS资源？很简单，<code>F12</code>打开调式界面就可以发现警告信息。<br>例如我的站点就是因为加载了一个自定义的鼠标图片，如鼠标图片引用了HTTP的资源，将该段代码注释掉，或者换一个HTTPS的资源连接即可。</p>
+<p>然后，就有心心念的<strong>小绿锁</strong>了！</p>
+<p>另外由于主页地址的改变，我还更新了如下资源配置：</p>
+<ul>
+<li>gitment评论系统的<code>Authorization callback URL</code>主页设置为自定义域名。</li>
+<li>SEO相关设置</li>
+<li>在<span id="inline-blue"> 站点配置文件 </span>中更改默认站点，使得文档末尾的copyright链接生成正确。</li>
+<li>还在阿里云申请了一个为期一年的SSL免费证书，用于一些资源网站的验证使用。</li>
+</ul>
+<!-- 配置结束后，如果能直接访问，那是最好。但是如果有悲催的如下错误发生，也不要慌张。
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">无法访问此网站</span><br><span class="line">找不到 imbowei.com 的服务器 IP 地址。</span><br><span class="line">尝试运行 Windows 网络诊断。</span><br><span class="line">DNS_PROBE_FINISHED_NXDOMAIN</span><br></pre></td></tr></table></figure>
+<p>我的电脑除了刚刚购买的域名<a href="imbowei.com">imbowei.com</a>之外，所有网站都可以正常访问！……<br>不要慌，也不要问度娘，老老实实的google一下，<br>只要打开<code>控制面板/网络和Internet/网络连接/</code>，选择你使用的网络，右键-&gt;属性-&gt;IPV4（双击），将DNS服务器改成如下配置</p>
+<p><div class="note success"><p> 首选DNS服务器　8.8.8.8</p>
+<p>备用DNS服务器　8.8.4.4 &lt;/p&gt;&lt;/div&gt; —&gt;</p>
+-->
+      
+    </div>
+    
+    
+    
+
+
+    <div>
+      
+        <div>
+    
+        <blockquote class="blockquote-center">
+        <div style="text-align:center;color: #FF5733;font-size:24px;">-------------本文结束 <i class="fa fa-heart"></i> 感谢您的时间-------------</div>
+        </blockquote>
+    
+</div>
+      
+    </div>
+
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/Wachat_money.png" alt="Christmas WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay_money.png" alt="Christmas Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:</strong>
+    Christmas
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link:</strong>
+    <a href="https://imbowei.com/2018/07/29/Github-and-Coding-bulid-blog/" title="用Github和Coding双线绑定自定义域名">https://imbowei.com/2018/07/29/Github-and-Coding-bulid-blog/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice: </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Github-pages/" <i class="fa fa-tag"></i> Github-pages</a>
+          
+            <a href="/tags/Coding-pages/" <i class="fa fa-tag"></i> Coding-pages</a>
+          
+            <a href="/tags/DNSpod/" <i class="fa fa-tag"></i> DNSpod</a>
+          
+            <a href="/tags/SSL/" <i class="fa fa-tag"></i> SSL</a>
+          
+            <a href="/tags/Domain/" <i class="fa fa-tag"></i> Domain</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/26/linux-uploading-baiduyunpan/" rel="next" title="Linux服务器命令行上传数据到百度云盘">
+                <i class="fa fa-chevron-left"></i> Linux服务器命令行上传数据到百度云盘
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/07/Investigate-domestic-data-labeling-companies/" rel="prev" title="AI发电厂——数据标注公司（国内数据标注公司服务调研）">
+                AI发电厂——数据标注公司（国内数据标注公司服务调研） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/christmas_ID_round.png"
+                alt="Christmas" />
+            
+              <p class="site-author-name" itemprop="name">Christmas</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/OnlyChristmas" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:m_christmas@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i></a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://imbowei.com/" title="(●ˇ∀ˇ●)" target="_blank">(●ˇ∀ˇ●)</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">1.</span> <span class="nav-text"></span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#域名设计原则"><span class="nav-number">1.1.</span> <span class="nav-text">域名设计原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#域名服务商选择"><span class="nav-number">1.2.</span> <span class="nav-text">域名服务商选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#域名购买及配置"><span class="nav-number">1.3.</span> <span class="nav-text">域名购买及配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Coding配置"><span class="nav-number">1.4.</span> <span class="nav-text">Coding配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将博客托管到Coding和GitHub"><span class="nav-number">1.5.</span> <span class="nav-text">将博客托管到Coding和GitHub</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Github-and-Coding-双线部署并申请SSL"><span class="nav-number">1.6.</span> <span class="nav-text">Github and Coding 双线部署并申请SSL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#去除Coding的广告……"><span class="nav-number">1.7.</span> <span class="nav-text">去除Coding的广告……</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#资源配置"><span class="nav-number">1.8.</span> <span class="nav-text">资源配置</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="heart">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Christmas</span>
+
+  
+    <span class="post-meta-divider">|</span>
+
+    <span class="post-meta-item-icon">
+      <i class="fa fa-thumbs-up"></i>
+    </span>
+
+
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">24.4k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="footer-custom">Hosted by <a href="https://pages.coding.me" >Coding Pages</a> and <a href="https://pages.github.com">GitHub Pages</a></div>
+
+
+
+
+
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("07/06/2018 11:11:00");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+setInterval("createtime()",250);
+
+
+</script>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 你是第
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      个小伙伴
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      人次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: '1532856417000' , 
+            owner: 'OnlyChristmas',
+            repo: 'OnlyChristmas.github.io',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '4ff9a983c2a12891885a77a529cb04ce17400d46',
+            
+                client_id: '8fc5c130c7429cb7d9aa'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("CYiT0KdkmU0LEo3kFuLb4TPP-gzGzoHsz", "6RIqigijTviGwWrSUQgaVMP7");</script>
+  <script>
+
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+
+
+  <!-- 页面点击小红心 -->
+ <!--  <script type="text/javascript" src="/js/src/love.js"></script> -->
+
+
+  <!-- 背景动画(不知道为什么，不起作用) -->
+  <!-- <script type="text/javascript" src="/js/src/particle.js"></script> -->
+
+
+  <!-- 页面点击烟花爆炸 -->
+  
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+  
+
+
+  <!-- 加载加速 -->
+  <script type="text/javascript" src= "/js/src/instantclick.min.js" data-no-instant></script>
+  <script data-no-instant>InstantClick.init();</script>
+
+  <!--崩溃欺骗-->
+  <!-- <script type="text/javascript" src="/js/src/custom_title.js"></script> -->
+
+
+  <!-- 代码块复制功能 -->
+  <script type="text/javascript" src="/js/src/clipboard.min.js"></script>
+  <script type="text/javascript" src="/js/src/clipboard-use.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+<script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>

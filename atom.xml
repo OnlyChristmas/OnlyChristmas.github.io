@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Cape of Good Hope</title>
+  
+  <subtitle>I miss you</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://imbowei.com/"/>
+  <updated>2018-08-23T04:03:58.000Z</updated>
+  <id>https://imbowei.com/</id>
+  
+  <author>
+    <name>Christmas</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>算法的时间复杂度和空间复杂度</title>
+    <link href="https://imbowei.com/2018/08/17/Summary-of-time-complexity-and-space-complexity/"/>
+    <id>https://imbowei.com/2018/08/17/Summary-of-time-complexity-and-space-complexity/</id>
+    <published>2018-08-17T10:37:34.000Z</published>
+    <updated>2018-08-23T04:03:58.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;趁假期复习了算法基础的时间复杂度和空间复杂度，整理一遍。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Algorithm" scheme="https://imbowei.com/categories/Algorithm/"/>
+    
+    
+      <category term="Time-complexity" scheme="https://imbowei.com/tags/Time-complexity/"/>
+    
+      <category term="Space-complexity" scheme="https://imbowei.com/tags/Space-complexity/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>AI发电厂——数据标注公司（国内数据标注公司服务调研）</title>
+    <link href="https://imbowei.com/2018/08/07/Investigate-domestic-data-labeling-companies/"/>
+    <id>https://imbowei.com/2018/08/07/Investigate-domestic-data-labeling-companies/</id>
+    <published>2018-08-07T11:07:28.000Z</published>
+    <updated>2018-08-10T03:37:36.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;众所周知，深度学习需要大量的标记数据和高效的运算来做支撑。&lt;br&gt;计算资源只要从黄老板的公司订购就可以了，但大规模的高质量有标记数据却不是那么容易获得，让科研人员头疼不已。&lt;br&gt;应用时代而生的就是一大批数据众包公司和平台。正好借着一个数据众包任务，对于国内的数据标注公司服务有了更深一步的了解。&lt;/p&gt;
+&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;
+    
+    </summary>
+    
+      <category term="Machine-learning" scheme="https://imbowei.com/categories/Machine-learning/"/>
+    
+      <category term="Data-labeling" scheme="https://imbowei.com/categories/Machine-learning/Data-labeling/"/>
+    
+    
+      <category term="Machine-learning" scheme="https://imbowei.com/tags/Machine-learning/"/>
+    
+      <category term="Data-labeling" scheme="https://imbowei.com/tags/Data-labeling/"/>
+    
+      <category term="Crowdsourcing" scheme="https://imbowei.com/tags/Crowdsourcing/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>用Github和Coding双线绑定自定义域名</title>
+    <link href="https://imbowei.com/2018/07/29/Github-and-Coding-bulid-blog/"/>
+    <id>https://imbowei.com/2018/07/29/Github-and-Coding-bulid-blog/</id>
+    <published>2018-07-29T09:26:57.000Z</published>
+    <updated>2018-08-17T10:13:06.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本来博客已经搭建好了，可是总觉得用Github一个二级域名怪怪的，非要折腾自己来绑定自己的域名，并申请SSL（就是喜欢看那个小绿锁！）前前后后花了不少时间，走了不少弯路，将踩过的坑记录下来。&lt;/p&gt;
+&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;
+    
+    </summary>
+    
+      <category term="blog" scheme="https://imbowei.com/categories/blog/"/>
+    
+    
+      <category term="Github-pages" scheme="https://imbowei.com/tags/Github-pages/"/>
+    
+      <category term="Coding-pages" scheme="https://imbowei.com/tags/Coding-pages/"/>
+    
+      <category term="DNSpod" scheme="https://imbowei.com/tags/DNSpod/"/>
+    
+      <category term="SSL" scheme="https://imbowei.com/tags/SSL/"/>
+    
+      <category term="Domain" scheme="https://imbowei.com/tags/Domain/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux服务器命令行上传数据到百度云盘</title>
+    <link href="https://imbowei.com/2018/07/26/linux-uploading-baiduyunpan/"/>
+    <id>https://imbowei.com/2018/07/26/linux-uploading-baiduyunpan/</id>
+    <published>2018-07-25T23:25:35.000Z</published>
+    <updated>2018-08-10T03:37:36.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;每次想把服务器上的数据上传到百度云盘都要先下载到本地，然后再上传百度云。&lt;br&gt;这一点都不优雅，既浪费时间，还占用电脑本来的带宽。&lt;br&gt;如果Linux命令行能够直接上传百度云盘岂不美哉？说干就干，磨刀不误砍柴工！&lt;/p&gt;
+&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://imbowei.com/categories/Linux/"/>
+    
+    
+      <category term="Shell" scheme="https://imbowei.com/tags/Shell/"/>
+    
+      <category term="Bypy" scheme="https://imbowei.com/tags/Bypy/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>wikipedia 训练繁（简）体中文 embedding(word2vec)模型</title>
+    <link href="https://imbowei.com/2018/07/22/wikipedia-train-traditional-chinese-embedding%EF%BC%88word2vec%EF%BC%89model/"/>
+    <id>https://imbowei.com/2018/07/22/wikipedia-train-traditional-chinese-embedding（word2vec）model/</id>
+    <published>2018-07-22T14:52:39.000Z</published>
+    <updated>2018-08-10T03:37:36.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;由于课题任务需要一个繁体中文的word3vec, 折腾经过记录在此。希望以后少掉几个坑。&lt;br&gt;训练好的embedding放在&lt;a href=&quot;https://pan.baidu.com/s/1DB_Sft8N9XMyDP9cpVMpBw&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;网盘&lt;/a&gt;中， 密码：&lt;code&gt;2um0&lt;/code&gt;&lt;br&gt;后来又按照这个方法训练了简体中文维度分别为50、100、200、300的embedding，一并放出来&lt;a href=&quot;https://pan.baidu.com/s/1JgjRBWwwrcJSy4taPFtLhA&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;网盘链接&lt;/a&gt; 密码：&lt;code&gt;751d&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;
+    
+    </summary>
+    
+      <category term="NLP" scheme="https://imbowei.com/categories/NLP/"/>
+    
+      <category term="Word2vex" scheme="https://imbowei.com/categories/NLP/Word2vex/"/>
+    
+    
+      <category term="Wikipedia" scheme="https://imbowei.com/tags/Wikipedia/"/>
+    
+      <category term="Gensim" scheme="https://imbowei.com/tags/Gensim/"/>
+    
+      <category term="Embedding" scheme="https://imbowei.com/tags/Embedding/"/>
+    
+      <category term="Opencc" scheme="https://imbowei.com/tags/Opencc/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo_Next_博客搭建记</title>
+    <link href="https://imbowei.com/2018/07/14/Hexo_Next_%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0/"/>
+    <id>https://imbowei.com/2018/07/14/Hexo_Next_博客搭建记/</id>
+    <published>2018-07-14T04:43:07.000Z</published>
+    <updated>2018-08-23T09:30:58.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;与我而言，建立个人博客存在的意义有两个。&lt;br&gt;一方面，当作自己的备忘录，记录零散的知识点，避免重复的搜索工作；&lt;br&gt;另一方面，可以更好的分享一些自己的心得，方便与大家交流。&lt;br&gt;选择&lt;code&gt;GitHub Hexo Next&lt;/code&gt;的组合的主要原因就是方便、便宜、简单，为从来没有接触过前端的自己降低难度。&lt;br&gt;为了能让博客漂亮一点，这几天来的折腾过程记录整理在此，以备遗忘。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="blog" scheme="https://imbowei.com/categories/blog/"/>
+    
+    
+      <category term="Github-pages" scheme="https://imbowei.com/tags/Github-pages/"/>
+    
+      <category term="Hexo" scheme="https://imbowei.com/tags/Hexo/"/>
+    
+      <category term="Next" scheme="https://imbowei.com/tags/Next/"/>
+    
+      <category term="Web-design" scheme="https://imbowei.com/tags/Web-design/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【NLP competition】中文信息学会 文本溯源技术评测（SMP ETST）Ranking First</title>
+    <link href="https://imbowei.com/2018/07/09/%E3%80%90NLP%E6%AF%94%E8%B5%9B%E3%80%91%E4%B8%AD%E5%9B%BD%E4%B8%AD%E6%96%87%E4%BF%A1%E6%81%AF%E5%AD%A6%E4%BC%9A%E6%96%87%E6%9C%AC%E6%BA%AF%E6%BA%90%E6%8A%80%E6%9C%AF%E8%AF%84%E6%B5%8B%EF%BC%88SMP-ETST%EF%BC%89Ranking-First/"/>
+    <id>https://imbowei.com/2018/07/09/【NLP比赛】中国中文信息学会文本溯源技术评测（SMP-ETST）Ranking-First/</id>
+    <published>2018-07-09T00:10:43.000Z</published>
+    <updated>2018-08-10T03:37:36.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;此次的文本溯源项目我们以n-gram为核心思想，构建候选句子对的评测标准。&lt;br&gt;用TF-IDF和词袋模型的的思想来预筛选候选句子对，大大提升算法效率。&lt;br&gt;最后用了两种切词方式的模型融合和规则后处理（提升很小）。&lt;br&gt;&lt;a href=&quot;https://biendata.com/competition/smpetst2018/final-leaderboard/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Final-Leaderboard Ranking First&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="NLP" scheme="https://imbowei.com/categories/NLP/"/>
+    
+      <category term="Competition" scheme="https://imbowei.com/categories/NLP/Competition/"/>
+    
+    
+      <category term="Paraphrase" scheme="https://imbowei.com/tags/Paraphrase/"/>
+    
+      <category term="N-gram" scheme="https://imbowei.com/tags/N-gram/"/>
+    
+      <category term="Segment" scheme="https://imbowei.com/tags/Segment/"/>
+    
+      <category term="Information-retrieval" scheme="https://imbowei.com/tags/Information-retrieval/"/>
+    
+      <category term="BoW" scheme="https://imbowei.com/tags/BoW/"/>
+    
+      <category term="Inverted-index" scheme="https://imbowei.com/tags/Inverted-index/"/>
+    
+  </entry>
+  
+</feed>

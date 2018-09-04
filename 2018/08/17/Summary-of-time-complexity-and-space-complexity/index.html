@@ -1,0 +1,1933 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+<!-- 添加DaoVioce -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/imagess/玮.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/imagess/玮_32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/imagess/玮_16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/imagess/玮.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Time-complexity,Space-complexity," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Cape of Good Hope" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="趁假期复习了算法基础的时间复杂度和空间复杂度，整理一遍。">
+<meta name="keywords" content="Time-complexity,Space-complexity">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法的时间复杂度和空间复杂度">
+<meta property="og:url" content="https://imbowei.com/2018/08/17/Summary-of-time-complexity-and-space-complexity/index.html">
+<meta property="og:site_name" content="Cape of Good Hope">
+<meta property="og:description" content="趁假期复习了算法基础的时间复杂度和空间复杂度，整理一遍。">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://pc1z7pynx.bkt.clouddn.com/markdown-img-paste-20180822161350179.png">
+<meta property="og:image" content="http://pc1z7pynx.bkt.clouddn.com/markdown-img-paste-20180822181641573.png">
+<meta property="og:updated_time" content="2018-08-23T04:03:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="算法的时间复杂度和空间复杂度">
+<meta name="twitter:description" content="趁假期复习了算法基础的时间复杂度和空间复杂度，整理一遍。">
+<meta name="twitter:image" content="http://pc1z7pynx.bkt.clouddn.com/markdown-img-paste-20180822161350179.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: 'FHEEI2Y7D7',
+      apiKey: '702daefe9c477cadc0f4905f578f5bf3',
+      indexName: 'personal_blog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"不好意思，木有'${query}'的搜索结果😂","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://imbowei.com/2018/08/17/Summary-of-time-complexity-and-space-complexity/"/>
+
+
+
+
+
+
+<!-- 网页加载条 -->
+<script src="https://neveryu.github.io/js/src/pace.min.js"></script>
+
+
+
+  <title>算法的时间复杂度和空间复杂度 | Cape of Good Hope</title>
+  
+
+
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-122082724-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Cape of Good Hope</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">I miss you</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-top">
+          <a href="/top/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-signal"></i> <br />
+            
+            Top
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+
+           <!-- 自定义High一下的功能 -->
+           <!-- 现有歌单  1、#Lov3 #Ngẫu Hứng 2、骄傲的少年 3、博主原有-->
+      <li class="menu-item"> <a title="把这个链接拖到你的工具栏中,任何网页都可以High" href='javascript:(
+    /*
+     * Copyright (C) 2016 Never_yu (Neveryu.github.io) <React.dong.yu@gmail.com>
+     * Sina Weibo (http://weibo.com/Neveryu)
+     *
+     * Licensed under the Apache License, Version 2.0 (the "License");
+     * you may not use this file except in compliance with the License.
+     * You may obtain a copy of the License at
+     *
+     *      http://www.apache.org/licenses/LICENSE-2.0
+     *
+     * Unless required by applicable law or agreed to in writing, software
+     * distributed under the License is distributed on an "AS IS" BASIS,
+     * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     * See the License for the specific language governing permissions and
+     * limitations under the License.
+     */
+
+
+
+
+    function go() {
+
+    var songs = [
+         "http://www.170mv.com/kw/other.web.ri01.sycdn.kuwo.cn/resource/n3/43/85/4088203395.mp3",
+         "http://www.170mv.com/kw/other.web.rm01.sycdn.kuwo.cn/resource/n3/10/77/3147640053.mp3",
+         "http://7xoiki.com1.z0.glb.clouddn.com/Music-sunburst.mp3",
+         ""
+    ];
+
+
+    function c() {
+        var e = document.createElement("link");
+        e.setAttribute("type", "text/css");
+        e.setAttribute("rel", "stylesheet");
+        e.setAttribute("href", f);
+        e.setAttribute("class", l);
+        document.body.appendChild(e)
+    }
+
+    function h() {
+        var e = document.getElementsByClassName(l);
+        for (var t = 0; t < e.length; t++) {
+            document.body.removeChild(e[t])
+        }
+    }
+
+    function p() {
+        var e = document.createElement("div");
+        e.setAttribute("class", a);
+        document.body.appendChild(e);
+        setTimeout(function() {
+            document.body.removeChild(e)
+        }, 100)
+    }
+
+    function d(e) {
+        return {
+            height : e.offsetHeight,
+            width : e.offsetWidth
+        }
+    }
+
+    function v(i) {
+        var s = d(i);
+        return s.height > e && s.height < n && s.width > t && s.width < r
+    }
+
+    function m(e) {
+        var t = e;
+        var n = 0;
+        while (!!t) {
+            n += t.offsetTop;
+            t = t.offsetParent
+        }
+        return n
+    }
+
+    function g() {
+        var e = document.documentElement;
+        if (!!window.innerWidth) {
+            return window.innerHeight
+        } else if (e && !isNaN(e.clientHeight)) {
+            return e.clientHeight
+        }
+        return 0
+    }
+
+    function y() {
+        if (window.pageYOffset) {
+            return window.pageYOffset
+        }
+        return Math.max(document.documentElement.scrollTop, document.body.scrollTop)
+    }
+
+    function E(e) {
+        var t = m(e);
+        return t >= w && t <= b + w
+    }
+
+    function S() {
+        var e = document.getElementById("audio_element_id");
+        if(e != null){
+            var index = parseInt(e.getAttribute("curSongIndex"));
+            if(index > songs.length - 2) {
+                index = 0;
+            } else {
+                index++;
+            }
+            e.setAttribute("curSongIndex", index);
+            N();
+        }
+
+        e.src = i;
+        e.play()
+    }
+
+    function x(e) {
+        e.className += " " + s + " " + o
+    }
+
+    function T(e) {
+        e.className += " " + s + " " + u[Math.floor(Math.random() * u.length)]
+    }
+
+    function N() {
+        var e = document.getElementsByClassName(s);
+        var t = new RegExp("\\b" + s + "\\b");
+        for (var n = 0; n < e.length; ) {
+            e[n].className = e[n].className.replace(t, "")
+        }
+    }
+
+    function initAudioEle() {
+        var e = document.getElementById("audio_element_id");
+        if(e === null){
+            e = document.createElement("audio");
+            e.setAttribute("class", l);
+            e.setAttribute("curSongIndex", 0);
+            e.id = "audio_element_id";
+            e.loop = false;
+            e.bgcolor = 0;
+            e.addEventListener("canplay", function() {
+            setTimeout(function() {
+                x(k)
+            }, 500);
+            setTimeout(function() {
+                N();
+                p();
+                for (var e = 0; e < O.length; e++) {
+                    T(O[e])
+                }
+            }, 15500)
+        }, true);
+        e.addEventListener("ended", function() {
+            N();
+            h();
+            go();
+        }, true);
+        e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+        document.body.appendChild(e);
+        }
+    }
+
+    initAudioEle();
+    var e = 30;
+    var t = 30;
+    var n = 350;
+    var r = 350;
+
+    var curSongIndex = parseInt(document.getElementById("audio_element_id").getAttribute("curSongIndex"));
+    var i = songs[curSongIndex];
+
+    var s = "mw-harlem_shake_me";
+    var o = "im_first";
+    var u = ["im_drunk", "im_baked", "im_trippin", "im_blown"];
+    var a = "mw-strobe_light";
+
+    /* harlem-shake-style.css，替换成你的位置，也可以直接使用：//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css */
+    var f = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css";
+
+    var l = "mw_added_css";
+    var b = g();
+    var w = y();
+    var C = document.getElementsByTagName("*");
+    var k = null;
+    for (var L = 0; L < C.length; L++) {
+        var A = C[L];
+        if (v(A)) {
+            if (E(A)) {
+                k = A;
+                break
+            }
+        }
+    }
+    if (A === null) {
+        console.warn("Could not find a node of the right size. Please try a different page.");
+        return
+    }
+    c();
+    S();
+    var O = [];
+    for (var L = 0; L < C.length; L++) {
+        var A = C[L];
+        if (v(A)) {
+            O.push(A)
+        }
+    }
+    })()'><i class="menu-item-icon fa fa-music fa-fw"></i>Interesting</a> </li>
+      <!-- end High一下 -->
+
+    </ul>
+
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://imbowei.com/2018/08/17/Summary-of-time-complexity-and-space-complexity/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Christmas">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/christmas_ID_round.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cape of Good Hope">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">算法的时间复杂度和空间复杂度</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+
+              <!-- 注释掉图片 --->
+        <!--  <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span> -->
+
+
+              
+                <span class="post-meta-item-text">Posted on:</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-17T18:37:34+08:00">
+                2018-08-17
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+
+              <!-- 注释掉图片 --->
+       <!--   <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>  -->
+
+
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2018-08-23T12:03:58+08:00">
+                2018-08-23
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            <!-- 注释掉图片 -->
+        <!--  <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span> -->
+
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
+                    <span itemprop="name">Algorithm</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/08/17/Summary-of-time-complexity-and-space-complexity/" class="leancloud_visitors" data-flag-title="算法的时间复杂度和空间复杂度">
+               <span class="post-meta-divider">|</span>
+
+               <!-- 注释掉了图片 -->
+          <!-- <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>   -->
+
+               
+                 <span class="post-meta-item-text">Heat&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+
+                <!-- 注释掉图片 -->
+         <!--   <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>  -->
+
+                
+                  <span class="post-meta-item-text">Words&#58;</span>
+                
+                <span title="Words">
+                  2,957
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>趁假期复习了算法基础的时间复杂度和空间复杂度，整理一遍。</p>
+<a id="more"></a>
+<hr>
+<h2 id="算法的有效性"><a href="#算法的有效性" class="headerlink" title="算法的有效性"></a>算法的有效性</h2><p>要想理解时间复杂度和空间复杂度这两个概念，首先要明白算法的含义。<br>所谓算法，是解决一类问题的通法，即一系列清晰无歧义的计算指令。</p>
+<p>具体的，一个算法应该有以下五个方面的特性：</p>
+<ul>
+<li>输入（Input）：算法必须有输入量，用以刻画算法的初始条件（特殊情况也可以没有输入量，这时算法本身定义了初始状态）；</li>
+<li>输出（Output）：算法应有一个或以上输出量，输出量是算法计算的结果。没有输出的算法毫无意义。</li>
+<li>明确性（Definiteness）：算法的描述必须无歧义，以保证算法的实际执行结果是精确地匹配要求或期望，通常要求实际运行结果是确定的。</li>
+<li>有限性（Finiteness）：算法必须在有限个步骤内完成任务。</li>
+<li>有效性（Effectiveness）：算法中描述的操作都是可以通过已经实现的基本运算执行有限次来实现（又称可行性）。</li>
+</ul>
+<p>根据以上的定义，不难发现。每个算法只能解决具有特定特征的一类问题。然而，每个有固定输入输出的问题可以采取多种算法来决解。<br>那么，要怎么来比较解决同一个问题的不同算法之间的优劣呢？<br>这个时候，时间复杂度和空间复杂度就有了用武之地。</p>
+<h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p>算法的时间复杂度反映了程序执行时间随输入规模增长而增长的量级，在很大程度上能很好反映出算法的优劣与否。<br>验证算法的时间复杂度，我们有以下两个方法。</p>
+<h4 id="事后统计"><a href="#事后统计" class="headerlink" title="事后统计"></a>事后统计</h4><p>一个算法执行所耗费的时间，从理论上是不能算出来的，必须上机运行测试才能知道。所以就有了事后统计的方法。<br>计算算法的时间复杂度，往往是为了评测算法的性能，设计更好的算法。这就给事后统计的方法带来了两个弊端。</p>
+<ul>
+<li>需要先实现算法设计，并至少运行一次。</li>
+<li>统计算法时间容易受到计算机硬件、编程语言效率等环境因素影响。</li>
+</ul>
+<h4 id="事前分析"><a href="#事前分析" class="headerlink" title="事前分析"></a>事前分析</h4><p>由于事后统计的方法有上述的弊端，我们通常采取事先估计的方法来评价算法的时间复杂度。<br>为了更好的比较不同算法在处理统一问题上的效率，通常从算法中选取一种对于所研究的问题（或算法类型）来说是基本操作的原操作，以该基本操作的重复执行的次数作为算法的时间量度，记为T(n)。<br>在这里，n为输入问题的规模。对于同一个问题来说，他的输入规模越大，往往时间复杂度也就越大。<br>关于输入问题规模n，有辅助函数f(n),来统计算法基本操作的频度。因此，算法的时间复杂度往往记为$T(n)=O(f(n))$。</p>
+<p>为了简便，我们一般在计算时间复杂度往往选取最简单的f(n)表示。例如：$O(2n^2+n+1) = O (3n^2+n+3) = O(7n^2+n) = O(n_2)$ ，一般都只用$O(n_2)$表示就可以了。<br>也就是说，两个算法的时间频度不一样，但很有可能拥有相同的时间复杂度。<br>例如：$T(n)=n^2+3n+4$ 与 $T(n)=4n^2+2n+1$它们的频度不同，但时间复杂度相同，都为$O(n^2)$。</p>
+<p>常见的算法时间复杂度由小到大依次为：<br><span id="inline-green"> $O(1)&lt;O(log_2(n))&lt;O(n)&lt;O(nlog_2(n))&lt;O(n^2)&lt;O(n^3)&lt;…&lt;O(n!)$ </span><br>下面的图片直观的表示他们之间复杂度关系。</p>
+<p><img src="http://pc1z7pynx.bkt.clouddn.com/markdown-img-paste-20180822161350179.png" alt="常见的算法时间复杂度图示"></p>
+<h5 id="时间复杂度的分类"><a href="#时间复杂度的分类" class="headerlink" title="时间复杂度的分类"></a>时间复杂度的分类</h5><ul>
+<li>最坏时间复杂度：输入数据状态最不理想情况下的时间复杂度，也就是算法时间复杂度的上界。若没有特别声明，时间复杂度就是指最坏时间复杂度。</li>
+<li>平均时间复杂度：在所有可能的输入实例均以等概率出现的情况下，算法的期望时间复杂度。</li>
+<li>最好时间复杂度：输入数据状态最理想情况下的时间复杂度。</li>
+</ul>
+<h5 id="时间复杂度预估步骤"><a href="#时间复杂度预估步骤" class="headerlink" title="时间复杂度预估步骤"></a>时间复杂度预估步骤</h5><ol>
+<li>找出基本语句：算法中执行次数最多的那条语句就是基本语句，通常是最内层循环的循环体。</li>
+<li>计算基本语句的执行次数的数量级：只需计算基本语句执行次数的数量级，这就意味着只要保证基本语句执行次数的函数中的最高次幂正确即可，可以忽略所有低次幂和最高次幂的系数。这样能够简化算法分析，并且使注意力集中在最重要的一点上：<strong>增长率</strong>。</li>
+<li>用O()表示算法的时间性能：将基本语句执行次数的数量级放入O()中。</li>
+</ol>
+<h5 id="时间复杂度分析技巧"><a href="#时间复杂度分析技巧" class="headerlink" title="时间复杂度分析技巧"></a>时间复杂度分析技巧</h5><ul>
+<li>简单语句：程序的输入输出、赋值等语句都近似认为需要$O(1)$时间。</li>
+<li>顺序结构：需要依次执行一系列语句所用的时间可采用O()的”求和法则”，</li>
+<li>选择结构：如if语句,它的主要时间耗费是在执行then字句或else字句所用的时间,需注意的是检验条件也需要$O(1)$时间。</li>
+<li>循环结构：循环语句的运行时间主要体现在多次迭代中执行循环体以及检验循环条件的时间耗费,一般可用O()的”乘法法则”。</li>
+<li>复杂算法：将其分成几个容易估算的部分,然后利用求和法则和乘法法则计算整个算法的时间复杂度。</li>
+<li>其他准则<ul>
+<li>若$g(n)=O(f(n))$,则$O(f(n))+ O(g(n))= O(f(n))$</li>
+<li>$O(Cf(n)) = O(f(n))$ , 其中C是一个正常数。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>乘法法则</strong>: 是指若算法的2个部分时间复杂度分别为 $T_1(n)=O(f(n))$和 $T_2(n)=O(g(n))$,则 $T_1 T_2=O(f(n) g(n))$</p>
+<p><strong>求和法则</strong>:是指若算法的2个部分时间复杂度分别为 $T_1(n)=O(f(n))$ 和 $T_2(n)=O(g(n))$,则 $T_1(n)+T_2(n)=O(max(f(n), g(n)))$<br>特别地,若$T_1(m)=O(f(m))$, $T_2(n)=O(g(n))$,则 $T_1(m)+T_2(n)=O(f(m)+g(n))$</p>
+</blockquote>
+<h5 id="实际演练"><a href="#实际演练" class="headerlink" title="实际演练"></a>实际演练</h5><ul>
+<li>三个简单语句，$T(n)=O(1)$。<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Temp=i;</span><br><span class="line">i=j;</span><br><span class="line">j=temp;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<div class="note danger"><p> 如果算法的执行时间不随着问题规模n的增加而增长，即使算法中有上千条语句，其执行时间也不过是一个较大的常数。此类算法的时间复杂度是$O(1)$。</p></div>
+
+<ul>
+<li>因为 $O(n^2+1)=n^2$ ，忽略低阶项， 所以$T(n)=O(n^2)$；<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sum=<span class="number">0</span>；                 （一次）</span><br><span class="line"><span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">   <span class="keyword">for</span>(j=<span class="number">1</span>;j&lt;=n;j++)</span><br><span class="line">     sum++；            （n^<span class="number">2</span>次）</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<div class="note info"><p> 一般情况下，循环语句只需考虑循环体中语句的执行次数，忽略该语句中步长加1、终值判别、控制转移等成分，当有若干个循环语句嵌套时，算法的时间复杂度是由嵌套层数最多的循环语句中最内层语句的频度f(n)决定的。 </p></div>
+
+<ul>
+<li><p>语句①的频度是$n-1$,语句②的频度是$(n-1)*(2n+1)=2n^2-n-1$（乘法法则）, 所以$f(n)=2n^2-n-1+(n-1)=2n^2-2$（加法法则）, 最终 $O(2n^2-2)=n^2 $ , 即该程序的时间复杂度$T(n)=O(n^2)$。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (i=<span class="number">1</span>;i&lt;n;i++)</span><br><span class="line"> &#123;</span><br><span class="line">     y=y+<span class="number">1</span>;                  ①</span><br><span class="line">     <span class="keyword">for</span> (j=<span class="number">0</span>;j&lt;=(<span class="number">2</span>*n);j++)</span><br><span class="line">        x++;                 ②</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>语句①的频度：2；语句②的频度一般不考虑；语句③的频度：n-1；语句④的频度：n-1；语句⑤的频度：n-1；$T(n)=2+3(n-1)=3n-1=O(n)$。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="number">0</span>;                        ①</span><br><span class="line">b=<span class="number">1</span>;                        ①</span><br><span class="line"><span class="keyword">for</span> (i=<span class="number">1</span>;i&lt;=n;i++)          ②</span><br><span class="line">&#123;</span><br><span class="line">   s=a+b;                   ③</span><br><span class="line">   b=a;　　　　　            ④</span><br><span class="line">   a=s;　　　　　            ⑤</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>语句①的频度是1；设语句②的频度是f(n), 则：$f(n)&lt;=log_2(n)$。取最大值$f(n)=log_2(n)$,$T(n)=O(log_(n))$</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">i=<span class="number">1</span>;                        ①</span><br><span class="line"><span class="keyword">while</span> (i&lt;=n)</span><br><span class="line">   i=i*<span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>$T(n)=O((n)(n+1)(n-1)/6)=O(n^3)$</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">   &#123;</span><br><span class="line">      <span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;i;j++)</span><br><span class="line">      &#123;</span><br><span class="line">         <span class="keyword">for</span>(k=<span class="number">0</span>;k&lt;j;k++)</span><br><span class="line">            x=x+<span class="number">2</span>;             ①</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h3><p>设计算法的时候，我们还会关注空间复杂度，空间复杂度是算法在运行过程中临时占用的存储空间大小的度量, 同样是关于问题规模n的函数。<br>但根本上，算法的时间运行效率才是最重要的。只要算法占用的存储空间不要达到计算机无法接受的程度即可。所以，常常通过牺牲空间复杂度来换取算法更加高效的运行时间效率。</p>
+<p>算法在计算机存储器上占用的空间包括三个部分。</p>
+<h4 id="输入输出"><a href="#输入输出" class="headerlink" title="输入输出"></a>输入输出</h4><p>算法的输入输出数据所占用的存储空间是由要解决的问题决定的，是通过参数表由调用函数传递而来的，它不会随算法的不同而改变。这不是我们需要考虑的部分。</p>
+<h4 id="算法本身"><a href="#算法本身" class="headerlink" title="算法本身"></a>算法本身</h4><p>存储算法本身所占用的存储空间与算法书写的长短成正比，要压缩这部分存储空间，就必须编写出较短的算法。然而，算法想要实际应用需要根据需求采取不同的编程语言来实现，不同编程语言实现的代码长短差别很大，然而存储空间都在可接受范围之内（通常不同编程语言的效率更受关注）。</p>
+<h4 id="运行临时占用"><a href="#运行临时占用" class="headerlink" title="运行临时占用"></a>运行临时占用</h4><p>根据算法在运行过程中临时占用存储空间的不同，可以将算法分为两类。</p>
+<ul>
+<li>原地算法（in-place algorithm）：只需要占用少量的临时工作单元，而且不随问题规模的大小而改变，我们称这种算法是“就地”进行的，是节省存储的算法。</li>
+<li>非原地算法（not-in-place）：需要占用的临时工作单元数与解决问题的规模n有关，它随着n的增大而增大，当n较大时，将占用较多的存储单元。<br>算法临时占用空间是考虑算法空间复杂度时主要考虑的部分。相比于随着问题输入规模扩大而扩大的非原地算法，原地算法是更加简洁高效的算法（仅考虑空间复杂度时）。</li>
+</ul>
+<h5 id="实际例子"><a href="#实际例子" class="headerlink" title="实际例子"></a>实际例子</h5><p>假设我们想要将拥有n个项目的数组反过来。一个最简单作这件事的方式是这样：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function reverse(a[0..n])</span><br><span class="line">    allocate b[0..n]</span><br><span class="line">    for i from 0 to n</span><br><span class="line">        b[n - i] = a[i]</span><br><span class="line">    return b</span><br></pre></td></tr></table></figure></p>
+<p>不幸地，这样需要$O(n)$的空间来创建b数组，且配置存储器通常是一件缓慢的运算。如果我们不再需要a，我们可使用这个原地算法，用它自己反转的内容来覆盖掉：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function reverse-in-place(a[0..n])</span><br><span class="line">    for i from 0 to floor(n/2)</span><br><span class="line">        swap(a[i], a[n-i])</span><br></pre></td></tr></table></figure></p>
+<h3 id="排序算法分析"><a href="#排序算法分析" class="headerlink" title="排序算法分析"></a>排序算法分析</h3><p>了解算法的时间复杂度和空间复杂度之后，再看一些常用算法总结的时候就不会再向原来一样有雾里探花之感了。<br><img src="http://pc1z7pynx.bkt.clouddn.com/markdown-img-paste-20180822181641573.png" alt="常见排序算法总结"></p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a href="https://blog.csdn.net/zolalad/article/details/11848739" target="_blank" rel="noopener">算法的时间复杂度和空间复杂度-总结</a><br><a href="https://zh.wikipedia.org/wiki/原地算法" target="_blank" rel="noopener">原地算法</a></p>
+<!-- | 排序法 | 最差时间分析 | 平均时间复杂度 | 稳定度 | 空间复杂度 |
+| --- | --- | --- | --- | --- |
+| 冒泡排序 | $O(n^2)$ | $O(n^2)$ | 稳定 | $O(1)$ |
+| 快速排序 | $O(n^2)$ | $O(n*log_2(n))$ | 不稳定 | $O(n*log_2(n))$~$O(n)$ |
+| 选择排序 | $O(n^2)$ | $O(n^2)$ | 稳定 | $O(1)$ |
+| 二叉树排序 | $O(n^2)$ | $O(n*log_2(n))$ | 不一定 | $O(n)$ |
+| 插入排序 | $O(n^2)$ | $O(n^2)$ | 稳定 | $O(1)$ |
+| 堆排序 | $O(n*log_2(n))$ | $O(n*log_2(n))$ | 不稳定 | $O(1)$ |
+| 希尔排序 | O | O | 不稳定 | $O(1)$ | -->
+
+      
+    </div>
+    
+    
+    
+
+
+    <div>
+      
+        <div>
+    
+        <blockquote class="blockquote-center">
+        <div style="text-align:center;color: #FF5733;font-size:24px;">-------------本文结束 <i class="fa fa-heart"></i> 感谢您的时间-------------</div>
+        </blockquote>
+    
+</div>
+      
+    </div>
+
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/Wachat_money.png" alt="Christmas WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay_money.png" alt="Christmas Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:</strong>
+    Christmas
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link:</strong>
+    <a href="https://imbowei.com/2018/08/17/Summary-of-time-complexity-and-space-complexity/" title="算法的时间复杂度和空间复杂度">https://imbowei.com/2018/08/17/Summary-of-time-complexity-and-space-complexity/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice: </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Time-complexity/" <i class="fa fa-tag"></i> Time-complexity</a>
+          
+            <a href="/tags/Space-complexity/" <i class="fa fa-tag"></i> Space-complexity</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/07/Investigate-domestic-data-labeling-companies/" rel="next" title="AI发电厂——数据标注公司（国内数据标注公司服务调研）">
+                <i class="fa fa-chevron-left"></i> AI发电厂——数据标注公司（国内数据标注公司服务调研）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/christmas_ID_round.png"
+                alt="Christmas" />
+            
+              <p class="site-author-name" itemprop="name">Christmas</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/OnlyChristmas" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:m_christmas@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i></a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://imbowei.com/" title="(●ˇ∀ˇ●)" target="_blank">(●ˇ∀ˇ●)</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法的有效性"><span class="nav-number">1.</span> <span class="nav-text">算法的有效性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#时间复杂度"><span class="nav-number">1.1.</span> <span class="nav-text">时间复杂度</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#事后统计"><span class="nav-number">1.1.1.</span> <span class="nav-text">事后统计</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事前分析"><span class="nav-number">1.1.2.</span> <span class="nav-text">事前分析</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#时间复杂度的分类"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">时间复杂度的分类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#时间复杂度预估步骤"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">时间复杂度预估步骤</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#时间复杂度分析技巧"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">时间复杂度分析技巧</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#实际演练"><span class="nav-number">1.1.2.4.</span> <span class="nav-text">实际演练</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#空间复杂度"><span class="nav-number">1.2.</span> <span class="nav-text">空间复杂度</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入输出"><span class="nav-number">1.2.1.</span> <span class="nav-text">输入输出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#算法本身"><span class="nav-number">1.2.2.</span> <span class="nav-text">算法本身</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运行临时占用"><span class="nav-number">1.2.3.</span> <span class="nav-text">运行临时占用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#实际例子"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">实际例子</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#排序算法分析"><span class="nav-number">1.3.</span> <span class="nav-text">排序算法分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文献"><span class="nav-number">2.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="heart">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Christmas</span>
+
+  
+    <span class="post-meta-divider">|</span>
+
+    <span class="post-meta-item-icon">
+      <i class="fa fa-thumbs-up"></i>
+    </span>
+
+
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">24.4k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="footer-custom">Hosted by <a href="https://pages.coding.me" >Coding Pages</a> and <a href="https://pages.github.com">GitHub Pages</a></div>
+
+
+
+
+
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("07/06/2018 11:11:00");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+setInterval("createtime()",250);
+
+
+</script>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 你是第
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      个小伙伴
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      人次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: '1534502254000' , 
+            owner: 'OnlyChristmas',
+            repo: 'OnlyChristmas.github.io',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '4ff9a983c2a12891885a77a529cb04ce17400d46',
+            
+                client_id: '8fc5c130c7429cb7d9aa'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("CYiT0KdkmU0LEo3kFuLb4TPP-gzGzoHsz", "6RIqigijTviGwWrSUQgaVMP7");</script>
+  <script>
+
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+
+
+  <!-- 页面点击小红心 -->
+ <!--  <script type="text/javascript" src="/js/src/love.js"></script> -->
+
+
+  <!-- 背景动画(不知道为什么，不起作用) -->
+  <!-- <script type="text/javascript" src="/js/src/particle.js"></script> -->
+
+
+  <!-- 页面点击烟花爆炸 -->
+  
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+  
+
+
+  <!-- 加载加速 -->
+  <script type="text/javascript" src= "/js/src/instantclick.min.js" data-no-instant></script>
+  <script data-no-instant>InstantClick.init();</script>
+
+  <!--崩溃欺骗-->
+  <!-- <script type="text/javascript" src="/js/src/custom_title.js"></script> -->
+
+
+  <!-- 代码块复制功能 -->
+  <script type="text/javascript" src="/js/src/clipboard.min.js"></script>
+  <script type="text/javascript" src="/js/src/clipboard-use.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+<script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>
