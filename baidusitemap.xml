@@ -80,28 +80,6 @@
 
     
   <url>
-    <loc>https://imbowei.com/2018/07/26/linux-uploading-baiduyunpan/</loc>
-    <lastmod>2018-08-10T03:37:36.000Z</lastmod>
-    <data>
-        <display>
-        <title>Linux服务器命令行上传数据到百度云盘</title>
-        <pubTime>2018-07-25T23:25:35.000Z</pubTime>
-        
-        <tag>Shell</tag>
-         
-        <tag>Bypy</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux" url="https://imbowei.com/categories/Linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://imbowei.com/2018/07/22/wikipedia-train-traditional-chinese-embedding%EF%BC%88word2vec%EF%BC%89model/</loc>
     <lastmod>2018-08-10T03:37:36.000Z</lastmod>
     <data>
@@ -124,6 +102,28 @@
           
              
               <breadCrumb title="Word2vex" url="https://imbowei.com/categories/NLP/Word2vex/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://imbowei.com/2018/07/26/linux-uploading-baiduyunpan/</loc>
+    <lastmod>2018-08-10T03:37:36.000Z</lastmod>
+    <data>
+        <display>
+        <title>Linux服务器命令行上传数据到百度云盘</title>
+        <pubTime>2018-07-25T23:25:35.000Z</pubTime>
+        
+        <tag>Shell</tag>
+         
+        <tag>Bypy</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="https://imbowei.com/categories/Linux/"/>
           
         </display>
     </data>
