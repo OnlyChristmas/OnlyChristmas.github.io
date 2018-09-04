@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://imbowei.com/"/>
-  <updated>2018-08-23T04:03:58.000Z</updated>
+  <updated>2018-09-04T10:20:14.178Z</updated>
   <id>https://imbowei.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://imbowei.com/2018/08/17/Summary-of-time-complexity-and-space-complexity/"/>
     <id>https://imbowei.com/2018/08/17/Summary-of-time-complexity-and-space-complexity/</id>
     <published>2018-08-17T10:37:34.000Z</published>
-    <updated>2018-08-23T04:03:58.000Z</updated>
+    <updated>2018-09-04T10:20:14.178Z</updated>
     
     <summary type="html">
     
@@ -43,12 +43,11 @@
     <link href="https://imbowei.com/2018/08/07/Investigate-domestic-data-labeling-companies/"/>
     <id>https://imbowei.com/2018/08/07/Investigate-domestic-data-labeling-companies/</id>
     <published>2018-08-07T11:07:28.000Z</published>
-    <updated>2018-08-10T03:37:36.000Z</updated>
+    <updated>2018-09-04T10:19:18.466Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;众所周知，深度学习需要大量的标记数据和高效的运算来做支撑。&lt;br&gt;计算资源只要从黄老板的公司订购就可以了，但大规模的高质量有标记数据却不是那么容易获得，让科研人员头疼不已。&lt;br&gt;应用时代而生的就是一大批数据众包公司和平台。正好借着一个数据众包任务，对于国内的数据标注公司服务有了更深一步的了解。&lt;/p&gt;
-&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;
     
     </summary>
     
@@ -70,12 +69,11 @@
     <link href="https://imbowei.com/2018/07/29/Github-and-Coding-bulid-blog/"/>
     <id>https://imbowei.com/2018/07/29/Github-and-Coding-bulid-blog/</id>
     <published>2018-07-29T09:26:57.000Z</published>
-    <updated>2018-09-04T07:47:47.554Z</updated>
+    <updated>2018-09-04T10:19:10.941Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;本来博客已经搭建好了，可是总觉得用Github一个二级域名怪怪的，非要折腾自己来绑定自己的域名，并申请SSL（就是喜欢看那个小绿锁！）前前后后花了不少时间，走了不少弯路，将踩过的坑记录下来。&lt;/p&gt;
-&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;
     
     </summary>
     
@@ -99,12 +97,11 @@
     <link href="https://imbowei.com/2018/07/26/linux-uploading-baiduyunpan/"/>
     <id>https://imbowei.com/2018/07/26/linux-uploading-baiduyunpan/</id>
     <published>2018-07-25T23:25:35.000Z</published>
-    <updated>2018-08-10T03:37:36.000Z</updated>
+    <updated>2018-09-04T10:19:48.743Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;每次想把服务器上的数据上传到百度云盘都要先下载到本地，然后再上传百度云。&lt;br&gt;这一点都不优雅，既浪费时间，还占用电脑本来的带宽。&lt;br&gt;如果Linux命令行能够直接上传百度云盘岂不美哉？说干就干，磨刀不误砍柴工！&lt;/p&gt;
-&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;
     
     </summary>
     
@@ -122,12 +119,11 @@
     <link href="https://imbowei.com/2018/07/22/wikipedia-train-traditional-chinese-embedding%EF%BC%88word2vec%EF%BC%89model/"/>
     <id>https://imbowei.com/2018/07/22/wikipedia-train-traditional-chinese-embedding（word2vec）model/</id>
     <published>2018-07-22T14:52:39.000Z</published>
-    <updated>2018-08-10T03:37:36.000Z</updated>
+    <updated>2018-09-04T10:20:41.386Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;由于课题任务需要一个繁体中文的word3vec, 折腾经过记录在此。希望以后少掉几个坑。&lt;br&gt;训练好的embedding放在&lt;a href=&quot;https://pan.baidu.com/s/1DB_Sft8N9XMyDP9cpVMpBw&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;网盘&lt;/a&gt;中， 密码：&lt;code&gt;2um0&lt;/code&gt;&lt;br&gt;后来又按照这个方法训练了简体中文维度分别为50、100、200、300的embedding，一并放出来&lt;a href=&quot;https://pan.baidu.com/s/1JgjRBWwwrcJSy4taPFtLhA&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;网盘链接&lt;/a&gt; 密码：&lt;code&gt;751d&lt;/code&gt;&lt;/p&gt;
-&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;
     
     </summary>
     
@@ -151,7 +147,7 @@
     <link href="https://imbowei.com/2018/07/14/Hexo_Next_%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0/"/>
     <id>https://imbowei.com/2018/07/14/Hexo_Next_博客搭建记/</id>
     <published>2018-07-14T04:43:07.000Z</published>
-    <updated>2018-08-23T09:30:58.000Z</updated>
+    <updated>2018-09-04T10:20:56.163Z</updated>
     
     <summary type="html">
     
@@ -177,7 +173,7 @@
     <link href="https://imbowei.com/2018/07/09/%E3%80%90NLP%E6%AF%94%E8%B5%9B%E3%80%91%E4%B8%AD%E5%9B%BD%E4%B8%AD%E6%96%87%E4%BF%A1%E6%81%AF%E5%AD%A6%E4%BC%9A%E6%96%87%E6%9C%AC%E6%BA%AF%E6%BA%90%E6%8A%80%E6%9C%AF%E8%AF%84%E6%B5%8B%EF%BC%88SMP-ETST%EF%BC%89Ranking-First/"/>
     <id>https://imbowei.com/2018/07/09/【NLP比赛】中国中文信息学会文本溯源技术评测（SMP-ETST）Ranking-First/</id>
     <published>2018-07-09T00:10:43.000Z</published>
-    <updated>2018-08-10T03:37:36.000Z</updated>
+    <updated>2018-09-04T10:19:03.087Z</updated>
     
     <summary type="html">
     

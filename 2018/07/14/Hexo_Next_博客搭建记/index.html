@@ -98,7 +98,7 @@
 <meta property="og:site_name" content="Cape of Good Hope">
 <meta property="og:description" content="与我而言，建立个人博客存在的意义有两个。一方面，当作自己的备忘录，记录零散的知识点，避免重复的搜索工作；另一方面，可以更好的分享一些自己的心得，方便与大家交流。选择GitHub Hexo Next的组合的主要原因就是方便、便宜、简单，为从来没有接触过前端的自己降低难度。为了能让博客漂亮一点，这几天来的折腾过程记录整理在此，以备遗忘。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-08-23T09:30:58.000Z">
+<meta property="og:updated_time" content="2018-09-04T10:20:56.163Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo_Next_博客搭建记">
 <meta name="twitter:description" content="与我而言，建立个人博客存在的意义有两个。一方面，当作自己的备忘录，记录零散的知识点，避免重复的搜索工作；另一方面，可以更好的分享一些自己的心得，方便与大家交流。选择GitHub Hexo Next的组合的主要原因就是方便、便宜、简单，为从来没有接触过前端的自己降低难度。为了能让博客漂亮一点，这几天来的折腾过程记录整理在此，以备遗忘。">
@@ -604,8 +604,8 @@ ga('send', 'pageview');
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-08-23T17:30:58+08:00">
-                2018-08-23
+              <time title="Post modified" itemprop="dateModified" datetime="2018-09-04T18:20:56+08:00">
+                2018-09-04
               </time>
             
           </span>
@@ -675,7 +675,7 @@ ga('send', 'pageview');
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  12,773
+                  12,784
                 </span>
               
 
@@ -820,8 +820,8 @@ ga('send', 'pageview');
 </ul>
 <h4 id="busuanzi统计访客人数"><a href="#busuanzi统计访客人数" class="headerlink" title="busuanzi统计访客人数"></a>busuanzi统计访客人数</h4><p>在<span id="inline-purple"> 主题配置文件 </span>中搜索并配置如下信息，也可以根据自己的喜欢修改其他配置。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># Show PV/UV of the website/page with busuanzi.</span><br><span class="line"># Get more information on http://ibruce.info/2015/04/04/busuanzi/</span><br><span class="line">busuanzi_count:</span><br><span class="line">  # count values only if the other configs are false</span><br><span class="line">  enable: true</span><br><span class="line">  # custom uv span for the whole site</span><br><span class="line">  site_uv: true</span><br><span class="line">  site_uv_header: &lt;i class=&quot;fa fa-user&quot;&gt;&lt;/i&gt; 你是第</span><br><span class="line">  site_uv_footer: 个小伙伴</span><br><span class="line">  # custom pv span for the whole site</span><br><span class="line">  site_pv: true</span><br><span class="line">  site_pv_header: &lt;i class=&quot;fa fa-eye&quot;&gt;&lt;/i&gt; 总访问</span><br><span class="line">  site_pv_footer: 人次</span><br><span class="line">  # custom pv span for one page only</span><br><span class="line">  page_pv: false</span><br><span class="line">  page_pv_header: &lt;i class=&quot;fa fa-file-o&quot;&gt;&lt;/i&gt;</span><br><span class="line">  page_pv_footer:</span><br></pre></td></tr></table></figure></p>
 <h4 id="文章“热度”"><a href="#文章“热度”" class="headerlink" title="文章“热度”"></a>文章“热度”</h4><ul>
-<li>首先要注册<a href="https://leancloud.cn" target="_blank" rel="noopener">leancloud</a>,获取AppID and AppKey。</li>
-<li>并且在网站的<code>设置-&gt;安全中心</code>中设置Web安全域名。</li>
+<li>首先要注册<a href="https://leancloud.cn" target="_blank" rel="noopener">leancloud</a></li>
+<li>左上角创建一个新的应用，获取AppID and AppKey。并且在网站的<code>设置-&gt;安全中心</code>中设置Web安全域名。</li>
 <li><p>在<span id="inline-purple"> 主题配置文件 </span>中搜索并配置如下信息:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Show number of visitors to each article.</span><br><span class="line"># You can visit https://leancloud.cn get AppID and AppKey.</span><br><span class="line">leancloud_visitors:</span><br><span class="line">  enable: true</span><br><span class="line">  app_id:  #&lt;app_id&gt;</span><br><span class="line">  app_key:  #&lt;app_key&gt;</span><br></pre></td></tr></table></figure>
 </li>
