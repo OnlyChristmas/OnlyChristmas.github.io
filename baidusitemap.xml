@@ -80,32 +80,21 @@
 
     
   <url>
-    <loc>https://imbowei.com/2018/07/09/%E3%80%90NLP%E6%AF%94%E8%B5%9B%E3%80%91%E4%B8%AD%E5%9B%BD%E4%B8%AD%E6%96%87%E4%BF%A1%E6%81%AF%E5%AD%A6%E4%BC%9A%E6%96%87%E6%9C%AC%E6%BA%AF%E6%BA%90%E6%8A%80%E6%9C%AF%E8%AF%84%E6%B5%8B%EF%BC%88SMP-ETST%EF%BC%89Ranking-First/</loc>
+    <loc>https://imbowei.com/2018/07/26/linux-uploading-baiduyunpan/</loc>
     <lastmod>2018-08-10T03:37:36.000Z</lastmod>
     <data>
         <display>
-        <title>【NLP competition】中文信息学会 文本溯源技术评测（SMP ETST）Ranking First</title>
-        <pubTime>2018-07-09T00:10:43.000Z</pubTime>
+        <title>Linux服务器命令行上传数据到百度云盘</title>
+        <pubTime>2018-07-25T23:25:35.000Z</pubTime>
         
-        <tag>Paraphrase</tag>
+        <tag>Shell</tag>
          
-        <tag>N-gram</tag>
-         
-        <tag>Segment</tag>
-         
-        <tag>Information-retrieval</tag>
-         
-        <tag>BoW</tag>
-         
-        <tag>Inverted-index</tag>
+        <tag>Bypy</tag>
          
          
            
              
-              <breadCrumb title="NLP" url="https://imbowei.com/categories/NLP/"/>
-          
-             
-              <breadCrumb title="Competition" url="https://imbowei.com/categories/NLP/Competition/"/>
+              <breadCrumb title="Linux" url="https://imbowei.com/categories/Linux/"/>
           
         </display>
     </data>
@@ -168,29 +157,40 @@
     </url>
 
     
+    
+    
+    
+    
   <url>
-    <loc>https://imbowei.com/2018/07/26/linux-uploading-baiduyunpan/</loc>
+    <loc>https://imbowei.com/2018/07/09/%E3%80%90NLP%E6%AF%94%E8%B5%9B%E3%80%91%E4%B8%AD%E5%9B%BD%E4%B8%AD%E6%96%87%E4%BF%A1%E6%81%AF%E5%AD%A6%E4%BC%9A%E6%96%87%E6%9C%AC%E6%BA%AF%E6%BA%90%E6%8A%80%E6%9C%AF%E8%AF%84%E6%B5%8B%EF%BC%88SMP-ETST%EF%BC%89Ranking-First/</loc>
     <lastmod>2018-08-10T03:37:36.000Z</lastmod>
     <data>
         <display>
-        <title>Linux服务器命令行上传数据到百度云盘</title>
-        <pubTime>2018-07-25T23:25:35.000Z</pubTime>
+        <title>【NLP competition】中文信息学会 文本溯源技术评测（SMP ETST）Ranking First</title>
+        <pubTime>2018-07-09T00:10:43.000Z</pubTime>
         
-        <tag>Shell</tag>
+        <tag>Paraphrase</tag>
          
-        <tag>Bypy</tag>
+        <tag>N-gram</tag>
+         
+        <tag>Segment</tag>
+         
+        <tag>Information-retrieval</tag>
+         
+        <tag>BoW</tag>
+         
+        <tag>Inverted-index</tag>
          
          
            
              
-              <breadCrumb title="Linux" url="https://imbowei.com/categories/Linux/"/>
+              <breadCrumb title="NLP" url="https://imbowei.com/categories/NLP/"/>
+          
+             
+              <breadCrumb title="Competition" url="https://imbowei.com/categories/NLP/Competition/"/>
           
         </display>
     </data>
     </url>
 
-    
-    
-    
-    
 </urlset>
