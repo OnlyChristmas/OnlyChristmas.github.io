@@ -100,7 +100,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://pc1z7pynx.bkt.clouddn.com/markdown-img-paste-20180822161350179.png">
 <meta property="og:image" content="http://pc1z7pynx.bkt.clouddn.com/markdown-img-paste-20180822181641573.png">
-<meta property="og:updated_time" content="2018-09-04T10:20:14.178Z">
+<meta property="og:updated_time" content="2018-09-05T14:33:22.963Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法的时间复杂度和空间复杂度">
 <meta name="twitter:description" content="趁假期复习了算法基础的时间复杂度和空间复杂度，整理一遍。">
@@ -607,8 +607,8 @@ ga('send', 'pageview');
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-09-04T18:20:14+08:00">
-                2018-09-04
+              <time title="Post modified" itemprop="dateModified" datetime="2018-09-05T22:33:22+08:00">
+                2018-09-05
               </time>
             
           </span>
@@ -678,7 +678,7 @@ ga('send', 'pageview');
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  2,957
+                  2,965
                 </span>
               
 
@@ -784,7 +784,7 @@ ga('send', 'pageview');
 <h4 id="算法本身"><a href="#算法本身" class="headerlink" title="算法本身"></a>算法本身</h4><p>存储算法本身所占用的存储空间与算法书写的长短成正比，要压缩这部分存储空间，就必须编写出较短的算法。然而，算法想要实际应用需要根据需求采取不同的编程语言来实现，不同编程语言实现的代码长短差别很大，然而存储空间都在可接受范围之内（通常不同编程语言的效率更受关注）。</p>
 <h4 id="运行临时占用"><a href="#运行临时占用" class="headerlink" title="运行临时占用"></a>运行临时占用</h4><p>根据算法在运行过程中临时占用存储空间的不同，可以将算法分为两类。</p>
 <ul>
-<li>原地算法（in-place algorithm）：只需要占用少量的临时工作单元，而且不随问题规模的大小而改变，我们称这种算法是“就地”进行的，是节省存储的算法。</li>
+<li>原地算法（in-place algorithm）：只需要占用少量的临时工作单元，而且<span id="inline-blue"> 不随问题规模的大小而改变 </span>，我们称这种算法是“就地”进行的，是节省存储的算法, <span id="inline-red"> 空间复杂度为O(1) </span>。</li>
 <li>非原地算法（not-in-place）：需要占用的临时工作单元数与解决问题的规模n有关，它随着n的增大而增大，当n较大时，将占用较多的存储单元。<br>算法临时占用空间是考虑算法空间复杂度时主要考虑的部分。相比于随着问题输入规模扩大而扩大的非原地算法，原地算法是更加简洁高效的算法（仅考虑空间复杂度时）。</li>
 </ul>
 <h5 id="实际例子"><a href="#实际例子" class="headerlink" title="实际例子"></a>实际例子</h5><p>假设我们想要将拥有n个项目的数组反过来。一个最简单作这件事的方式是这样：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function reverse(a[0..n])</span><br><span class="line">    allocate b[0..n]</span><br><span class="line">    for i from 0 to n</span><br><span class="line">        b[n - i] = a[i]</span><br><span class="line">    return b</span><br></pre></td></tr></table></figure></p>
@@ -903,6 +903,10 @@ ga('send', 'pageview');
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2018/09/07/Dual-NIC-configuration/" rel="prev" title="双网卡配置：同时使用公司（学校/实验室）内网和外网">
+                双网卡配置：同时使用公司（学校/实验室）内网和外网 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -1016,7 +1020,7 @@ ga('send', 'pageview');
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1027,7 +1031,7 @@ ga('send', 'pageview');
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -1038,7 +1042,7 @@ ga('send', 'pageview');
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-count">35</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -1146,7 +1150,7 @@ ga('send', 'pageview');
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">24.4k</span>
+    <span title="Site words total count">25.2k</span>
   
 </div>
 

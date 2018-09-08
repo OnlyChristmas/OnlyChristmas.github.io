@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://imbowei.com/"/>
-  <updated>2018-09-04T10:20:14.178Z</updated>
+  <updated>2018-09-07T14:27:05.250Z</updated>
   <id>https://imbowei.com/</id>
   
   <author>
@@ -17,11 +17,35 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>双网卡配置：同时使用公司（学校/实验室）内网和外网</title>
+    <link href="https://imbowei.com/2018/09/07/Dual-NIC-configuration/"/>
+    <id>https://imbowei.com/2018/09/07/Dual-NIC-configuration/</id>
+    <published>2018-09-07T13:37:09.000Z</published>
+    <updated>2018-09-07T14:27:05.250Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;没有一个好用的网络根本是没有办法好好工作的呀。最近通过改变路由表、调整网卡优先级，实现了内外网络的同时使用，终于可以愉快的上网了。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Tool" scheme="https://imbowei.com/categories/Tool/"/>
+    
+      <category term="Computer-network" scheme="https://imbowei.com/categories/Tool/Computer-network/"/>
+    
+    
+      <category term="Hop-number" scheme="https://imbowei.com/tags/Hop-number/"/>
+    
+      <category term="Routing-table" scheme="https://imbowei.com/tags/Routing-table/"/>
+    
+  </entry>
+  
+  <entry>
     <title>算法的时间复杂度和空间复杂度</title>
     <link href="https://imbowei.com/2018/08/17/Summary-of-time-complexity-and-space-complexity/"/>
     <id>https://imbowei.com/2018/08/17/Summary-of-time-complexity-and-space-complexity/</id>
     <published>2018-08-17T10:37:34.000Z</published>
-    <updated>2018-09-04T10:20:14.178Z</updated>
+    <updated>2018-09-05T14:33:22.963Z</updated>
     
     <summary type="html">
     
@@ -147,7 +171,7 @@
     <link href="https://imbowei.com/2018/07/14/Hexo_Next_%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0/"/>
     <id>https://imbowei.com/2018/07/14/Hexo_Next_博客搭建记/</id>
     <published>2018-07-14T04:43:07.000Z</published>
-    <updated>2018-09-04T10:20:56.163Z</updated>
+    <updated>2018-09-08T01:39:15.089Z</updated>
     
     <summary type="html">
     
@@ -173,7 +197,7 @@
     <link href="https://imbowei.com/2018/07/09/%E3%80%90NLP%E6%AF%94%E8%B5%9B%E3%80%91%E4%B8%AD%E5%9B%BD%E4%B8%AD%E6%96%87%E4%BF%A1%E6%81%AF%E5%AD%A6%E4%BC%9A%E6%96%87%E6%9C%AC%E6%BA%AF%E6%BA%90%E6%8A%80%E6%9C%AF%E8%AF%84%E6%B5%8B%EF%BC%88SMP-ETST%EF%BC%89Ranking-First/"/>
     <id>https://imbowei.com/2018/07/09/【NLP比赛】中国中文信息学会文本溯源技术评测（SMP-ETST）Ranking-First/</id>
     <published>2018-07-09T00:10:43.000Z</published>
-    <updated>2018-09-04T10:19:03.087Z</updated>
+    <updated>2018-09-08T01:38:00.821Z</updated>
     
     <summary type="html">
     
