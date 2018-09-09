@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://imbowei.com/"/>
-  <updated>2018-09-07T14:27:05.250Z</updated>
+  <updated>2018-09-09T11:42:09.570Z</updated>
   <id>https://imbowei.com/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Win10 Software</title>
+    <link href="https://imbowei.com/2018/09/09/win10-software/"/>
+    <id>https://imbowei.com/2018/09/09/win10-software/</id>
+    <published>2018-09-09T07:56:09.000Z</published>
+    <updated>2018-09-09T11:42:09.570Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;由于电脑系统最近崩溃两次，让我有了备份常用软件清单的想法。工欲善其事必先利其器，不断追求效率的提升是一件很幸福的事情。清单不定期更新。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Operating-system" scheme="https://imbowei.com/categories/Operating-system/"/>
+    
+      <category term="Win10" scheme="https://imbowei.com/categories/Operating-system/Win10/"/>
+    
+    
+      <category term="Flux" scheme="https://imbowei.com/tags/Flux/"/>
+    
+      <category term="Shadowsocks" scheme="https://imbowei.com/tags/Shadowsocks/"/>
+    
+      <category term="Pycharm" scheme="https://imbowei.com/tags/Pycharm/"/>
+    
+      <category term="Teamviwer" scheme="https://imbowei.com/tags/Teamviwer/"/>
+    
+      <category term="Tpyora" scheme="https://imbowei.com/tags/Tpyora/"/>
+    
+  </entry>
   
   <entry>
     <title>双网卡配置：同时使用公司（学校/实验室）内网和外网</title>
