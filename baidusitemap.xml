@@ -4,8 +4,33 @@
 
     
   <url>
+    <loc>https://imbowei.com/2018/09/17/Configuring-the-best-development-environment-with-pycharm-and-jupyter-notebook/</loc>
+    <lastmod>2018-09-18T09:33:56.415Z</lastmod>
+    <data>
+        <display>
+        <title>配置便捷的开发环境（PyCharm & Jupyter）</title>
+        <pubTime>2018-09-17T11:39:43.000Z</pubTime>
+        
+        <tag>PyCharm</tag>
+         
+        <tag>Jupyter</tag>
+         
+         
+           
+             
+              <breadCrumb title="Tool" url="https://imbowei.com/categories/Tool/"/>
+          
+             
+              <breadCrumb title="Server" url="https://imbowei.com/categories/Tool/Server/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://imbowei.com/2018/07/14/Hexo_Next_%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0/</loc>
-    <lastmod>2018-09-18T01:44:22.596Z</lastmod>
+    <lastmod>2018-09-18T01:47:12.414Z</lastmod>
     <data>
         <display>
         <title>Hexo_Next_博客搭建记</title>
@@ -23,31 +48,6 @@
            
              
               <breadCrumb title="blog" url="https://imbowei.com/categories/blog/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://imbowei.com/2018/09/17/Configuring-the-best-development-environment-with-pycharm-and-jupyter-notebook/</loc>
-    <lastmod>2018-09-18T01:33:34.788Z</lastmod>
-    <data>
-        <display>
-        <title>配置便捷的开发环境（PyCharm & Jupyter）</title>
-        <pubTime>2018-09-17T11:39:43.000Z</pubTime>
-        
-        <tag>PyCharm</tag>
-         
-        <tag>Jupyter</tag>
-         
-         
-           
-             
-              <breadCrumb title="Tool" url="https://imbowei.com/categories/Tool/"/>
-          
-             
-              <breadCrumb title="Server" url="https://imbowei.com/categories/Tool/Server/"/>
           
         </display>
     </data>

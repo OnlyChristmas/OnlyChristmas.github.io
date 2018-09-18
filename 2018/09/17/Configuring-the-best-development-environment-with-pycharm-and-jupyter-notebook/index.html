@@ -101,7 +101,7 @@
 <meta property="og:image" content="https://i.loli.net/2018/09/17/5b9f9730d9ad0.png">
 <meta property="og:image" content="https://i.loli.net/2018/09/17/5b9fa0f68a77c.png">
 <meta property="og:image" content="https://i.loli.net/2018/09/17/5b9fafe16ee1a.png">
-<meta property="og:updated_time" content="2018-09-18T01:33:34.788Z">
+<meta property="og:updated_time" content="2018-09-18T09:33:56.415Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="配置便捷的开发环境（PyCharm &amp; Jupyter）">
 <meta name="twitter:description" content="由于在PyCharm中进行统计整理数据、画图等操作有诸多的不便。在本地的jupyter notebook进行处理又显得步骤繁琐（传输文件），故萌生在服务器搭建jupyter notebook的想法。两种工具优势互补，从而最大程度上集中注意力在项目本身，提升开发效率。">
@@ -608,7 +608,7 @@ ga('send', 'pageview');
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-09-18T09:33:34+08:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2018-09-18T17:33:56+08:00">
                 2018-09-18
               </time>
             
@@ -690,7 +690,7 @@ ga('send', 'pageview');
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  1,800
+                  2,197
                 </span>
               
 
@@ -753,6 +753,7 @@ ga('send', 'pageview');
 <li>PyCharm简直是一个科学计算的神奇，在做数据挖掘的时候，代码和报告（支持latex公式）高度融合，无需二次撰写。</li>
 <li>在处理数据的时候，所有中间结果不会被擦除，都显示在对应的cell下面。方便调试，减轻记忆的工作量。</li>
 <li>方便的<strong>图表展示</strong>，不像PyCharm那样，会新弹出一个窗口展示图片，图文融合在一起。</li>
+<li>丰富的插件支持，高度自定义。</li>
 <li>等等……</li>
 </ul>
 <p>虽然优点众多，但如果只能在本地运行也只能算是鸡肋。经常将工程中的部分文件从服务器传输到本地再分析，这是一件很累人的事情。</p>
@@ -777,6 +778,30 @@ ga('send', 'pageview');
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup jupyter notebook &gt; notebook.file 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
 <div class="note success"><p> 调用方式：在本地浏览器中输入`服务器地址:设置的端口号`即可。例如：165.32.65.109:7060 </p></div>
 
+
+
+<h3 id="Jupyter-优化"><a href="#Jupyter-优化" class="headerlink" title="Jupyter 优化"></a>Jupyter 优化</h3><ul>
+<li><p>更换主题</p>
+<ul>
+<li>对于程序员来说，Jupyter默认的白色背景不是很友好，为了和黑色的Pycharm更加搭配，可以先执行如下命令安装其他主题 <code>pip install jupyterthemes --user</code></li>
+<li>安装好之后的操作很简单，如下例所示。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># list available themes</span><br><span class="line"># onedork | grade3 | oceans16 | chesterish | monokai | solarizedl | solarizedd</span><br><span class="line"># 列出所有可用的主题</span><br><span class="line">jt -l</span><br><span class="line"></span><br><span class="line"># select theme...</span><br><span class="line"># jt -t 主题名</span><br><span class="line">jt -t chesterish</span><br><span class="line"></span><br><span class="line"># restore default theme</span><br><span class="line"># NOTE: Need to delete browser cache after running jt -r</span><br><span class="line"># If this doesn&apos;t work, try starting a new notebook session.</span><br><span class="line"># 恢复默认主题</span><br><span class="line">jt -r</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>自动代码补全</p>
+<ul>
+<li><p>虽然Jupyter也可以代码补全，但是总是需要多此一举的按一个Tab键，与PyCharm风格不搭配。</p>
+</li>
+<li><p>方法一：执行<code>ipython profile create</code> 命令，  <code>vim ~/.ipython/profile_default/ipython_config.py</code>，修改成如下样子。重启jupyter后生效</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">## Activate greedy completion PENDING DEPRECTION. this is now mostly taken care</span><br><span class="line">#  of with Jedi.</span><br><span class="line">#</span><br><span class="line">#  This will enable completion on elements of lists, results of function calls,</span><br><span class="line">#  etc., but can be unsafe because the code is actually evaluated on TAB.</span><br><span class="line">c.Completer.greedy = True</span><br><span class="line"></span><br><span class="line">## Experimental: restrict time (in milliseconds) during which Jedi can compute</span><br><span class="line">#  types. Set to 0 to stop computing types. Non-zero value lower than 100ms may</span><br><span class="line">#  hurt performance by preventing jedi to build its cache.</span><br><span class="line">c.Completer.jedi_compute_type_timeout = 400</span><br><span class="line"></span><br><span class="line">## Experimental: Use Jedi to generate autocompletions. Off by default.</span><br><span class="line">c.Completer.use_jedi = True</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>方法二：安装如下插件，如果报错，还需要更新配置一些包环境：</p>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install jupyter_contrib_nbextensions --user</span><br><span class="line">pip install jupyter_nbextensions_configurator --user</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pip install --upgrade ipykernel --user</span><br><span class="line">chmod 777 ~/.local/share/jupyter/</span><br><span class="line">pip install --upgrade --user nbconvert</span><br><span class="line">pip install --upgrade jupyter_core jupyter_client --user</span><br></pre></td></tr></table></figure>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>至此，PyCharm 和 Jupyter 都已经配置完毕。今后PyCharm仍然是主力的代码编辑工具。但在工程构建过程中，免不了许多中间结果需要分析和查看，这个时候Jupyter就可以派上用场。进行轻量的模块化分析任务。另外，Jupyter也可以打开文本文件进行编辑（可以自由选择Vim/Sublime等编辑模式），这样就不用使用WinSCP来单独查看文件；Jupyter也可以打开Terminal，这样我们就不用再单独使用Xshell，Xming等软件。释放本地内存。</p>
 <p>我们只需要开启浏览器和PyCharm就可以方便交互服务器，进行代码的版本控制，以及进行数据分析。接下来可以更加愉快的干活了！</p>
 
@@ -1087,7 +1112,7 @@ ga('send', 'pageview');
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#PyCharm"><span class="nav-number">1.</span> <span class="nav-text">PyCharm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基础配置"><span class="nav-number">1.1.</span> <span class="nav-text">基础配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码模板"><span class="nav-number">1.2.</span> <span class="nav-text">代码模板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#版本控制"><span class="nav-number">1.3.</span> <span class="nav-text">版本控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#远程调试"><span class="nav-number">1.4.</span> <span class="nav-text">远程调试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Jupyter-notebook"><span class="nav-number">2.</span> <span class="nav-text">Jupyter-notebook</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#服务器jupyter搭建"><span class="nav-number">2.1.</span> <span class="nav-text">服务器jupyter搭建</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#PyCharm"><span class="nav-number">1.</span> <span class="nav-text">PyCharm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基础配置"><span class="nav-number">1.1.</span> <span class="nav-text">基础配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码模板"><span class="nav-number">1.2.</span> <span class="nav-text">代码模板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#版本控制"><span class="nav-number">1.3.</span> <span class="nav-text">版本控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#远程调试"><span class="nav-number">1.4.</span> <span class="nav-text">远程调试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Jupyter-notebook"><span class="nav-number">2.</span> <span class="nav-text">Jupyter-notebook</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#服务器jupyter搭建"><span class="nav-number">2.1.</span> <span class="nav-text">服务器jupyter搭建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Jupyter-优化"><span class="nav-number">2.2.</span> <span class="nav-text">Jupyter 优化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
@@ -1125,7 +1150,7 @@ ga('send', 'pageview');
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">16.3k</span>
+    <span title="Site words total count">16.7k</span>
   
 </div>
 
