@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://imbowei.com/"/>
-  <updated>2018-09-09T12:09:01.847Z</updated>
+  <updated>2018-09-18T01:20:51.150Z</updated>
   <id>https://imbowei.com/</id>
   
   <author>
@@ -17,11 +17,35 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>配置便捷的开发环境（PyCharm &amp; Jupyter）</title>
+    <link href="https://imbowei.com/2018/09/17/Configuring-the-best-development-environment-with-pycharm-and-jupyter-notebook/"/>
+    <id>https://imbowei.com/2018/09/17/Configuring-the-best-development-environment-with-pycharm-and-jupyter-notebook/</id>
+    <published>2018-09-17T11:39:43.000Z</published>
+    <updated>2018-09-18T01:20:51.150Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;由于在PyCharm中进行统计整理数据、画图等操作有诸多的不便。在本地的jupyter notebook进行处理又显得步骤繁琐（传输文件），故萌生在服务器搭建jupyter notebook的想法。两种工具优势互补，从而最大程度上集中注意力在项目本身，提升开发效率。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Tool" scheme="https://imbowei.com/categories/Tool/"/>
+    
+      <category term="Server" scheme="https://imbowei.com/categories/Tool/Server/"/>
+    
+    
+      <category term="PyCharm" scheme="https://imbowei.com/tags/PyCharm/"/>
+    
+      <category term="Jupyter" scheme="https://imbowei.com/tags/Jupyter/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Win10平台下的常用软件</title>
     <link href="https://imbowei.com/2018/09/09/win10-software/"/>
     <id>https://imbowei.com/2018/09/09/win10-software/</id>
     <published>2018-09-09T07:56:09.000Z</published>
-    <updated>2018-09-09T12:09:01.847Z</updated>
+    <updated>2018-09-17T11:38:15.703Z</updated>
     
     <summary type="html">
     
