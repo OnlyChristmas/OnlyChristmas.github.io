@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://imbowei.com/"/>
-  <updated>2018-09-21T12:02:46.649Z</updated>
+  <updated>2018-09-20T14:51:18.532Z</updated>
   <id>https://imbowei.com/</id>
   
   <author>
@@ -15,31 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>ttt</title>
-    <link href="https://imbowei.com/2018/09/21/ttt/"/>
-    <id>https://imbowei.com/2018/09/21/ttt/</id>
-    <published>2018-09-21T12:02:46.000Z</published>
-    <updated>2018-09-21T12:02:46.649Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt; This is a summary&lt;/p&gt;
-&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;
-    
-    </summary>
-    
-      <category term="NLP" scheme="https://imbowei.com/categories/NLP/"/>
-    
-      <category term="二级" scheme="https://imbowei.com/categories/NLP/%E4%BA%8C%E7%BA%A7/"/>
-    
-    
-      <category term="tag1" scheme="https://imbowei.com/tags/tag1/"/>
-    
-      <category term="tag2" scheme="https://imbowei.com/tags/tag2/"/>
-    
-  </entry>
   
   <entry>
     <title>配置便捷的开发环境（PyCharm &amp; Jupyter）</title>
