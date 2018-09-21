@@ -101,7 +101,7 @@
 <meta property="og:image" content="https://i.loli.net/2018/09/17/5b9f9730d9ad0.png">
 <meta property="og:image" content="https://i.loli.net/2018/09/17/5b9fa0f68a77c.png">
 <meta property="og:image" content="https://i.loli.net/2018/09/17/5b9fafe16ee1a.png">
-<meta property="og:updated_time" content="2018-09-18T09:33:56.415Z">
+<meta property="og:updated_time" content="2018-09-20T14:51:18.532Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="配置便捷的开发环境（PyCharm &amp; Jupyter）">
 <meta name="twitter:description" content="由于在PyCharm中进行统计整理数据、画图等操作有诸多的不便。在本地的jupyter notebook进行处理又显得步骤繁琐（传输文件），故萌生在服务器搭建jupyter notebook的想法。两种工具优势互补，从而最大程度上集中注意力在项目本身，提升开发效率。">
@@ -608,8 +608,8 @@ ga('send', 'pageview');
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-09-18T17:33:56+08:00">
-                2018-09-18
+              <time title="Post modified" itemprop="dateModified" datetime="2018-09-20T22:51:18+08:00">
+                2018-09-20
               </time>
             
           </span>
@@ -690,7 +690,7 @@ ga('send', 'pageview');
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  2,197
+                  2,255
                 </span>
               
 
@@ -781,12 +781,14 @@ ga('send', 'pageview');
 
 
 <h3 id="Jupyter-优化"><a href="#Jupyter-优化" class="headerlink" title="Jupyter 优化"></a>Jupyter 优化</h3><ul>
+<li><p>感谢造轮子的大佬 <a href="https://github.com/dunovank/jupyter-themes" target="_blank" rel="noopener"><strong>jupyter-themes</strong></a> ，为优化jupyter 做了一个很好的包。</p>
+</li>
 <li><p>更换主题</p>
 <ul>
 <li>对于程序员来说，Jupyter默认的白色背景不是很友好，为了和黑色的Pycharm更加搭配，可以先执行如下命令安装其他主题 <code>pip install jupyterthemes --user</code></li>
 <li>安装好之后的操作很简单，如下例所示。</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># list available themes</span><br><span class="line"># onedork | grade3 | oceans16 | chesterish | monokai | solarizedl | solarizedd</span><br><span class="line"># 列出所有可用的主题</span><br><span class="line">jt -l</span><br><span class="line"></span><br><span class="line"># select theme...</span><br><span class="line"># jt -t 主题名</span><br><span class="line">jt -t chesterish</span><br><span class="line"></span><br><span class="line"># restore default theme</span><br><span class="line"># NOTE: Need to delete browser cache after running jt -r</span><br><span class="line"># If this doesn&apos;t work, try starting a new notebook session.</span><br><span class="line"># 恢复默认主题</span><br><span class="line">jt -r</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># list available themes</span><br><span class="line"># onedork | grade3 | oceans16 | chesterish | monokai | solarizedl | solarizedd</span><br><span class="line"># 列出所有可用的主题</span><br><span class="line">jt -l</span><br><span class="line"></span><br><span class="line"># select theme...</span><br><span class="line"># jt -t 主题名</span><br><span class="line">jt -t chesterish</span><br><span class="line"></span><br><span class="line"># restore default theme</span><br><span class="line"># NOTE: Need to delete browser cache after running jt -r</span><br><span class="line"># If this doesn&apos;t work, try starting a new notebook session.</span><br><span class="line"># 恢复默认主题</span><br><span class="line">jt -r</span><br><span class="line"></span><br><span class="line"># 更改主题，改变代码字体，改变代码大小，改变cell占屏幕宽度，</span><br><span class="line">jt -t oceans16 -f fira -fs 12 -cellw 90%</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>自动代码补全</p>
 <ul>
@@ -907,6 +909,10 @@ ga('send', 'pageview');
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2018/09/21/ttt/" rel="prev" title="ttt">
+                ttt <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -1020,7 +1026,7 @@ ga('send', 'pageview');
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1150,7 +1156,7 @@ ga('send', 'pageview');
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">16.7k</span>
+    <span title="Site words total count">16.8k</span>
   
 </div>
 

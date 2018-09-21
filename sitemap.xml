@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://imbowei.com/2018/09/21/ttt/</loc>
+    
+    <lastmod>2018-09-21T12:02:46.649Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://imbowei.com/2018/09/17/Configuring-the-best-development-environment-with-pycharm-and-jupyter-notebook/</loc>
     
-    <lastmod>2018-09-18T09:33:56.415Z</lastmod>
+    <lastmod>2018-09-20T14:51:18.532Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://imbowei.com/2018/07/22/wikipedia-train-traditional-chinese-embedding%EF%BC%88word2vec%EF%BC%89model/</loc>
+    
+    <lastmod>2018-09-20T01:40:46.368Z</lastmod>
     
   </url>
   
@@ -44,13 +58,6 @@
   </url>
   
   <url>
-    <loc>https://imbowei.com/2018/07/22/wikipedia-train-traditional-chinese-embedding%EF%BC%88word2vec%EF%BC%89model/</loc>
-    
-    <lastmod>2018-09-04T10:20:41.386Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://imbowei.com/2018/07/26/linux-uploading-baiduyunpan/</loc>
     
     <lastmod>2018-09-04T10:19:48.743Z</lastmod>
@@ -72,14 +79,14 @@
   </url>
   
   <url>
-    <loc>https://imbowei.com/about/index.html</loc>
+    <loc>https://imbowei.com/categories/index.html</loc>
     
     <lastmod>2018-08-10T03:37:36.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://imbowei.com/categories/index.html</loc>
+    <loc>https://imbowei.com/about/index.html</loc>
     
     <lastmod>2018-08-10T03:37:36.000Z</lastmod>
     

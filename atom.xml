@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://imbowei.com/"/>
-  <updated>2018-09-18T09:33:56.415Z</updated>
+  <updated>2018-09-21T12:02:46.649Z</updated>
   <id>https://imbowei.com/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>ttt</title>
+    <link href="https://imbowei.com/2018/09/21/ttt/"/>
+    <id>https://imbowei.com/2018/09/21/ttt/</id>
+    <published>2018-09-21T12:02:46.000Z</published>
+    <updated>2018-09-21T12:02:46.649Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt; This is a summary&lt;/p&gt;
+&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;
+    
+    </summary>
+    
+      <category term="NLP" scheme="https://imbowei.com/categories/NLP/"/>
+    
+      <category term="二级" scheme="https://imbowei.com/categories/NLP/%E4%BA%8C%E7%BA%A7/"/>
+    
+    
+      <category term="tag1" scheme="https://imbowei.com/tags/tag1/"/>
+    
+      <category term="tag2" scheme="https://imbowei.com/tags/tag2/"/>
+    
+  </entry>
+  
+  <entry>
     <title>配置便捷的开发环境（PyCharm &amp; Jupyter）</title>
     <link href="https://imbowei.com/2018/09/17/Configuring-the-best-development-environment-with-pycharm-and-jupyter-notebook/"/>
     <id>https://imbowei.com/2018/09/17/Configuring-the-best-development-environment-with-pycharm-and-jupyter-notebook/</id>
     <published>2018-09-17T11:39:43.000Z</published>
-    <updated>2018-09-18T09:33:56.415Z</updated>
+    <updated>2018-09-20T14:51:18.532Z</updated>
     
     <summary type="html">
     
@@ -197,7 +222,7 @@
     <link href="https://imbowei.com/2018/07/22/wikipedia-train-traditional-chinese-embedding%EF%BC%88word2vec%EF%BC%89model/"/>
     <id>https://imbowei.com/2018/07/22/wikipedia-train-traditional-chinese-embedding（word2vec）model/</id>
     <published>2018-07-22T14:52:39.000Z</published>
-    <updated>2018-09-04T10:20:41.386Z</updated>
+    <updated>2018-09-20T01:40:46.368Z</updated>
     
     <summary type="html">
     

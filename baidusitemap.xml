@@ -4,8 +4,33 @@
 
     
   <url>
+    <loc>https://imbowei.com/2018/09/21/ttt/</loc>
+    <lastmod>2018-09-21T12:02:46.649Z</lastmod>
+    <data>
+        <display>
+        <title>ttt</title>
+        <pubTime>2018-09-21T12:02:46.000Z</pubTime>
+        
+        <tag>tag1</tag>
+         
+        <tag>tag2</tag>
+         
+         
+           
+             
+              <breadCrumb title="NLP" url="https://imbowei.com/categories/NLP/"/>
+          
+             
+              <breadCrumb title="二级" url="https://imbowei.com/categories/NLP/%E4%BA%8C%E7%BA%A7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://imbowei.com/2018/09/17/Configuring-the-best-development-environment-with-pycharm-and-jupyter-notebook/</loc>
-    <lastmod>2018-09-18T09:33:56.415Z</lastmod>
+    <lastmod>2018-09-20T14:51:18.532Z</lastmod>
     <data>
         <display>
         <title>配置便捷的开发环境（PyCharm & Jupyter）</title>
@@ -22,6 +47,35 @@
           
              
               <breadCrumb title="Server" url="https://imbowei.com/categories/Tool/Server/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://imbowei.com/2018/07/22/wikipedia-train-traditional-chinese-embedding%EF%BC%88word2vec%EF%BC%89model/</loc>
+    <lastmod>2018-09-20T01:40:46.368Z</lastmod>
+    <data>
+        <display>
+        <title>wikipedia 训练繁（简）体中文 embedding(word2vec)模型</title>
+        <pubTime>2018-07-22T14:52:39.000Z</pubTime>
+        
+        <tag>Wikipedia</tag>
+         
+        <tag>Gensim</tag>
+         
+        <tag>Embedding</tag>
+         
+        <tag>Opencc</tag>
+         
+         
+           
+             
+              <breadCrumb title="NLP" url="https://imbowei.com/categories/NLP/"/>
+          
+             
+              <breadCrumb title="Word2vex" url="https://imbowei.com/categories/NLP/Word2vex/"/>
           
         </display>
     </data>
@@ -159,35 +213,6 @@
            
              
               <breadCrumb title="Algorithm" url="https://imbowei.com/categories/Algorithm/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://imbowei.com/2018/07/22/wikipedia-train-traditional-chinese-embedding%EF%BC%88word2vec%EF%BC%89model/</loc>
-    <lastmod>2018-09-04T10:20:41.386Z</lastmod>
-    <data>
-        <display>
-        <title>wikipedia 训练繁（简）体中文 embedding(word2vec)模型</title>
-        <pubTime>2018-07-22T14:52:39.000Z</pubTime>
-        
-        <tag>Wikipedia</tag>
-         
-        <tag>Gensim</tag>
-         
-        <tag>Embedding</tag>
-         
-        <tag>Opencc</tag>
-         
-         
-           
-             
-              <breadCrumb title="NLP" url="https://imbowei.com/categories/NLP/"/>
-          
-             
-              <breadCrumb title="Word2vex" url="https://imbowei.com/categories/NLP/Word2vex/"/>
           
         </display>
     </data>
