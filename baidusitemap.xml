@@ -4,24 +4,25 @@
 
     
   <url>
-    <loc>https://imbowei.com/2018/09/17/Configuring-the-best-development-environment-with-pycharm-and-jupyter-notebook/</loc>
-    <lastmod>2018-09-20T14:51:18.532Z</lastmod>
+    <loc>https://imbowei.com/2018/07/14/Hexo_Next_%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0/</loc>
+    <lastmod>2018-09-28T10:58:07.689Z</lastmod>
     <data>
         <display>
-        <title>配置便捷的开发环境（PyCharm & Jupyter）</title>
-        <pubTime>2018-09-17T11:39:43.000Z</pubTime>
+        <title>Hexo_Next_博客搭建记</title>
+        <pubTime>2018-07-14T04:43:07.000Z</pubTime>
         
-        <tag>PyCharm</tag>
+        <tag>Github-pages</tag>
          
-        <tag>Jupyter</tag>
+        <tag>Hexo</tag>
+         
+        <tag>Next</tag>
+         
+        <tag>Web-design</tag>
          
          
            
              
-              <breadCrumb title="Tool" url="https://imbowei.com/categories/Tool/"/>
-          
-             
-              <breadCrumb title="Server" url="https://imbowei.com/categories/Tool/Server/"/>
+              <breadCrumb title="blog" url="https://imbowei.com/categories/blog/"/>
           
         </display>
     </data>
@@ -30,7 +31,7 @@
     
   <url>
     <loc>https://imbowei.com/2018/07/22/wikipedia-train-traditional-chinese-embedding%EF%BC%88word2vec%EF%BC%89model/</loc>
-    <lastmod>2018-09-20T01:40:46.368Z</lastmod>
+    <lastmod>2018-09-25T08:52:59.796Z</lastmod>
     <data>
         <display>
         <title>wikipedia 训练繁（简）体中文 embedding(word2vec)模型</title>
@@ -58,25 +59,24 @@
 
     
   <url>
-    <loc>https://imbowei.com/2018/07/14/Hexo_Next_%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0/</loc>
-    <lastmod>2018-09-18T01:47:12.414Z</lastmod>
+    <loc>https://imbowei.com/2018/09/17/Configuring-the-best-development-environment-with-pycharm-and-jupyter-notebook/</loc>
+    <lastmod>2018-09-20T14:51:18.532Z</lastmod>
     <data>
         <display>
-        <title>Hexo_Next_博客搭建记</title>
-        <pubTime>2018-07-14T04:43:07.000Z</pubTime>
+        <title>配置便捷的开发环境（PyCharm & Jupyter）</title>
+        <pubTime>2018-09-17T11:39:43.000Z</pubTime>
         
-        <tag>Github-pages</tag>
+        <tag>PyCharm</tag>
          
-        <tag>Hexo</tag>
-         
-        <tag>Next</tag>
-         
-        <tag>Web-design</tag>
+        <tag>Jupyter</tag>
          
          
            
              
-              <breadCrumb title="blog" url="https://imbowei.com/categories/blog/"/>
+              <breadCrumb title="Tool" url="https://imbowei.com/categories/Tool/"/>
+          
+             
+              <breadCrumb title="Server" url="https://imbowei.com/categories/Tool/Server/"/>
           
         </display>
     </data>

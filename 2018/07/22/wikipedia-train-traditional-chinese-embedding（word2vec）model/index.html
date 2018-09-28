@@ -98,7 +98,7 @@
 <meta property="og:site_name" content="Cape of Good Hope">
 <meta property="og:description" content="由于课题任务需要一个繁体中文的word3vec, 折腾经过记录在此。希望以后少掉几个坑。训练好的embedding放在网盘中， 密码：2um0后来又按照这个方法训练了简体中文维度分别为50、100、200、300的embedding，一并放出来网盘链接 密码：751d">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-09-20T01:40:46.368Z">
+<meta property="og:updated_time" content="2018-09-25T08:52:59.796Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="wikipedia 训练繁（简）体中文 embedding(word2vec)模型">
 <meta name="twitter:description" content="由于课题任务需要一个繁体中文的word3vec, 折腾经过记录在此。希望以后少掉几个坑。训练好的embedding放在网盘中， 密码：2um0后来又按照这个方法训练了简体中文维度分别为50、100、200、300的embedding，一并放出来网盘链接 密码：751d">
@@ -604,8 +604,8 @@ ga('send', 'pageview');
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-09-20T09:40:46+08:00">
-                2018-09-20
+              <time title="Post modified" itemprop="dateModified" datetime="2018-09-25T16:52:59+08:00">
+                2018-09-25
               </time>
             
           </span>
@@ -714,7 +714,7 @@ ga('send', 'pageview');
         <p>由于课题任务需要一个繁体中文的word3vec, 折腾经过记录在此。希望以后少掉几个坑。<br>训练好的embedding放在<a href="https://pan.baidu.com/s/1DB_Sft8N9XMyDP9cpVMpBw" target="_blank" rel="noopener">网盘</a>中， 密码：<code>2um0</code><br>后来又按照这个方法训练了简体中文维度分别为50、100、200、300的embedding，一并放出来<a href="https://pan.baidu.com/s/1JgjRBWwwrcJSy4taPFtLhA" target="_blank" rel="noopener">网盘链接</a> 密码：<code>751d</code></p>
 <a id="more"></a>
 <hr>
-<h5 id="get-wiki"><a href="#get-wiki" class="headerlink" title="get wiki"></a>get wiki</h5><p><a href="https://dumps.wikimedia.org/zhwiki/latest/zhwiki-latest-pages-articles.xml.bz2" target="_blank" rel="noopener">最新的wiki datas下载地址</a>，目前有1.6G大小。</p>
+<h5 id="get-wiki"><a href="#get-wiki" class="headerlink" title="get wiki"></a>get wiki</h5><p><a href="https://dumps.wikimedia.org/zhwiki/latest/zhwiki-latest-pages-articles.xml.bz2" target="_blank" rel="noopener">最新的wiki data下载地址</a>，目前有1.6G大小。</p>
 <p>里面的内容以XML格式保存。节点信息如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;page&gt;</span><br><span class="line">  &lt;title&gt;&lt;/title&gt;</span><br><span class="line">  &lt;id&gt;&lt;/id&gt;</span><br><span class="line">  &lt;timestamp&gt;&lt;/timestamp&gt;</span><br><span class="line">  &lt;username&gt;&lt;/username&gt;</span><br><span class="line">  &lt;comment&gt;&lt;/comment&gt;</span><br><span class="line">  &lt;text xml:space=&quot;preserve&quot;&gt;&lt;/text&gt;</span><br><span class="line">&lt;/page&gt;</span><br></pre></td></tr></table></figure></p>
 <h5 id="初步处理"><a href="#初步处理" class="headerlink" title="初步处理"></a>初步处理</h5><p>我顺手直接解压真的too young。<br>为了节省时间，免去自己写代码处理Wiki的烦恼，Wikipedia Extractor先初步处理。（服务器非root用户，安装命令加上<code>--user</code>）</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/attardi/wikiextractor.git wikiextractor</span><br><span class="line">cd wikiextractor</span><br><span class="line">python setup.py install --user</span><br><span class="line">python WikiExtractor.py -b 1024M -o extracted zhwiki-latest-pages-articles.xml.bz2</span><br></pre></td></tr></table></figure>
