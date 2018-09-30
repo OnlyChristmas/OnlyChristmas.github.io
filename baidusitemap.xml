@@ -4,8 +4,66 @@
 
     
   <url>
+    <loc>https://imbowei.com/2018/09/29/How-to-write-a-great-paper/</loc>
+    <lastmod>2018-09-30T01:36:41.553Z</lastmod>
+    <data>
+        <display>
+        <title>如何写好学术论文？</title>
+        <pubTime>2018-09-29T12:09:59.000Z</pubTime>
+        
+        <tag>Write-a-paper</tag>
+         
+        <tag>Conference-papers</tag>
+         
+         
+           
+             
+              <breadCrumb title="Academic" url="https://imbowei.com/categories/Academic/"/>
+          
+             
+              <breadCrumb title="Writing" url="https://imbowei.com/categories/Academic/Writing/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://imbowei.com/2018/07/09/%E3%80%90NLP%E6%AF%94%E8%B5%9B%E3%80%91%E4%B8%AD%E5%9B%BD%E4%B8%AD%E6%96%87%E4%BF%A1%E6%81%AF%E5%AD%A6%E4%BC%9A%E6%96%87%E6%9C%AC%E6%BA%AF%E6%BA%90%E6%8A%80%E6%9C%AF%E8%AF%84%E6%B5%8B%EF%BC%88SMP-ETST%EF%BC%89Ranking-First/</loc>
+    <lastmod>2018-09-30T01:36:14.774Z</lastmod>
+    <data>
+        <display>
+        <title>【NLP competition】中文信息学会 文本溯源技术评测（SMP ETST）Ranking First</title>
+        <pubTime>2018-07-09T00:10:43.000Z</pubTime>
+        
+        <tag>Paraphrase</tag>
+         
+        <tag>N-gram</tag>
+         
+        <tag>Segment</tag>
+         
+        <tag>Information-retrieval</tag>
+         
+        <tag>BoW</tag>
+         
+        <tag>Inverted-index</tag>
+         
+         
+           
+             
+              <breadCrumb title="NLP" url="https://imbowei.com/categories/NLP/"/>
+          
+             
+              <breadCrumb title="Competition" url="https://imbowei.com/categories/NLP/Competition/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://imbowei.com/2018/07/14/Hexo_Next_%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0/</loc>
-    <lastmod>2018-09-30T00:59:25.221Z</lastmod>
+    <lastmod>2018-09-30T01:32:48.560Z</lastmod>
     <data>
         <display>
         <title>Hexo_Next_博客搭建记</title>
@@ -23,31 +81,6 @@
            
              
               <breadCrumb title="blog" url="https://imbowei.com/categories/blog/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://imbowei.com/2018/09/29/How-to-write-a-great-paper/</loc>
-    <lastmod>2018-09-30T00:54:29.928Z</lastmod>
-    <data>
-        <display>
-        <title>如何写好学术论文？</title>
-        <pubTime>2018-09-29T12:09:59.000Z</pubTime>
-        
-        <tag>Write-a-paper</tag>
-         
-        <tag>Conference-papers</tag>
-         
-         
-           
-             
-              <breadCrumb title="Academic" url="https://imbowei.com/categories/Academic/"/>
-          
-             
-              <breadCrumb title="Writing" url="https://imbowei.com/categories/Academic/Writing/"/>
           
         </display>
     </data>
@@ -133,39 +166,6 @@
           
              
               <breadCrumb title="Win10" url="https://imbowei.com/categories/Operating-system/Win10/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://imbowei.com/2018/07/09/%E3%80%90NLP%E6%AF%94%E8%B5%9B%E3%80%91%E4%B8%AD%E5%9B%BD%E4%B8%AD%E6%96%87%E4%BF%A1%E6%81%AF%E5%AD%A6%E4%BC%9A%E6%96%87%E6%9C%AC%E6%BA%AF%E6%BA%90%E6%8A%80%E6%9C%AF%E8%AF%84%E6%B5%8B%EF%BC%88SMP-ETST%EF%BC%89Ranking-First/</loc>
-    <lastmod>2018-09-08T01:38:00.821Z</lastmod>
-    <data>
-        <display>
-        <title>【NLP competition】中文信息学会 文本溯源技术评测（SMP ETST）Ranking First</title>
-        <pubTime>2018-07-09T00:10:43.000Z</pubTime>
-        
-        <tag>Paraphrase</tag>
-         
-        <tag>N-gram</tag>
-         
-        <tag>Segment</tag>
-         
-        <tag>Information-retrieval</tag>
-         
-        <tag>BoW</tag>
-         
-        <tag>Inverted-index</tag>
-         
-         
-           
-             
-              <breadCrumb title="NLP" url="https://imbowei.com/categories/NLP/"/>
-          
-             
-              <breadCrumb title="Competition" url="https://imbowei.com/categories/NLP/Competition/"/>
           
         </display>
     </data>
