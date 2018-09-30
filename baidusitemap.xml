@@ -5,7 +5,7 @@
     
   <url>
     <loc>https://imbowei.com/2018/07/14/Hexo_Next_%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0/</loc>
-    <lastmod>2018-09-28T10:58:07.689Z</lastmod>
+    <lastmod>2018-09-30T00:59:25.221Z</lastmod>
     <data>
         <display>
         <title>Hexo_Next_博客搭建记</title>
@@ -23,6 +23,31 @@
            
              
               <breadCrumb title="blog" url="https://imbowei.com/categories/blog/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://imbowei.com/2018/09/29/How-to-write-a-great-paper/</loc>
+    <lastmod>2018-09-30T00:54:29.928Z</lastmod>
+    <data>
+        <display>
+        <title>如何写好学术论文？</title>
+        <pubTime>2018-09-29T12:09:59.000Z</pubTime>
+        
+        <tag>Write-a-paper</tag>
+         
+        <tag>Conference-papers</tag>
+         
+         
+           
+             
+              <breadCrumb title="Academic" url="https://imbowei.com/categories/Academic/"/>
+          
+             
+              <breadCrumb title="Writing" url="https://imbowei.com/categories/Academic/Writing/"/>
           
         </display>
     </data>
