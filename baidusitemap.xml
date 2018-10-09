@@ -4,8 +4,34 @@
 
     
   <url>
+    <loc>https://imbowei.com/2018/07/14/Hexo_Next_%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0/</loc>
+    <lastmod>2018-10-09T11:43:32.684Z</lastmod>
+    <data>
+        <display>
+        <title>Hexo_Next_博客搭建记</title>
+        <pubTime>2018-07-14T04:43:07.000Z</pubTime>
+        
+        <tag>Github-pages</tag>
+         
+        <tag>Hexo</tag>
+         
+        <tag>Next</tag>
+         
+        <tag>Web-design</tag>
+         
+         
+           
+             
+              <breadCrumb title="blog" url="https://imbowei.com/categories/blog/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://imbowei.com/2018/09/29/How-to-write-a-great-paper/</loc>
-    <lastmod>2018-09-30T01:36:41.553Z</lastmod>
+    <lastmod>2018-09-30T01:45:12.719Z</lastmod>
     <data>
         <display>
         <title>如何写好学术论文？</title>
@@ -55,32 +81,6 @@
           
              
               <breadCrumb title="Competition" url="https://imbowei.com/categories/NLP/Competition/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://imbowei.com/2018/07/14/Hexo_Next_%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0/</loc>
-    <lastmod>2018-09-30T01:32:48.560Z</lastmod>
-    <data>
-        <display>
-        <title>Hexo_Next_博客搭建记</title>
-        <pubTime>2018-07-14T04:43:07.000Z</pubTime>
-        
-        <tag>Github-pages</tag>
-         
-        <tag>Hexo</tag>
-         
-        <tag>Next</tag>
-         
-        <tag>Web-design</tag>
-         
-         
-           
-             
-              <breadCrumb title="blog" url="https://imbowei.com/categories/blog/"/>
           
         </display>
     </data>
