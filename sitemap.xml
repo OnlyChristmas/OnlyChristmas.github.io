@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://imbowei.com/2018/07/14/Hexo_Next_%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0/</loc>
+    <loc>https://imbowei.com/2018/09/09/win10-software/</loc>
     
-    <lastmod>2018-10-09T13:09:30.672Z</lastmod>
+    <lastmod>2018-10-13T05:11:25.519Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://imbowei.com/2018/09/29/How-to-write-a-great-paper/</loc>
     
-    <lastmod>2018-09-30T01:45:12.719Z</lastmod>
+    <lastmod>2018-10-13T03:38:21.603Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://imbowei.com/2018/07/14/Hexo_Next_%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0/</loc>
+    
+    <lastmod>2018-10-09T13:09:30.672Z</lastmod>
     
   </url>
   
@@ -33,13 +40,6 @@
     <loc>https://imbowei.com/2018/09/17/Configuring-the-best-development-environment-with-pycharm-and-jupyter-notebook/</loc>
     
     <lastmod>2018-09-20T14:51:18.532Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://imbowei.com/2018/09/09/win10-software/</loc>
-    
-    <lastmod>2018-09-17T11:38:15.703Z</lastmod>
     
   </url>
   
@@ -79,13 +79,6 @@
   </url>
   
   <url>
-    <loc>https://imbowei.com/about/index.html</loc>
-    
-    <lastmod>2018-08-10T03:37:36.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://imbowei.com/categories/index.html</loc>
     
     <lastmod>2018-08-10T03:37:36.000Z</lastmod>
@@ -93,7 +86,7 @@
   </url>
   
   <url>
-    <loc>https://imbowei.com/top/index.html</loc>
+    <loc>https://imbowei.com/about/index.html</loc>
     
     <lastmod>2018-08-10T03:37:36.000Z</lastmod>
     
@@ -101,6 +94,13 @@
   
   <url>
     <loc>https://imbowei.com/tags/index.html</loc>
+    
+    <lastmod>2018-08-10T03:37:36.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://imbowei.com/top/index.html</loc>
     
     <lastmod>2018-08-10T03:37:36.000Z</lastmod>
     
