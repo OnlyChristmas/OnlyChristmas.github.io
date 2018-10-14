@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://imbowei.com/"/>
-  <updated>2018-10-13T03:38:21.603Z</updated>
+  <updated>2018-10-14T07:12:15.012Z</updated>
   <id>https://imbowei.com/</id>
   
   <author>
@@ -21,19 +21,11 @@
     <link href="https://imbowei.com/2018/09/29/How-to-write-a-great-paper/"/>
     <id>https://imbowei.com/2018/09/29/How-to-write-a-great-paper/</id>
     <published>2018-09-29T12:09:59.000Z</published>
-    <updated>2018-10-13T03:38:21.603Z</updated>
+    <updated>2018-10-14T07:12:15.012Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;p&gt;Since the last submission was rejected, I studied how to write English papers. The details are summarized as follows.&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2
-        
-      
+      &lt;p&gt;Since the last submission was rejected, I studied how to write English papers. The details are summarized as follows.&lt;/p&gt;
     
     </summary>
     
@@ -77,19 +69,11 @@
     <link href="https://imbowei.com/2018/09/09/win10-software/"/>
     <id>https://imbowei.com/2018/09/09/win10-software/</id>
     <published>2018-09-09T07:56:09.000Z</published>
-    <updated>2018-10-13T05:20:51.885Z</updated>
+    <updated>2018-10-14T03:14:14.169Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;p&gt;由于电脑系统最近崩溃两次，让我有了备份常用软件清单的想法。工欲善其事必先利其器，不断追求效率的提升是一件很幸福的事情。清单不定期更新。&lt;/p&gt;
-&lt;hr&gt;
-&lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;h2 id=&quot;楔子&quot;&gt;&lt;a
-        
-      
+      &lt;p&gt;由于电脑系统最近崩溃两次，让我有了备份常用软件清单的想法。工欲善其事必先利其器，不断追求效率的提升是一件很幸福的事情。清单不定期更新。&lt;/p&gt;
     
     </summary>
     
@@ -261,15 +245,42 @@
   </entry>
   
   <entry>
+    <title>linux 常用命令备忘</title>
+    <link href="https://imbowei.com/2018/07/20/Use-linux-well/"/>
+    <id>https://imbowei.com/2018/07/20/Use-linux-well/</id>
+    <published>2018-07-20T11:56:19.000Z</published>
+    <updated>2018-10-14T06:58:27.521Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;经常会有一些的Linux命令记不牢，持续整理更新，以便查找。&lt;/p&gt;
+&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;
+    
+    </summary>
+    
+      <category term="Liunx" scheme="https://imbowei.com/categories/Liunx/"/>
+    
+    
+      <category term="Linux" scheme="https://imbowei.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Hexo_Next_博客搭建记</title>
     <link href="https://imbowei.com/2018/07/14/Hexo_Next_%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0/"/>
     <id>https://imbowei.com/2018/07/14/Hexo_Next_博客搭建记/</id>
     <published>2018-07-14T04:43:07.000Z</published>
-    <updated>2018-10-09T13:09:30.672Z</updated>
+    <updated>2018-10-13T05:23:09.823Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;与我而言，建立个人博客存在的意义有两个。&lt;br&gt;一方面，当作自己的备忘录，记录零散的知识点，避免重复的搜索工作；&lt;br&gt;另一方面，可以更好的分享一些自己的心得，方便与大家交流。&lt;br&gt;选择&lt;code&gt;GitHub Hexo Next&lt;/code&gt;的组合的主要原因就是方便、便宜、简单，为从来没有接触过前端的自己降低难度。&lt;br&gt;为了能让博客漂亮一点，这几天来的折腾过程记录整理在此，以备遗忘。&lt;/p&gt;
+      
+      
+        
+        
+          &lt;p&gt;与我而言，建立个人博客存在的意义有两个。&lt;br&gt;一方面，当作自己的备忘录，记录零散的知识点，避免重复的搜索工作；&lt;br&gt;另一方面，可以更好的分享一些自己的心得，方便与大家交流。&lt;br&gt;选择&lt;code&gt;GitHub Hexo
+        
+      
     
     </summary>
     

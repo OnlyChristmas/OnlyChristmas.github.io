@@ -4,8 +4,53 @@
 
     
   <url>
+    <loc>https://imbowei.com/2018/09/29/How-to-write-a-great-paper/</loc>
+    <lastmod>2018-10-14T07:12:15.012Z</lastmod>
+    <data>
+        <display>
+        <title>如何写好学术论文？</title>
+        <pubTime>2018-09-29T12:09:59.000Z</pubTime>
+        
+        <tag>Write-a-paper</tag>
+         
+        <tag>Conference-papers</tag>
+         
+         
+           
+             
+              <breadCrumb title="Academic" url="https://imbowei.com/categories/Academic/"/>
+          
+             
+              <breadCrumb title="Writing" url="https://imbowei.com/categories/Academic/Writing/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://imbowei.com/2018/07/20/Use-linux-well/</loc>
+    <lastmod>2018-10-14T06:58:27.521Z</lastmod>
+    <data>
+        <display>
+        <title>linux 常用命令备忘</title>
+        <pubTime>2018-07-20T11:56:19.000Z</pubTime>
+        
+        <tag>Linux</tag>
+         
+         
+           
+             
+              <breadCrumb title="Liunx" url="https://imbowei.com/categories/Liunx/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://imbowei.com/2018/09/09/win10-software/</loc>
-    <lastmod>2018-10-13T05:20:51.885Z</lastmod>
+    <lastmod>2018-10-14T03:14:14.169Z</lastmod>
     <data>
         <display>
         <title>Win10平台下的常用软件</title>
@@ -35,33 +80,8 @@
 
     
   <url>
-    <loc>https://imbowei.com/2018/09/29/How-to-write-a-great-paper/</loc>
-    <lastmod>2018-10-13T03:38:21.603Z</lastmod>
-    <data>
-        <display>
-        <title>如何写好学术论文？</title>
-        <pubTime>2018-09-29T12:09:59.000Z</pubTime>
-        
-        <tag>Write-a-paper</tag>
-         
-        <tag>Conference-papers</tag>
-         
-         
-           
-             
-              <breadCrumb title="Academic" url="https://imbowei.com/categories/Academic/"/>
-          
-             
-              <breadCrumb title="Writing" url="https://imbowei.com/categories/Academic/Writing/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://imbowei.com/2018/07/14/Hexo_Next_%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0/</loc>
-    <lastmod>2018-10-09T13:09:30.672Z</lastmod>
+    <lastmod>2018-10-13T05:23:09.823Z</lastmod>
     <data>
         <display>
         <title>Hexo_Next_博客搭建记</title>
