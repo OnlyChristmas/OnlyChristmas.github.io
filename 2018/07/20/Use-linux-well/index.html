@@ -98,7 +98,7 @@
 <meta property="og:site_name" content="Cape of Good Hope">
 <meta property="og:description" content="经常会有一些的Linux命令记不牢，持续整理更新，以便查找。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-10-14T08:27:54.991Z">
+<meta property="og:updated_time" content="2018-10-14T08:49:49.664Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux 常用命令备忘">
 <meta name="twitter:description" content="经常会有一些的Linux命令记不牢，持续整理更新，以便查找。">
@@ -604,7 +604,7 @@ ga('send', 'pageview');
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-10-14T16:27:54+08:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2018-10-14T16:49:49+08:00">
                 2018-10-14
               </time>
             
@@ -675,7 +675,7 @@ ga('send', 'pageview');
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  1,509
+                  1,389
                 </span>
               
 
@@ -869,9 +869,8 @@ ga('send', 'pageview');
 <td style="text-align:center">查看某文件的后10行</td>
 </tr>
 <tr>
-<td style="text-align:center">`cat <em>file</em></td>
-<td style="text-align:center">head -n <em>N</em>`</td>
-<td>查看某文件的前<em>N</em>行</td>
+<td style="text-align:center"><code>cat *file* &amp;#124 head -n *N*</code></td>
+<td style="text-align:center">查看某文件的前<em>N</em>行</td>
 </tr>
 <tr>
 <td style="text-align:center">wc -l <em>file</em></td>
@@ -910,9 +909,8 @@ ga('send', 'pageview');
 <td style="text-align:center">显示当前所有进程</td>
 </tr>
 <tr>
-<td style="text-align:center">`ps -ef</td>
-<td style="text-align:center">gerp <em>python</em>`</td>
-<td>显示<em>python</em>相关的进程</td>
+<td style="text-align:center"><code>ps -ef &amp;#124 gerp *python*</code></td>
+<td style="text-align:center">显示<em>python</em>相关的进程</td>
 </tr>
 <tr>
 <td style="text-align:center">top</td>
@@ -989,13 +987,163 @@ ga('send', 'pageview');
 <td style="text-align:center">递归搜索<em>dir</em>中匹配<em>pattern</em>的内容</td>
 </tr>
 <tr>
-<td style="text-align:center"><figure class="highlight plain"><figcaption><span>| grep *pattern*``` | 搜索 *command* 输出中匹配 *pattern* 的内容 |</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 网络</span><br><span class="line"></span><br><span class="line">|    Command     |       Annotation       |</span><br><span class="line">| :------------: | :--------------------: |</span><br><span class="line">|  ping *host*   | 测试某*host*的网络连接 |</span><br><span class="line">|  wget *Link*   |    通过网络连接下载    |</span><br><span class="line">| wget -c *Link* |      断点续传下载      |</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 安装&amp;卸载</span><br><span class="line"></span><br><span class="line">|         Command          |              Annotation               |</span><br><span class="line">| :----------------------: | :-----------------------------------: |</span><br><span class="line">|       make install       |                                       |</span><br><span class="line">|  dpkg -i *software.deb*  |           安装包（Debian）            |</span><br><span class="line">| rpm --qpl *software.rpm* | 安装包 Red Hat Package Manager（RPM） |</span><br><span class="line">|       rpm-e *file*       |               卸载软件                |</span><br><span class="line">|     apt-get upgrade      |        更新所有已安装的软件包         |</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 压缩</span><br><span class="line"></span><br><span class="line">1. tar  只是归档，**不是压缩**</span><br><span class="line">   - 解包：tar xvf FileName.tar</span><br><span class="line">   - 打包：tar cvf FileName.tar DirName</span><br><span class="line">   -  (tar.gz和tgz只是两种不同的书写方式，后者是一种简化书写，等同处理)</span><br><span class="line"></span><br><span class="line">2. .gz</span><br><span class="line">   - 解压1：gunzip FileName.gz</span><br><span class="line">   - 解压2：gzip -d FileName.gz</span><br><span class="line">   - 压缩：gzip FileName</span><br><span class="line"></span><br><span class="line">3. .tar.gz 和 .tgz</span><br><span class="line">   - 解压：tar zxvf FileName.tar.gz</span><br><span class="line">   - 压缩：tar zcvf FileName.tar.gz DirName</span><br><span class="line">   - Linux下压缩比率较tgz大，即压缩后占用更小的空间，使得压缩包看起来更小。 但同时在压缩，解压的过程却是非常耗费CPU时间。</span><br><span class="line"></span><br><span class="line">4. .bz2</span><br><span class="line">   - 解压1：bzip2 -d FileName.bz2</span><br><span class="line">   - 解压2：bunzip2 FileName.bz2</span><br><span class="line">   - 压缩： bzip2 -z FileName</span><br><span class="line"></span><br><span class="line">5. .tar.bz2</span><br><span class="line">   - 解压：tar jxvf FileName.tar.bz2</span><br><span class="line">   - 压缩：tar jcvf FileName.tar.bz2 DirName</span><br><span class="line"></span><br><span class="line">6. zip 格式是开放且免费的，所以广泛使用在 Windows、Linux、MacOS 平台，要说 zip 有什么缺点的话，就是它的压缩率并不是很高，不如 rar及 tar.gz 等格式。</span><br><span class="line">   - 压缩：zip -r examples.zip examples (examples为目录)</span><br><span class="line">   - 解压：zip examples.zip</span><br><span class="line"></span><br><span class="line">&lt;div class=&quot;note info&quot;&gt;&lt;p&gt;Linux下对于占用空间与耗费时间的折衷 多选用tgz格式，不仅压缩率较高，而且打包、解压的时间都较为快速，是较为理想的选择。&lt;/p&gt;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 快捷键</span><br><span class="line"></span><br><span class="line">| Command  |         Annotation          |</span><br><span class="line">| :------: | :-------------------------: |</span><br><span class="line">| Ctrl + C |        终止当前命令         |</span><br><span class="line">| Ctrl + Z | 暂停当前命令，fg 可恢复运行 |</span><br><span class="line">| Ctrl + D |  注销当前对话（类似exit）   |</span><br><span class="line">| Ctrl + U |          删除整行           |</span><br><span class="line">| Ctrl + W |      删除当前行中的字       |</span><br><span class="line">|   ！！   |       重复上次的命令        |</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 其他操作</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#### python path</span><br><span class="line"></span><br><span class="line">- Linux 非root用户`pip install package` -–user 默认的安装路径。查看后发现默认安装路径在`/home/username/.local/bin/`</span><br><span class="line">- `whereis python` 查看python的安装路径</span><br><span class="line">- `ls /usr/bin/python*`  查看可用的python脚本 for non root user modify python</span><br><span class="line">- 将`alias python=&apos;/usr/bin/python3.4&apos;` 写入`vim ~/.bashrc`</span><br><span class="line">- `. ~/.bashrc` 重载bashrc 脚本或者重新登陆即可生效</span><br><span class="line">- `python --version`</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#### bypy</span><br></pre></td></tr></table></figure></td>
+<td style="text-align:center"><code>command &amp;#124 grep *pattern*</code></td>
+<td style="text-align:center">搜索 <em>command</em> 输出中匹配 <em>pattern</em> 的内容</td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>bypy list                 # 显示文档<br>bypy upload filename -v   # 上传某文件，显示进度<br>bypy -c                   # 取消令牌文件。一段时间后要重新授权<br>bypy downdir filename     # 下载<br>bypy compare              # 比较本地目录和网盘目录</p>
-<p>```</p>
+<h3 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Command</th>
+<th style="text-align:center">Annotation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">ping <em>host</em></td>
+<td style="text-align:center">测试某<em>host</em>的网络连接</td>
+</tr>
+<tr>
+<td style="text-align:center">wget <em>Link</em></td>
+<td style="text-align:center">通过网络连接下载</td>
+</tr>
+<tr>
+<td style="text-align:center">wget -c <em>Link</em></td>
+<td style="text-align:center">断点续传下载</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="安装-amp-卸载"><a href="#安装-amp-卸载" class="headerlink" title="安装&amp;卸载"></a>安装&amp;卸载</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Command</th>
+<th style="text-align:center">Annotation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">make install</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">dpkg -i <em>software.deb</em></td>
+<td style="text-align:center">安装包（Debian）</td>
+</tr>
+<tr>
+<td style="text-align:center">rpm —qpl <em>software.rpm</em></td>
+<td style="text-align:center">安装包 Red Hat Package Manager（RPM）</td>
+</tr>
+<tr>
+<td style="text-align:center">rpm-e <em>file</em></td>
+<td style="text-align:center">卸载软件</td>
+</tr>
+<tr>
+<td style="text-align:center">apt-get upgrade</td>
+<td style="text-align:center">更新所有已安装的软件包</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="压缩"><a href="#压缩" class="headerlink" title="压缩"></a>压缩</h3><ol>
+<li><p>tar  只是归档，<strong>不是压缩</strong></p>
+<ul>
+<li>解包：tar xvf FileName.tar</li>
+<li>打包：tar cvf FileName.tar DirName</li>
+<li>(tar.gz和tgz只是两种不同的书写方式，后者是一种简化书写，等同处理)</li>
+</ul>
+</li>
+<li><p>.gz</p>
+<ul>
+<li>解压1：gunzip FileName.gz</li>
+<li>解压2：gzip -d FileName.gz</li>
+<li>压缩：gzip FileName</li>
+</ul>
+</li>
+<li><p>.tar.gz 和 .tgz</p>
+<ul>
+<li>解压：tar zxvf FileName.tar.gz</li>
+<li>压缩：tar zcvf FileName.tar.gz DirName</li>
+<li>Linux下压缩比率较tgz大，即压缩后占用更小的空间，使得压缩包看起来更小。 但同时在压缩，解压的过程却是非常耗费CPU时间。</li>
+</ul>
+</li>
+<li><p>.bz2</p>
+<ul>
+<li>解压1：bzip2 -d FileName.bz2</li>
+<li>解压2：bunzip2 FileName.bz2</li>
+<li>压缩： bzip2 -z FileName</li>
+</ul>
+</li>
+<li><p>.tar.bz2</p>
+<ul>
+<li>解压：tar jxvf FileName.tar.bz2</li>
+<li>压缩：tar jcvf FileName.tar.bz2 DirName</li>
+</ul>
+</li>
+<li><p>zip 格式是开放且免费的，所以广泛使用在 Windows、Linux、MacOS 平台，要说 zip 有什么缺点的话，就是它的压缩率并不是很高，不如 rar及 tar.gz 等格式。</p>
+<ul>
+<li>压缩：zip -r examples.zip examples (examples为目录)</li>
+<li>解压：zip examples.zip</li>
+</ul>
+</li>
+</ol>
+<div class="note info"><p>Linux下对于占用空间与耗费时间的折衷 多选用tgz格式，不仅压缩率较高，而且打包、解压的时间都较为快速，是较为理想的选择。</p></div>
+
+
+
+
+
+
+
+<h3 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Command</th>
+<th style="text-align:center">Annotation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Ctrl + C</td>
+<td style="text-align:center">终止当前命令</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + Z</td>
+<td style="text-align:center">暂停当前命令，fg 可恢复运行</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + D</td>
+<td style="text-align:center">注销当前对话（类似exit）</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + U</td>
+<td style="text-align:center">删除整行</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + W</td>
+<td style="text-align:center">删除当前行中的字</td>
+</tr>
+<tr>
+<td style="text-align:center">！！</td>
+<td style="text-align:center">重复上次的命令</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="其他操作"><a href="#其他操作" class="headerlink" title="其他操作"></a>其他操作</h3><h4 id="python-path"><a href="#python-path" class="headerlink" title="python path"></a>python path</h4><ul>
+<li>Linux 非root用户<code>pip install package</code> -–user 默认的安装路径。查看后发现默认安装路径在<code>/home/username/.local/bin/</code></li>
+<li><code>whereis python</code> 查看python的安装路径</li>
+<li><code>ls /usr/bin/python*</code>  查看可用的python脚本 for non root user modify python</li>
+<li>将<code>alias python=&#39;/usr/bin/python3.4&#39;</code> 写入<code>vim ~/.bashrc</code></li>
+<li><code>. ~/.bashrc</code> 重载bashrc 脚本或者重新登陆即可生效</li>
+<li><code>python --version</code></li>
+</ul>
+<h4 id="bypy"><a href="#bypy" class="headerlink" title="bypy"></a>bypy</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">bypy list                 # 显示文档</span><br><span class="line">bypy upload filename -v   # 上传某文件，显示进度</span><br><span class="line">bypy -c                   # 取消令牌文件。一段时间后要重新授权</span><br><span class="line">bypy downdir filename     # 下载</span><br><span class="line">bypy compare              # 比较本地目录和网盘目录</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -1306,7 +1454,7 @@ ga('send', 'pageview');
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#系统信息"><span class="nav-number">1.</span> <span class="nav-text">系统信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件命令"><span class="nav-number">2.</span> <span class="nav-text">文件命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程管理"><span class="nav-number">3.</span> <span class="nav-text">进程管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件权限"><span class="nav-number">4.</span> <span class="nav-text">文件权限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SSH"><span class="nav-number">5.</span> <span class="nav-text">SSH</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#scp"><span class="nav-number">5.1.</span> <span class="nav-text">scp</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搜索"><span class="nav-number">6.</span> <span class="nav-text">搜索</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#系统信息"><span class="nav-number">1.</span> <span class="nav-text">系统信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件命令"><span class="nav-number">2.</span> <span class="nav-text">文件命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程管理"><span class="nav-number">3.</span> <span class="nav-text">进程管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件权限"><span class="nav-number">4.</span> <span class="nav-text">文件权限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SSH"><span class="nav-number">5.</span> <span class="nav-text">SSH</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#scp"><span class="nav-number">5.1.</span> <span class="nav-text">scp</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搜索"><span class="nav-number">6.</span> <span class="nav-text">搜索</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络"><span class="nav-number">7.</span> <span class="nav-text">网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-amp-卸载"><span class="nav-number">8.</span> <span class="nav-text">安装&amp;卸载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#压缩"><span class="nav-number">9.</span> <span class="nav-text">压缩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#快捷键"><span class="nav-number">10.</span> <span class="nav-text">快捷键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他操作"><span class="nav-number">11.</span> <span class="nav-text">其他操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#python-path"><span class="nav-number">11.1.</span> <span class="nav-text">python path</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bypy"><span class="nav-number">11.2.</span> <span class="nav-text">bypy</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1344,7 +1492,7 @@ ga('send', 'pageview');
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">32.6k</span>
+    <span title="Site words total count">32.5k</span>
   
 </div>
 
