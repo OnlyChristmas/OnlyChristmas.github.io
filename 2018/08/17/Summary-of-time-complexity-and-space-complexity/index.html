@@ -100,7 +100,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://pc1z7pynx.bkt.clouddn.com/markdown-img-paste-20180822161350179.png">
 <meta property="og:image" content="http://pc1z7pynx.bkt.clouddn.com/markdown-img-paste-20180822181641573.png">
-<meta property="og:updated_time" content="2018-09-05T14:33:22.963Z">
+<meta property="og:updated_time" content="2018-10-20T11:30:24.665Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法的时间复杂度和空间复杂度">
 <meta name="twitter:description" content="趁假期复习了算法基础的时间复杂度和空间复杂度，整理一遍。">
@@ -607,8 +607,8 @@ ga('send', 'pageview');
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-09-05T22:33:22+08:00">
-                2018-09-05
+              <time title="Post modified" itemprop="dateModified" datetime="2018-10-20T19:30:24+08:00">
+                2018-10-20
               </time>
             
           </span>
@@ -678,7 +678,7 @@ ga('send', 'pageview');
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  2,965
+                  3,046
                 </span>
               
 
@@ -726,13 +726,20 @@ ga('send', 'pageview');
 <p>为了简便，我们一般在计算时间复杂度往往选取最简单的f(n)表示。例如：$O(2n^2+n+1) = O (3n^2+n+3) = O(7n^2+n) = O(n_2)$ ，一般都只用$O(n_2)$表示就可以了。<br>也就是说，两个算法的时间频度不一样，但很有可能拥有相同的时间复杂度。<br>例如：$T(n)=n^2+3n+4$ 与 $T(n)=4n^2+2n+1$它们的频度不同，但时间复杂度相同，都为$O(n^2)$。</p>
 <p>常见的算法时间复杂度由小到大依次为：<br><span id="inline-green"> $O(1)&lt;O(log_2(n))&lt;O(n)&lt;O(nlog_2(n))&lt;O(n^2)&lt;O(n^3)&lt;…&lt;O(n!)$ </span><br>下面的图片直观的表示他们之间复杂度关系。</p>
 <p><img src="http://pc1z7pynx.bkt.clouddn.com/markdown-img-paste-20180822161350179.png" alt="常见的算法时间复杂度图示"></p>
-<h5 id="时间复杂度的分类"><a href="#时间复杂度的分类" class="headerlink" title="时间复杂度的分类"></a>时间复杂度的分类</h5><ul>
+<h6 id="事前估计主要影响因素"><a href="#事前估计主要影响因素" class="headerlink" title="事前估计主要影响因素"></a>事前估计主要影响因素</h6><ol>
+<li>依据算法选用何种策略</li>
+<li>问题的规模</li>
+<li>书写语言的程序（语言的级别越高，执行效率就越低）</li>
+<li>编写程序所产生的机器代码的质量</li>
+<li>机器执行指令的速度</li>
+</ol>
+<h6 id="时间复杂度的分类"><a href="#时间复杂度的分类" class="headerlink" title="时间复杂度的分类"></a>时间复杂度的分类</h6><ul>
 <li>最坏时间复杂度：输入数据状态最不理想情况下的时间复杂度，也就是算法时间复杂度的上界。若没有特别声明，时间复杂度就是指最坏时间复杂度。</li>
 <li>平均时间复杂度：在所有可能的输入实例均以等概率出现的情况下，算法的期望时间复杂度。</li>
 <li>最好时间复杂度：输入数据状态最理想情况下的时间复杂度。</li>
 </ul>
 <h5 id="时间复杂度预估步骤"><a href="#时间复杂度预估步骤" class="headerlink" title="时间复杂度预估步骤"></a>时间复杂度预估步骤</h5><ol>
-<li>找出基本语句：算法中执行次数最多的那条语句就是基本语句，通常是最内层循环的循环体。</li>
+<li>找出基本语句：算法中执行次数最多的那条语句就是基本语句，通常是最内层循环的循环体，被称作<strong>原操作</strong>。</li>
 <li>计算基本语句的执行次数的数量级：只需计算基本语句执行次数的数量级，这就意味着只要保证基本语句执行次数的函数中的最高次幂正确即可，可以忽略所有低次幂和最高次幂的系数。这样能够简化算法分析，并且使注意力集中在最重要的一点上：<strong>增长率</strong>。</li>
 <li>用O()表示算法的时间性能：将基本语句执行次数的数量级放入O()中。</li>
 </ol>
@@ -1112,7 +1119,7 @@ ga('send', 'pageview');
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法的有效性"><span class="nav-number">1.</span> <span class="nav-text">算法的有效性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#时间复杂度"><span class="nav-number">1.1.</span> <span class="nav-text">时间复杂度</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#事后统计"><span class="nav-number">1.1.1.</span> <span class="nav-text">事后统计</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事前分析"><span class="nav-number">1.1.2.</span> <span class="nav-text">事前分析</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#时间复杂度的分类"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">时间复杂度的分类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#时间复杂度预估步骤"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">时间复杂度预估步骤</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#时间复杂度分析技巧"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">时间复杂度分析技巧</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#实际演练"><span class="nav-number">1.1.2.4.</span> <span class="nav-text">实际演练</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#空间复杂度"><span class="nav-number">1.2.</span> <span class="nav-text">空间复杂度</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入输出"><span class="nav-number">1.2.1.</span> <span class="nav-text">输入输出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#算法本身"><span class="nav-number">1.2.2.</span> <span class="nav-text">算法本身</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运行临时占用"><span class="nav-number">1.2.3.</span> <span class="nav-text">运行临时占用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#实际例子"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">实际例子</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#排序算法分析"><span class="nav-number">1.3.</span> <span class="nav-text">排序算法分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文献"><span class="nav-number">2.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法的有效性"><span class="nav-number">1.</span> <span class="nav-text">算法的有效性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#时间复杂度"><span class="nav-number">1.1.</span> <span class="nav-text">时间复杂度</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#事后统计"><span class="nav-number">1.1.1.</span> <span class="nav-text">事后统计</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事前分析"><span class="nav-number">1.1.2.</span> <span class="nav-text">事前分析</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#事前估计主要影响因素"><span class="nav-number">1.1.2.0.1.</span> <span class="nav-text">事前估计主要影响因素</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#时间复杂度的分类"><span class="nav-number">1.1.2.0.2.</span> <span class="nav-text">时间复杂度的分类</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#时间复杂度预估步骤"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">时间复杂度预估步骤</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#时间复杂度分析技巧"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">时间复杂度分析技巧</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#实际演练"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">实际演练</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#空间复杂度"><span class="nav-number">1.2.</span> <span class="nav-text">空间复杂度</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入输出"><span class="nav-number">1.2.1.</span> <span class="nav-text">输入输出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#算法本身"><span class="nav-number">1.2.2.</span> <span class="nav-text">算法本身</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运行临时占用"><span class="nav-number">1.2.3.</span> <span class="nav-text">运行临时占用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#实际例子"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">实际例子</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#排序算法分析"><span class="nav-number">1.3.</span> <span class="nav-text">排序算法分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文献"><span class="nav-number">2.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
             
 
           </div>
@@ -1150,7 +1157,7 @@ ga('send', 'pageview');
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">32.5k</span>
+    <span title="Site words total count">32.7k</span>
   
 </div>
 
