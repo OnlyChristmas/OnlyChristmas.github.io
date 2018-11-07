@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://imbowei.com/"/>
-  <updated>2018-10-14T07:12:15.012Z</updated>
+  <updated>2018-11-07T07:54:45.398Z</updated>
   <id>https://imbowei.com/</id>
   
   <author>
@@ -15,6 +15,48 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>BERT：From Transformer Architecture to Transfer Learning</title>
+    <link href="https://imbowei.com/2018/10/27/From-transformer-architecture-to-transfer-learning/"/>
+    <id>https://imbowei.com/2018/10/27/From-transformer-architecture-to-transfer-learning/</id>
+    <published>2018-10-27T12:07:40.000Z</published>
+    <updated>2018-11-07T07:54:45.398Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;半个月前BERT横空出世，在数十个数据集上屠榜，一时风头无两。外加国内一些科技自媒体的“UC式”标题推波助澜，也给这篇文章博得了更多的关注。为了更好的理解BERT，我们需要先理解Attention和Transformer结构。然后可以集中精力从Transfer Learning的角度来比较ELMo，GPT，BERT这三篇文章的优劣异同。 最后，&lt;a href=&quot;sss&quot;&gt;配套的Pre资料在这里&lt;/a&gt;。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Deep-learning" scheme="https://imbowei.com/categories/Deep-learning/"/>
+    
+      <category term="Transformer" scheme="https://imbowei.com/categories/Deep-learning/Transformer/"/>
+    
+    
+      <category term="Deep-learning" scheme="https://imbowei.com/tags/Deep-learning/"/>
+    
+      <category term="Transformer" scheme="https://imbowei.com/tags/Transformer/"/>
+    
+      <category term="Attention" scheme="https://imbowei.com/tags/Attention/"/>
+    
+      <category term="Transfer-learning" scheme="https://imbowei.com/tags/Transfer-learning/"/>
+    
+      <category term="BERT" scheme="https://imbowei.com/tags/BERT/"/>
+    
+      <category term="GNMT" scheme="https://imbowei.com/tags/GNMT/"/>
+    
+      <category term="Self-attention" scheme="https://imbowei.com/tags/Self-attention/"/>
+    
+      <category term="Multi-head-attention" scheme="https://imbowei.com/tags/Multi-head-attention/"/>
+    
+      <category term="Positional-encoding" scheme="https://imbowei.com/tags/Positional-encoding/"/>
+    
+      <category term="ELMo" scheme="https://imbowei.com/tags/ELMo/"/>
+    
+      <category term="Semi-supervised-learning" scheme="https://imbowei.com/tags/Semi-supervised-learning/"/>
+    
+  </entry>
   
   <entry>
     <title>如何写好学术论文？</title>
@@ -269,7 +311,7 @@
     <link href="https://imbowei.com/2018/07/14/Hexo_Next_%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0/"/>
     <id>https://imbowei.com/2018/07/14/Hexo_Next_博客搭建记/</id>
     <published>2018-07-14T04:43:07.000Z</published>
-    <updated>2018-10-28T12:34:31.281Z</updated>
+    <updated>2018-11-05T08:51:53.788Z</updated>
     
     <summary type="html">
     
