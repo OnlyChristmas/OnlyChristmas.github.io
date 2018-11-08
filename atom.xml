@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://imbowei.com/"/>
-  <updated>2018-11-08T10:32:43.677Z</updated>
+  <updated>2018-11-08T10:49:08.144Z</updated>
   <id>https://imbowei.com/</id>
   
   <author>
@@ -21,11 +21,11 @@
     <link href="https://imbowei.com/2018/10/27/From-transformer-architecture-to-transfer-learning/"/>
     <id>https://imbowei.com/2018/10/27/From-transformer-architecture-to-transfer-learning/</id>
     <published>2018-10-27T12:07:40.000Z</published>
-    <updated>2018-11-08T10:32:43.677Z</updated>
+    <updated>2018-11-08T10:49:08.144Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;半个月前BERT横空出世，在数十个数据集上屠榜，一时风头无两。外加国内一些科技自媒体的“UC式”标题推波助澜，也给这篇文章博得了更多的关注。为了更好的理解BERT，我们需要先理解Attention和Transformer结构。然后可以集中精力从Transfer Learning的角度来比较ELMo，GPT，BERT这三篇文章的优劣异同。 最后，&lt;a href=&quot;sss&quot;&gt;配套的Pre资料在这里&lt;/a&gt;。&lt;/p&gt;
+      &lt;p&gt;半个月前BERT横空出世，在数十个数据集上屠榜，一时风头无两。外加国内一些科技自媒体的“UC式”标题推波助澜，也给这篇文章博得了更多的关注。为了更好的理解BERT，我们需要先理解Attention和Transformer结构。然后可以集中精力从Transfer Learning的角度来比较ELMo，GPT，BERT这三篇文章的优劣异同。 &lt;/p&gt;
     
     </summary>
     
