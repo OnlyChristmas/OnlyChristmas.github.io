@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://imbowei.com/"/>
-  <updated>2018-11-07T07:54:45.398Z</updated>
+  <updated>2018-11-08T09:07:33.742Z</updated>
   <id>https://imbowei.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://imbowei.com/2018/10/27/From-transformer-architecture-to-transfer-learning/"/>
     <id>https://imbowei.com/2018/10/27/From-transformer-architecture-to-transfer-learning/</id>
     <published>2018-10-27T12:07:40.000Z</published>
-    <updated>2018-11-07T07:54:45.398Z</updated>
+    <updated>2018-11-08T09:07:33.742Z</updated>
     
     <summary type="html">
     
@@ -31,7 +31,7 @@
     
       <category term="Deep-learning" scheme="https://imbowei.com/categories/Deep-learning/"/>
     
-      <category term="Transformer" scheme="https://imbowei.com/categories/Deep-learning/Transformer/"/>
+      <category term="Pre-training" scheme="https://imbowei.com/categories/Deep-learning/Pre-training/"/>
     
     
       <category term="Deep-learning" scheme="https://imbowei.com/tags/Deep-learning/"/>
@@ -55,6 +55,8 @@
       <category term="ELMo" scheme="https://imbowei.com/tags/ELMo/"/>
     
       <category term="Semi-supervised-learning" scheme="https://imbowei.com/tags/Semi-supervised-learning/"/>
+    
+      <category term="Pre-training" scheme="https://imbowei.com/tags/Pre-training/"/>
     
   </entry>
   
