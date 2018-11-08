@@ -112,7 +112,7 @@
 <meta property="og:image" content="https://i.loli.net/2018/11/06/5be197e531ba6.png">
 <meta property="og:image" content="https://i.loli.net/2018/11/07/5be2ed16e4dcd.png">
 <meta property="og:image" content="https://i.loli.net/2018/11/08/5be39de16d099.png">
-<meta property="og:updated_time" content="2018-11-08T09:07:33.742Z">
+<meta property="og:updated_time" content="2018-11-08T10:32:43.677Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BERT：From Transformer Architecture to Transfer Learning">
 <meta name="twitter:description" content="半个月前BERT横空出世，在数十个数据集上屠榜，一时风头无两。外加国内一些科技自媒体的“UC式”标题推波助澜，也给这篇文章博得了更多的关注。为了更好的理解BERT，我们需要先理解Attention和Transformer结构。然后可以集中精力从Transfer Learning的角度来比较ELMo，GPT，BERT这三篇文章的优劣异同。 最后，配套的Pre资料在这里。">
@@ -619,7 +619,7 @@ ga('send', 'pageview');
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-11-08T17:07:33+08:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2018-11-08T18:32:43+08:00">
                 2018-11-08
               </time>
             
@@ -729,7 +729,8 @@ ga('send', 'pageview');
         <p>半个月前BERT横空出世，在数十个数据集上屠榜，一时风头无两。外加国内一些科技自媒体的“UC式”标题推波助澜，也给这篇文章博得了更多的关注。为了更好的理解BERT，我们需要先理解Attention和Transformer结构。然后可以集中精力从Transfer Learning的角度来比较ELMo，GPT，BERT这三篇文章的优劣异同。 最后，<a href="sss">配套的Pre资料在这里</a>。</p>
 <a id="more"></a>
 <hr>
-<h2 id="Attention"><a href="#Attention" class="headerlink" title="Attention"></a>Attention</h2><p>什么是注意力机制？可以想象这样一个画面，当电视机上有非常吸引我们的画面时，我们的视野之中除了电视画面，眼中所看到的屋子中的其他部分仿佛都变得模糊了。甚至妈妈在你的面前从一侧穿行到另外一侧，你都毫无察觉。</p>
+<blockquote class="blockquote-center"><h2 id="Attention"><a href="#Attention" class="headerlink" title="Attention"></a>Attention</h2></blockquote>
+<p>什么是注意力机制？可以想象这样一个画面，当电视机上有非常吸引我们的画面时，我们的视野之中除了电视画面，眼中所看到的屋子中的其他部分仿佛都变得模糊了。甚至妈妈在你的面前从一侧穿行到另外一侧，你都毫无察觉。</p>
 <p>有所关注，有所忽略——这便是注意力机制。</p>
 <p>从生物进化的角度上来讲，这是十分合理的“节能减排”，我们的大脑将资源集中分到了我们最关心的事物上面，让我们免受其他事务的干扰。</p>
 <p>Attention机制最早应用于<a href="http://papers.nips.cc/paper/5542-recurrent-models-of-visual-attention.pdf" target="_blank" rel="noopener">视觉领域的分类问题</a>，而为了更好的取得词向量表达， <a href="https://arxiv.org/pdf/1406.1078.pdf" target="_blank" rel="noopener">Bengio</a> 在2014年引入了Attention机制，这极大的提升了NMT方法的性能。尽管仍存在训练时间长，OOV，可解释性差等问题，但某些性能指标上已经媲美SMT系统，并大大减少了形态学和句法错误，提升了翻译的流畅性。这篇论文也直接影响Google在2016年用GNMT系统替换掉了上线十年之久的PBMT系统，不仅将Attention机制推到闪耀的聚光灯之下，也彻底将SMT方法推下了机器翻译的神坛，开启了NMT方法狂飙的时代。</p>
@@ -771,7 +772,8 @@ ga('send', 'pageview');
 
 <p>经过上述Attention结构上的剖析，我们再次来总结什么是 Attention 机制？</p>
 <p>在我看来，Attention 其实就是一种用在Seq2seq构架上的加权词对其模型。起名为注意力机制，一方面是为了可以从大众容易理解的方式更好的解释模型设计的合理性；另一方面，我认为也是为了更容易完成学术投稿吧。Just a writing trick！</p>
-<h2 id="Transformer"><a href="#Transformer" class="headerlink" title="Transformer"></a>Transformer</h2><p>在GNMT掀起神经网络机器翻译的热潮之后，Amazon、Microsoft、Facebook、百度、网易有道、腾讯 、搜狗、讯飞、阿里巴巴等公司都迅速跟进。其中Facebook以CNN为基础的NMT模型不但效果超过了Google的GNMT，而且在训练速度上也比前者大幅提升九倍。</p>
+<blockquote class="blockquote-center"><h2 id="Transformer"><a href="#Transformer" class="headerlink" title="Transformer"></a>Transformer</h2></blockquote>
+<p>在GNMT掀起神经网络机器翻译的热潮之后，Amazon、Microsoft、Facebook、百度、网易有道、腾讯 、搜狗、讯飞、阿里巴巴等公司都迅速跟进。其中Facebook以CNN为基础的NMT模型不但效果超过了Google的GNMT，而且在训练速度上也比前者大幅提升九倍。</p>
 <p><img src="https://i.loli.net/2018/11/05/5be0216d8c44d.png" alt="2017年NMT模型效果对比"></p>
 <p>Google可不能容忍这个风头被抢，作为回应，2017.06谷歌发布了一个完全以注意力机制为基础的NMT模型，也就是我们常说的Transformer。整体构架如下所示，观察模型结构，正如作者所说，Attention is all you need。</p>
 <p><img src="https://i.loli.net/2018/11/05/5be0262cb117e.png" alt="Transformer Architecture"></p>
@@ -800,15 +802,19 @@ where\ head_i = Attention(QW_i^Q,KW_i^K,VW_i^V)</script><p>最后我们来观察
 </ol>
 <p>尽管作者的writing trick让人有些许反感，但这并不失为一篇好论文。</p>
 <ul>
-<li>首先，模型构架大道至简。感概Google工程师扎实的炼丹功底，如此简单的方法都可调出STOA。<ul>
+<li><p>首先，模型构架大道至简。感概Google工程师扎实的炼丹功底，如此简单的方法都可调出STOA。</p>
+<ul>
 <li>Attention 并不简简单单可以完成“词对齐”工作，而且可以完成序列到序列的转换。</li>
 </ul>
 </li>
-<li>其次，写作清晰，整篇论文读起来很清爽，没有故弄玄虚的堆砌公式。（可惜没有Ablation Test，不能确定Transformer构架各个部分的作用效果）</li>
-<li>最后，运用些许的写作技巧来提升自己工作的影响力这本无可厚非（这个名字确实太吸引人去阅读他们的论文了）。也是我需要尽快提高的地方。。</li>
+<li><p>其次，写作清晰，整篇论文读起来很清爽，没有故弄玄虚的堆砌公式。（可惜没有Ablation Test，不能确定Transformer构架各个部分的作用效果）</p>
+</li>
+<li><p>最后，运用些许的写作技巧来提升自己工作的影响力这本无可厚非（这个名字确实太吸引人去阅读他们的论文了）。也是我需要尽快提高的地方。。</p>
+</li>
 </ul>
-<h2 id="Transfer"><a href="#Transfer" class="headerlink" title="Transfer"></a>Transfer</h2><p>源于Google扎实的工作（夸张的论文名字），Transformer 坐上了NMT模型的王座，更是在NLP领域一时风头无两，在众多任务上都取得了很好的表现。当其应用到迁移学习领域的时候，就创造出了现在Google另一个红透半边天的工作——BERT。</p>
-<h3 id="ELMo"><a href="#ELMo" class="headerlink" title="ELMo"></a>ELMo</h3><p>2018初的NAACL上，AllenNLP祭出了大杀器ELMo。而Google将自身的 Transformer 构架用在迁移学习领域，相信少不了收到了这篇 <a href="https://arxiv.org/abs/1802.05365" target="_blank" rel="noopener">Deep contextualized word representations</a> 文章的启发。</p>
+<blockquote class="blockquote-center"><h2 id="Transfer"><a href="#Transfer" class="headerlink" title="Transfer"></a>Transfer</h2></blockquote>
+<p>源于Google扎实的工作（夸张的论文名字），Transformer 坐上了NMT模型的王座，更是在NLP领域一时风头无两，在众多任务上都取得了很好的表现。当其应用到迁移学习领域的时候，就创造出了现在Google另一个红透半边天的工作——BERT。</p>
+<h3 id="ELMo"><a href="#ELMo" class="headerlink" title="ELMo"></a>ELMo</h3><p>2018初的NAACL上，AllenNLP祭出了大杀器ELMo。而Google将自身的 Transformer 构架用在迁移学习领域，相信少不了受到了这篇 <a href="https://arxiv.org/abs/1802.05365" target="_blank" rel="noopener">Deep contextualized word representations</a> 文章的启发。</p>
 <p>在EMLo出现之前，不论时研究者习惯性地用word2vec去初始化，还是尝试性的用CNN、RNN等网络结构探索字符级别的文本向量。然而，无论再怎么折腾，怎么细化挖掘信息的级别。都有共同的一点，Embedding没有考虑到<span id="inline-blue">语境中的上下文信息</span> ，总是一成不变的，没有表征一词多义的能力。而EMLo拿出了极具说服力的表现告诉大家，是时候该放弃古老的word2vec了。。。</p>
 <p>这篇论文有以下几个关键点：</p>
 <ul>
@@ -848,9 +854,8 @@ where\ head_i = Attention(QW_i^Q,KW_i^K,VW_i^V)</script><p>最后我们来观察
 <h5 id="More-Data"><a href="#More-Data" class="headerlink" title="More Data"></a>More Data</h5><p>相比于GPT模型5GB、800M words 的训练数据，BERT更是用了惊人的3,200M words的训练数据。联想到GPT论文中提到，如果有更多的训练语料，该模型的效果还会进一步提升。我觉得在BERT论文中应该有一个关于Data size的Ablation study，然而令我失望的是我并没有找到。</p>
 <div class="note danger no-icon"><p>在BERT巨大的提升背后，我想知道模型上的创新和训练数据数量上的增加，谁贡献更大一点呢？Jocab似乎避而不谈。</p></div>
 
-
-
-<h2 id="Conclusion-1"><a href="#Conclusion-1" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>总的来说，Jocab凭借着高超的工程技能，海量的训练数据，以及强大的算力，完成了一篇里程碑级别论文。它的出现在NLP社区产生了重要的影响，并在以下的几方面给我们带来了许多的惊喜和思考：</p>
+<blockquote class="blockquote-center"><h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2></blockquote>
+<p>总的来说，Jocab凭借着高超的工程技能，海量的训练数据，以及强大的算力，完成了一篇里程碑级别论文。它的出现在NLP社区产生了重要的影响，并在以下的几方面给我们带来了许多的惊喜和思考：</p>
 <ul>
 <li>深度、双向的transformer构架具有强大的数据表示能力以及良好的稳定性；</li>
 <li>Jointly Pre-Train 对于训练的帮助；</li>
@@ -858,7 +863,8 @@ where\ head_i = Attention(QW_i^Q,KW_i^K,VW_i^V)</script><p>最后我们来观察
 <li>One for All：手握大量资源的公司越来越倾向于发布一个简单粗暴的通用模型去解决一众问题，科研院校该何去何从？</li>
 <li>Few-shot Learning：大数据的学习模式真的是机器学习的归宿吗？科研院校是否该从其他角度发力，来探索ML的未来？</li>
 </ul>
-<h2 id="Refernece"><a href="#Refernece" class="headerlink" title="Refernece"></a>Refernece</h2><ul>
+<blockquote class="blockquote-center"><h2 id="Refernece"><a href="#Refernece" class="headerlink" title="Refernece"></a>Refernece</h2></blockquote>
+<ul>
 <li><a href="http://delivery.acm.org/10.1145/980000/972474/p263-brown.pdf?ip=115.27.204.47&amp;id=972474&amp;acc=OPEN&amp;key=BF85BBA5741FDC6E%2EAC95BC9DA5A3FA7E%2E4D4702B0C3E38B35%2E6D218144511F3437&amp;__acm__=1541382525_61f1fb6c7dbdb82f34516a5c0f6c8545" target="_blank" rel="noopener">The Mathematics of Statistical Machine Translation: Parameter Estimation</a></li>
 <li><a href="http://www.aclweb.org/anthology/D13-1176" target="_blank" rel="noopener">Recurrent Continuous Translation Models</a></li>
 <li><a href="http://papers.nips.cc/paper/5346-sequence-to-sequence-learning-with-neural-networks.pdf" target="_blank" rel="noopener">Sequence to sequence learning with neural networks</a></li>
@@ -1211,7 +1217,7 @@ where\ head_i = Attention(QW_i^Q,KW_i^K,VW_i^V)</script><p>最后我们来观察
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Attention"><span class="nav-number">1.</span> <span class="nav-text">Attention</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Attention-Mechanism"><span class="nav-number">1.1.</span> <span class="nav-text">Attention Mechanism</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Seq2seq"><span class="nav-number">1.1.1.</span> <span class="nav-text">Seq2seq</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Seq2seq-Attention"><span class="nav-number">1.1.2.</span> <span class="nav-text">Seq2seq+Attention</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Transformer"><span class="nav-number">2.</span> <span class="nav-text">Transformer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Self-Attention"><span class="nav-number">2.1.</span> <span class="nav-text">Self-Attention</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Position-Embedding"><span class="nav-number">2.2.</span> <span class="nav-text">Position Embedding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Multi-Head-Attention"><span class="nav-number">2.3.</span> <span class="nav-text">Multi-Head Attention</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Conclusion"><span class="nav-number">2.4.</span> <span class="nav-text">Conclusion</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Transfer"><span class="nav-number">3.</span> <span class="nav-text">Transfer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ELMo"><span class="nav-number">3.1.</span> <span class="nav-text">ELMo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GPT"><span class="nav-number">3.2.</span> <span class="nav-text">GPT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BERT"><span class="nav-number">3.3.</span> <span class="nav-text">BERT</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Deep-model"><span class="nav-number">3.3.1.</span> <span class="nav-text">Deep model</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Masked-LM"><span class="nav-number">3.3.2.</span> <span class="nav-text">Masked LM</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Jointly-Pre-Train"><span class="nav-number">3.3.3.</span> <span class="nav-text">Jointly Pre-Train</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Others"><span class="nav-number">3.3.4.</span> <span class="nav-text">Others</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Position-Embedding-1"><span class="nav-number">3.3.4.1.</span> <span class="nav-text">Position Embedding</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#feature-based？"><span class="nav-number">3.3.4.2.</span> <span class="nav-text">feature-based？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#More-Data"><span class="nav-number">3.3.4.3.</span> <span class="nav-text">More Data</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusion-1"><span class="nav-number">4.</span> <span class="nav-text">Conclusion</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Refernece"><span class="nav-number">5.</span> <span class="nav-text">Refernece</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Attention"><span class="nav-number">1.</span> <span class="nav-text">Attention</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Attention-Mechanism"><span class="nav-number">1.1.</span> <span class="nav-text">Attention Mechanism</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Seq2seq"><span class="nav-number">1.1.1.</span> <span class="nav-text">Seq2seq</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Seq2seq-Attention"><span class="nav-number">1.1.2.</span> <span class="nav-text">Seq2seq+Attention</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Transformer"><span class="nav-number">2.</span> <span class="nav-text">Transformer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Self-Attention"><span class="nav-number">2.1.</span> <span class="nav-text">Self-Attention</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Position-Embedding"><span class="nav-number">2.2.</span> <span class="nav-text">Position Embedding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Multi-Head-Attention"><span class="nav-number">2.3.</span> <span class="nav-text">Multi-Head Attention</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Conclusion"><span class="nav-number">2.4.</span> <span class="nav-text">Conclusion</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Transfer"><span class="nav-number">3.</span> <span class="nav-text">Transfer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ELMo"><span class="nav-number">3.1.</span> <span class="nav-text">ELMo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GPT"><span class="nav-number">3.2.</span> <span class="nav-text">GPT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BERT"><span class="nav-number">3.3.</span> <span class="nav-text">BERT</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Deep-model"><span class="nav-number">3.3.1.</span> <span class="nav-text">Deep model</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Masked-LM"><span class="nav-number">3.3.2.</span> <span class="nav-text">Masked LM</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Jointly-Pre-Train"><span class="nav-number">3.3.3.</span> <span class="nav-text">Jointly Pre-Train</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Others"><span class="nav-number">3.3.4.</span> <span class="nav-text">Others</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Position-Embedding-1"><span class="nav-number">3.3.4.1.</span> <span class="nav-text">Position Embedding</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#feature-based？"><span class="nav-number">3.3.4.2.</span> <span class="nav-text">feature-based？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#More-Data"><span class="nav-number">3.3.4.3.</span> <span class="nav-text">More Data</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusion"><span class="nav-number">4.</span> <span class="nav-text">Conclusion</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Refernece"><span class="nav-number">5.</span> <span class="nav-text">Refernece</span></a></li></ol></div>
             
 
           </div>
