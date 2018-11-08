@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://imbowei.com/2018/07/20/Use-linux-well/</loc>
+    
+    <lastmod>2018-11-08T13:47:23.381Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://imbowei.com/2018/10/27/From-transformer-architecture-to-transfer-learning/</loc>
     
-    <lastmod>2018-11-08T10:49:08.144Z</lastmod>
+    <lastmod>2018-11-08T10:49:58.103Z</lastmod>
     
   </url>
   
@@ -40,13 +47,6 @@
     <loc>https://imbowei.com/2018/08/17/Summary-of-time-complexity-and-space-complexity/</loc>
     
     <lastmod>2018-10-20T11:30:24.665Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://imbowei.com/2018/07/20/Use-linux-well/</loc>
-    
-    <lastmod>2018-10-16T11:54:13.364Z</lastmod>
     
   </url>
   

@@ -4,8 +4,28 @@
 
     
   <url>
+    <loc>https://imbowei.com/2018/07/20/Use-linux-well/</loc>
+    <lastmod>2018-11-08T13:47:23.381Z</lastmod>
+    <data>
+        <display>
+        <title>linux 常用命令备忘</title>
+        <pubTime>2018-07-20T11:56:19.000Z</pubTime>
+        
+        <tag>Linux</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="https://imbowei.com/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://imbowei.com/2018/10/27/From-transformer-architecture-to-transfer-learning/</loc>
-    <lastmod>2018-11-08T10:49:08.144Z</lastmod>
+    <lastmod>2018-11-08T10:49:58.103Z</lastmod>
     <data>
         <display>
         <title>BERT：From Transformer Architecture to Transfer Learning</title>
@@ -120,26 +140,6 @@
            
              
               <breadCrumb title="Algorithm" url="https://imbowei.com/categories/Algorithm/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://imbowei.com/2018/07/20/Use-linux-well/</loc>
-    <lastmod>2018-10-16T11:54:13.364Z</lastmod>
-    <data>
-        <display>
-        <title>linux 常用命令备忘</title>
-        <pubTime>2018-07-20T11:56:19.000Z</pubTime>
-        
-        <tag>Linux</tag>
-         
-         
-           
-             
-              <breadCrumb title="Liunx" url="https://imbowei.com/categories/Liunx/"/>
           
         </display>
     </data>
