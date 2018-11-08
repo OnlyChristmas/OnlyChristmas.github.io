@@ -112,7 +112,7 @@
 <meta property="og:image" content="https://i.loli.net/2018/11/06/5be197e531ba6.png">
 <meta property="og:image" content="https://i.loli.net/2018/11/07/5be2ed16e4dcd.png">
 <meta property="og:image" content="https://i.loli.net/2018/11/08/5be39de16d099.png">
-<meta property="og:updated_time" content="2018-11-08T10:49:58.103Z">
+<meta property="og:updated_time" content="2018-11-08T13:51:21.710Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BERT：From Transformer Architecture to Transfer Learning">
 <meta name="twitter:description" content="半个月前BERT横空出世，在数十个数据集上屠榜，一时风头无两。外加国内一些科技自媒体的“UC式”标题推波助澜，也给这篇文章博得了更多的关注。为了更好的理解BERT，我们需要先理解Attention和Transformer结构。然后可以集中精力从Transfer Learning的角度来比较ELMo，GPT，BERT这三篇文章的优劣异同。">
@@ -619,7 +619,7 @@ ga('send', 'pageview');
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-11-08T18:49:58+08:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2018-11-08T21:51:21+08:00">
                 2018-11-08
               </time>
             
@@ -835,12 +835,12 @@ where\ head_i = Attention(QW_i^Q,KW_i^K,VW_i^V)</script><p>最后我们来观察
 <h3 id="BERT"><a href="#BERT" class="headerlink" title="BERT"></a>BERT</h3><p>顺着GPT的思路，今年10月BERT的横空出世，无疑将2018年NLP领域无监督学习的热潮推向了一个新的高度! 先来看看它在GLUE leaderboard屠榜的盛况。</p>
 <p><img src="https://i.loli.net/2018/11/07/5be2e43bed325.png" alt="GLUE leaderboard"></p>
 <p>为什么BERT的性能如此只有优越呢？由于它在以下的几个方面在GPT的基础上有了进一步的突破：</p>
-<h4 id="Deep-model"><a href="#Deep-model" class="headerlink" title="Deep model"></a>Deep model</h4><p>Jocab 以极强的工程能力成功驾驭了一个深达24层、每层1024个神经元、并且Multi-dead数为16、总参数340M的巨大Transformer模型，再一次向我们证明了对于深度学习来说，深度&gt;宽度这一重要规律。当然，也体现了Transformer模型具有良好的稳定性这一重要优点，因为其本身就含有各种Normalization。</p>
+<h4 id="Deep-model"><a href="#Deep-model" class="headerlink" title="Deep model"></a>Deep model</h4><p>jacob 以极强的工程能力成功驾驭了一个深达24层、每层1024个神经元、并且Multi-dead数为16、总参数340M的巨大Transformer模型，再一次向我们证明了对于深度学习来说，深度&gt;宽度这一重要规律。当然，也体现了Transformer模型具有良好的稳定性这一重要优点，因为其本身就含有各种Normalization。</p>
 <h4 id="Masked-LM"><a href="#Masked-LM" class="headerlink" title="Masked LM"></a>Masked LM</h4><p><img src="https://i.loli.net/2018/11/06/5be197e531ba6.png" alt="Bert"></p>
 <p>观察上图，相比于GPT，BERT在训练上解决了无法使用双向Transformer的窘境。相比于ELMo，两个方向上的loss结合在一起，而不是相互独立，更大程度上释放了Transformer构架的信息采集能力。不难理解为什么双向的Transformer效果要更好，就像我们学习英语做完形填空。我们是只看半句填的准呢？还是前后半句都阅读完填的准呢？相信这不难回答。 双向训练具体是怎么做到的呢？观察下图，当模型层数加深的时候，在每个位置上已经有了原本这个位置上的词的信息，这对于词的预测任务来说无异于作弊，显然是不可行的一种方案。</p>
 <p><img src="https://i.loli.net/2018/11/07/5be2ed16e4dcd.png" alt="双向Transformer的数据窥探问题"></p>
 <p>那么怎么办呢？直接删除需要预测的词语吗？这会是原本的句子失去顺序信息，并且丢掉了这一个词的原本信息，显然不可取。替换为一个随机的词吗？但这会使模型难以收敛，也不可以。最后作者选择只将10%的词语进行随机处理（相当于噪声），而将80%的词用“mask”标记来遮盖，让模型通过这个编辑来学习该位置的填词。然而下游任务中显然不会存在这个“mask”标记，所以最后另外10%的词语我们保持原有这个原有正确的词语。虽然通过这样一个训练技巧，使得双向的Transformer可以正常的工作了。但是由于加入了大量的噪声，模型的收敛仍有待提升。</p>
-<h4 id="Jointly-Pre-Train"><a href="#Jointly-Pre-Train" class="headerlink" title="Jointly Pre-Train"></a>Jointly Pre-Train</h4><p>由于很多的NLP下游任务涉及到句子之间关系的理解，例如：Question Answering (QA) 、Natural Language Inference (NLI)等等。作者在原有的loss函数后面新添加了一项关于句子间关系理解的loss，来进行联合训练。如下所示，这仅仅是一个简单的二分类问题。Jocab将此处的训练模式与下游任务相统一，都是将两个句子一起作为输入（中间有间隔符[SEP]）。用无监督语料训练的时候，将一半的句子下一句进行随机句子采样，作为负例“NotNext”；而其余一半则直接给出真正的后句，作为正例“IsNext”。</p>
+<h4 id="Jointly-Pre-Train"><a href="#Jointly-Pre-Train" class="headerlink" title="Jointly Pre-Train"></a>Jointly Pre-Train</h4><p>由于很多的NLP下游任务涉及到句子之间关系的理解，例如：Question Answering (QA) 、Natural Language Inference (NLI)等等。作者在原有的loss函数后面新添加了一项关于句子间关系理解的loss，来进行联合训练。如下所示，这仅仅是一个简单的二分类问题。jacob将此处的训练模式与下游任务相统一，都是将两个句子一起作为输入（中间有间隔符[SEP]）。用无监督语料训练的时候，将一半的句子下一句进行随机句子采样，作为负例“NotNext”；而其余一半则直接给出真正的后句，作为正例“IsNext”。</p>
 <blockquote>
 <p> Input = [CLS] the man went to [MASK] store [SEP]   he bought a gallon [MASK] milk [SEP]</p>
 <p>Label = IsNext</p>
@@ -850,12 +850,12 @@ where\ head_i = Attention(QW_i^Q,KW_i^K,VW_i^V)</script><p>最后我们来观察
 <h4 id="Others"><a href="#Others" class="headerlink" title="Others"></a>Others</h4><p>昨天，<a href="https://github.com/google-research/bert/blob/master/multilingual.md" target="_blank" rel="noopener">中文定制版model</a>也可以在github上获取了。</p>
 <h5 id="Position-Embedding-1"><a href="#Position-Embedding-1" class="headerlink" title="Position Embedding"></a>Position Embedding</h5><p>BERT并没有采取GNMT那篇论文中用三角函数来表达句子中词语位置的方法，而是直接设置句子的固定长度去训练Position Embedding，在每个词的位置随机初始化词向量，经过训练，将Position Embedding与Token Embedding、以及模型训练得到的Segment Embeddings 直接相加即可食用。如下图所示。</p>
 <p><img src="https://i.loli.net/2018/11/08/5be39de16d099.png" alt="Embeddings"></p>
-<h5 id="feature-based？"><a href="#feature-based？" class="headerlink" title="feature-based？"></a>feature-based？</h5><p>在倒数第二页的一栏，作者实验表明，BERT不仅仅是一个Fine-tuning迁移学习方法，还可以是一个Feature-based迁移学习方法，就像ELMo和Wordsvec。Jocab用CoNLL-2003 NER数据集做了实验，feature-based（合并最后四层的输出）版本的BERT仅仅比fine-tuning版本的BERT低0.3的准确率，再次心疼一下帅不过三秒的ElMo和GPT。</p>
+<h5 id="feature-based？"><a href="#feature-based？" class="headerlink" title="feature-based？"></a>feature-based？</h5><p>在倒数第二页的一栏，作者实验表明，BERT不仅仅是一个Fine-tuning迁移学习方法，还可以是一个Feature-based迁移学习方法，就像ELMo和Wordsvec。jacob用CoNLL-2003 NER数据集做了实验，feature-based（合并最后四层的输出）版本的BERT仅仅比fine-tuning版本的BERT低0.3的准确率，再次心疼一下帅不过三秒的ElMo和GPT。</p>
 <h5 id="More-Data"><a href="#More-Data" class="headerlink" title="More Data"></a>More Data</h5><p>相比于GPT模型5GB、800M words 的训练数据，BERT更是用了惊人的3,200M words的训练数据。联想到GPT论文中提到，如果有更多的训练语料，该模型的效果还会进一步提升。我觉得在BERT论文中应该有一个关于Data size的Ablation study，然而令我失望的是我并没有找到。</p>
-<div class="note danger no-icon"><p>在BERT巨大的提升背后，我想知道模型上的创新和训练数据数量上的增加，谁贡献更大一点呢？Jocab似乎避而不谈。</p></div>
+<div class="note danger no-icon"><p>在BERT巨大的提升背后，我想知道模型上的创新和训练数据数量上的增加，谁贡献更大一点呢？jacob似乎避而不谈。</p></div>
 
 <blockquote class="blockquote-center"><h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2></blockquote>
-<p>总的来说，Jocab凭借着高超的工程技能，海量的训练数据，以及强大的算力，完成了一篇里程碑级别论文。它的出现在NLP社区产生了重要的影响，并在以下的几方面给我们带来了许多的惊喜和思考：</p>
+<p>总的来说，jacob凭借着高超的工程技能，海量的训练数据，以及强大的算力，完成了一篇里程碑级别论文。它的出现在NLP社区产生了重要的影响，并在以下的几方面给我们带来了许多的惊喜和思考：</p>
 <ul>
 <li>深度、双向的transformer构架具有强大的数据表示能力以及良好的稳定性；</li>
 <li>Jointly Pre-Train 对于训练的帮助；</li>
