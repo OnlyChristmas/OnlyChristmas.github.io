@@ -4,8 +4,39 @@
 
     
   <url>
+    <loc>https://imbowei.com/2018/11/16/an-unknown-person-is-not-unknown/</loc>
+    <lastmod>2018-11-17T11:38:05.134Z</lastmod>
+    <data>
+        <display>
+        <title>无名之辈不无名（A Cool Fish）</title>
+        <pubTime>2018-11-16T12:41:16.000Z</pubTime>
+        
+        <tag>Movie</tag>
+         
+        <tag>Absurd</tag>
+         
+        <tag>Comedy</tag>
+         
+        <tag>Multithreading</tag>
+         
+        <tag>A-Cool-Fish</tag>
+         
+         
+           
+             
+              <breadCrumb title="Movie" url="https://imbowei.com/categories/Movie/"/>
+          
+             
+              <breadCrumb title="Absurd-comedy" url="https://imbowei.com/categories/Movie/Absurd-comedy/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://imbowei.com/2018/10/27/From-transformer-architecture-to-transfer-learning/</loc>
-    <lastmod>2018-11-08T14:27:21.865Z</lastmod>
+    <lastmod>2018-11-09T00:40:13.010Z</lastmod>
     <data>
         <display>
         <title>BERT：From Transformer Architecture to Transfer Learning</title>

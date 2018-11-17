@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://imbowei.com/"/>
-  <updated>2018-11-08T14:27:21.865Z</updated>
+  <updated>2018-11-17T11:38:05.134Z</updated>
   <id>https://imbowei.com/</id>
   
   <author>
@@ -17,11 +17,42 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>无名之辈不无名（A Cool Fish）</title>
+    <link href="https://imbowei.com/2018/11/16/an-unknown-person-is-not-unknown/"/>
+    <id>https://imbowei.com/2018/11/16/an-unknown-person-is-not-unknown/</id>
+    <published>2018-11-16T12:41:16.000Z</published>
+    <updated>2018-11-17T11:38:05.134Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;感谢影片Cast阵容中的一个个“无名之辈”， 让我们置身于一个西南小城中，陪着一个个无名之辈度过了生命中的&lt;strong&gt;荒诞&lt;/strong&gt;一天。 &lt;/p&gt;
+&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;
+    
+    </summary>
+    
+      <category term="Movie" scheme="https://imbowei.com/categories/Movie/"/>
+    
+      <category term="Absurd-comedy" scheme="https://imbowei.com/categories/Movie/Absurd-comedy/"/>
+    
+    
+      <category term="Movie" scheme="https://imbowei.com/tags/Movie/"/>
+    
+      <category term="Absurd" scheme="https://imbowei.com/tags/Absurd/"/>
+    
+      <category term="Comedy" scheme="https://imbowei.com/tags/Comedy/"/>
+    
+      <category term="Multithreading" scheme="https://imbowei.com/tags/Multithreading/"/>
+    
+      <category term="A-Cool-Fish" scheme="https://imbowei.com/tags/A-Cool-Fish/"/>
+    
+  </entry>
+  
+  <entry>
     <title>BERT：From Transformer Architecture to Transfer Learning</title>
     <link href="https://imbowei.com/2018/10/27/From-transformer-architecture-to-transfer-learning/"/>
     <id>https://imbowei.com/2018/10/27/From-transformer-architecture-to-transfer-learning/</id>
     <published>2018-10-27T12:07:40.000Z</published>
-    <updated>2018-11-08T14:27:21.865Z</updated>
+    <updated>2018-11-09T00:40:13.010Z</updated>
     
     <summary type="html">
     
