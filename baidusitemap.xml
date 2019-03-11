@@ -5,7 +5,7 @@
     
   <url>
     <loc>https://imbowei.com/2019/01/19/python3-tips/</loc>
-    <lastmod>2019-03-11T07:41:57.098Z</lastmod>
+    <lastmod>2019-03-11T07:50:17.696Z</lastmod>
     <data>
         <display>
         <title>Python3语言特性备忘总结</title>
@@ -13,13 +13,15 @@
         
         <tag>File_operations</tag>
          
-        <tag>python</tag>
+        <tag>Python3</tag>
          
-        <tag>deepcopy</tag>
+        <tag>Deepcopy</tag>
          
-        <tag>copy</tag>
+        <tag>Copy</tag>
          
-        <tag>generator</tag>
+        <tag>Generator</tag>
+         
+        <tag>Iterator</tag>
          
          
            
