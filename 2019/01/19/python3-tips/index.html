@@ -98,14 +98,14 @@
 <meta property="og:site_name" content="Cape of Good Hope">
 <meta property="og:description" content="抽空复习了一下python的语言特性，其中容易忘记、混淆的点特地记录如下。">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://github.com/OnlyChristmas/OnlyChristmas.github.io/blob/master/imagess/Python_tips/%E8%B5%8B%E5%80%BC%E5%BC%95%E7%94%A8.png">
-<meta property="og:image" content="https://github.com/OnlyChristmas/OnlyChristmas.github.io/blob/master/imagess/Python_tips/%E6%B5%85%E6%8B%B7%E8%B4%9D.png">
-<meta property="og:image" content="https://github.com/OnlyChristmas/OnlyChristmas.github.io/blob/master/imagess/Python_tips/%E6%B7%B1%E5%BA%A6%E6%8B%B7%E8%B4%9D.png">
-<meta property="og:updated_time" content="2019-03-11T07:34:19.849Z">
+<meta property="og:image" content="http://imbowei.com/imagess/Python_tips/%E8%B5%8B%E5%80%BC%E5%BC%95%E7%94%A8.png">
+<meta property="og:image" content="http://imbowei.com/imagess/Python_tips/%E6%B5%85%E6%8B%B7%E8%B4%9D.png">
+<meta property="og:image" content="http://imbowei.com/imagess/Python_tips/%E6%B7%B1%E5%BA%A6%E6%8B%B7%E8%B4%9D.png">
+<meta property="og:updated_time" content="2019-03-11T07:41:57.098Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python3语言特性备忘总结">
 <meta name="twitter:description" content="抽空复习了一下python的语言特性，其中容易忘记、混淆的点特地记录如下。">
-<meta name="twitter:image" content="https://github.com/OnlyChristmas/OnlyChristmas.github.io/blob/master/imagess/Python_tips/%E8%B5%8B%E5%80%BC%E5%BC%95%E7%94%A8.png">
+<meta name="twitter:image" content="http://imbowei.com/imagess/Python_tips/%E8%B5%8B%E5%80%BC%E5%BC%95%E7%94%A8.png">
 
 
 
@@ -608,7 +608,7 @@ ga('send', 'pageview');
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-03-11T15:34:19+08:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2019-03-11T15:41:57+08:00">
                 2019-03-11
               </time>
             
@@ -690,7 +690,7 @@ ga('send', 'pageview');
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  4,367
+                  5,748
                 </span>
               
 
@@ -1005,17 +1005,17 @@ ga('send', 'pageview');
 <h4 id="深拷贝与浅拷贝"><a href="#深拷贝与浅拷贝" class="headerlink" title="深拷贝与浅拷贝"></a>深拷贝与浅拷贝</h4><ul>
 <li><strong>直接赋值：</strong>其实就是对象的引用（别名）。</li>
 </ul>
-<p><img src="https://github.com/OnlyChristmas/OnlyChristmas.github.io/blob/master/imagess/Python_tips/%E8%B5%8B%E5%80%BC%E5%BC%95%E7%94%A8.png" alt="赋值引用"></p>
+<p><img src="http://imbowei.com/imagess/Python_tips/%E8%B5%8B%E5%80%BC%E5%BC%95%E7%94%A8.png" alt="赋值引用"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,[<span class="number">1</span>,<span class="number">2</span>]]</span><br><span class="line">b = a</span><br><span class="line">b[<span class="number">-1</span>] = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">print(a,b)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>[[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]],[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]]]</span><br></pre></td></tr></table></figure>
 <ul>
 <li><strong>浅拷贝(copy)：</strong>拷贝父对象，对象的内部的子对象仍是相同的。</li>
 </ul>
-<p><img src="https://github.com/OnlyChristmas/OnlyChristmas.github.io/blob/master/imagess/Python_tips/%E6%B5%85%E6%8B%B7%E8%B4%9D.png" alt="浅拷贝"></p>
+<p><img src="http://imbowei.com/imagess/Python_tips/%E6%B5%85%E6%8B%B7%E8%B4%9D.png" alt="浅拷贝"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">l1=[1,2,3,[1,2,3]]</span><br><span class="line">l2=l1.copy()</span><br><span class="line">l2[-1].append(4)    # 子对象仍相同，同步变化</span><br><span class="line">l2.append(5)        # 父对象不同，不会同步变化</span><br><span class="line">print(l1,l2)</span><br><span class="line">&gt;&gt;&gt; [[1,2,3,[1,2,3,4]], [1,2,3,[1,2,3,4],5]]</span><br></pre></td></tr></table></figure>
 <ul>
 <li><strong>深拷贝(deepcopy)：</strong> copy 模块的 deepcopy 方法，完全拷贝了父对象及其子对象。</li>
 </ul>
-<p><img src="https://github.com/OnlyChristmas/OnlyChristmas.github.io/blob/master/imagess/Python_tips/%E6%B7%B1%E5%BA%A6%E6%8B%B7%E8%B4%9D.png" alt="深度拷贝"></p>
+<p><img src="http://imbowei.com/imagess/Python_tips/%E6%B7%B1%E5%BA%A6%E6%8B%B7%E8%B4%9D.png" alt="深度拷贝"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> copy</span><br><span class="line">l1=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]]</span><br><span class="line">l2=copy.deepcopy(l1)</span><br><span class="line">l2[<span class="number">-1</span>].append(<span class="number">4</span>)</span><br><span class="line">print(l1)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]] </span><br><span class="line"><span class="comment"># 深度拷贝是将原对象中所有的值完全复制一份存放在内存中(包括可变数据类型对象)。这样遇到原对象即使是更改，也不会影响其值。</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 复制引用与copy.copy, copy.deepcopy</span></span><br><span class="line"><span class="keyword">import</span> copy</span><br><span class="line">a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, [<span class="string">'a'</span>, <span class="string">'b'</span>]] <span class="comment">#原始对象</span></span><br><span class="line">b = a                       <span class="comment">#赋值，传对象的引用</span></span><br><span class="line">c = copy.copy(a)            <span class="comment">#对象拷贝，浅拷贝</span></span><br><span class="line">d = copy.deepcopy(a)        <span class="comment">#对象拷贝，深拷贝</span></span><br><span class="line">a.append(<span class="number">5</span>)                 <span class="comment">#修改对象a</span></span><br><span class="line">a[<span class="number">4</span>].append(<span class="string">'c'</span>)            <span class="comment">#修改对象a中的['a', 'b']数组对象</span></span><br><span class="line">print( <span class="string">'a = '</span>, a )</span><br><span class="line">print( <span class="string">'b = '</span>, b )</span><br><span class="line">print( <span class="string">'c = '</span>, c )</span><br><span class="line">print( <span class="string">'d = '</span>, d )</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>(<span class="string">'a = '</span>, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>], <span class="number">5</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>(<span class="string">'b = '</span>, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>], <span class="number">5</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>(<span class="string">'c = '</span>, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>(<span class="string">'d = '</span>, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, [<span class="string">'a'</span>, <span class="string">'b'</span>]])</span><br></pre></td></tr></table></figure>
 <h4 id="python-运算符优先级"><a href="#python-运算符优先级" class="headerlink" title="python 运算符优先级"></a>python 运算符优先级</h4><div class="table-container">
@@ -1084,21 +1084,17 @@ ga('send', 'pageview');
 </table>
 </div>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="number">100</span> - <span class="number">25</span> * <span class="number">3</span> % <span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">97</span></span><br></pre></td></tr></table></figure>
-<h4 id="IO-operations"><a href="#IO-operations" class="headerlink" title="IO operations"></a>IO operations</h4><ul>
+<h4 id="IO-operations"><a href="#IO-operations" class="headerlink" title="IO operations"></a>IO operations</h4><h5 id="files-operations"><a href="#files-operations" class="headerlink" title="files operations"></a>files operations</h5><ul>
 <li><code>read([size])</code> 文件当前位置起读取size个字节，若无参数size，则表示读取至文件结束为止，整个文件返回为一个字符串对象，文件很大时候</li>
 <li><code>readline()</code> 每次读出一行内容，所以，读取时占用内存小，比较适合大文件，但是速度慢啊！（内存不够时采用）每次读取返回一个字符串对象。</li>
 <li><code>reandlines()</code> 读取整个文件所有行，保存在一个列表(list)变量中，每行作为一个元素，但读取大文件会比较占内存。</li>
 <li><code>linecache</code> 输出某个文件的第n行, 使用示例如下：</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">text = lincache.getline(<span class="string">'a.txt'</span> , <span class="number">2</span>)</span><br><span class="line">print(text)</span><br></pre></td></tr></table></figure>
-<!-- ~~下面这一段应该是乱入的 Python2~~
-~~删除线，和中间的内容不能有空格分离~~
-
-##### keyboard operations
-
-###### read from keyboard
-- raw_input([prompt]) 可以读取一行任意字符串 str，将返回 str.strip()
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = raw_input(<span class="string">'请输入：'</span>)</span><br><span class="line">print(<span class="string">'你刚才输入了：'</span>+s)</span><br></pre></td></tr></table></figure>
+<h5 id="keyboard-operations"><a href="#keyboard-operations" class="headerlink" title="keyboard operations"></a>keyboard operations</h5><ul>
+<li>raw_input([prompt]) 可以读取一行任意字符串 str，将返回 str.strip()<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = raw_input(<span class="string">'请输入：'</span>)</span><br><span class="line">print(<span class="string">'你刚才输入了：'</span>+s)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 <blockquote>
 <p>请输入：hhhh<br>你刚才输入了：hhhh</p>
 </blockquote>
@@ -1186,10 +1182,10 @@ ga('send', 'pageview');
 <p>os.path.dirname(path):返回文件路径</p>
 <hr>
 <h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
-<li><a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000">廖雪峰的官方网站</a></li>
-<li><a href="http://www.runoob.com/python3/python3-tutorial.html">RUNOOB.COM</a></li>
+<li><a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000" target="_blank" rel="noopener">廖雪峰的官方网站</a></li>
+<li><a href="http://www.runoob.com/python3/python3-tutorial.html" target="_blank" rel="noopener">RUNOOB.COM</a></li>
 </ul>
--->
+
       
     </div>
     
@@ -1503,7 +1499,7 @@ ga('send', 'pageview');
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#python-特性"><span class="nav-number">1.</span> <span class="nav-text">python 特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#python-基础"><span class="nav-number">2.</span> <span class="nav-text">python 基础</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数"><span class="nav-number">3.</span> <span class="nav-text">　函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高级特性"><span class="nav-number">4.</span> <span class="nav-text">高级特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模块"><span class="nav-number">5.</span> <span class="nav-text">模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内置函数"><span class="nav-number">6.</span> <span class="nav-text">内置函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#属性操作"><span class="nav-number">6.1.</span> <span class="nav-text">属性操作</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数式编程"><span class="nav-number">7.</span> <span class="nav-text">函数式编程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#防坑指南"><span class="nav-number">8.</span> <span class="nav-text">防坑指南</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#可变对象与不可变对象"><span class="nav-number">8.1.</span> <span class="nav-text">可变对象与不可变对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#深拷贝与浅拷贝"><span class="nav-number">8.2.</span> <span class="nav-text">深拷贝与浅拷贝</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#python-运算符优先级"><span class="nav-number">8.3.</span> <span class="nav-text">python 运算符优先级</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IO-operations"><span class="nav-number">8.4.</span> <span class="nav-text">IO operations</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#python-特性"><span class="nav-number">1.</span> <span class="nav-text">python 特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#python-基础"><span class="nav-number">2.</span> <span class="nav-text">python 基础</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数"><span class="nav-number">3.</span> <span class="nav-text">　函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高级特性"><span class="nav-number">4.</span> <span class="nav-text">高级特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模块"><span class="nav-number">5.</span> <span class="nav-text">模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内置函数"><span class="nav-number">6.</span> <span class="nav-text">内置函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#属性操作"><span class="nav-number">6.1.</span> <span class="nav-text">属性操作</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数式编程"><span class="nav-number">7.</span> <span class="nav-text">函数式编程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#防坑指南"><span class="nav-number">8.</span> <span class="nav-text">防坑指南</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#可变对象与不可变对象"><span class="nav-number">8.1.</span> <span class="nav-text">可变对象与不可变对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#深拷贝与浅拷贝"><span class="nav-number">8.2.</span> <span class="nav-text">深拷贝与浅拷贝</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#python-运算符优先级"><span class="nav-number">8.3.</span> <span class="nav-text">python 运算符优先级</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IO-operations"><span class="nav-number">8.4.</span> <span class="nav-text">IO operations</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#files-operations"><span class="nav-number">8.4.1.</span> <span class="nav-text">files operations</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#keyboard-operations"><span class="nav-number">8.4.2.</span> <span class="nav-text">keyboard operations</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dict"><span class="nav-number">8.5.</span> <span class="nav-text">dict</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#str"><span class="nav-number">8.6.</span> <span class="nav-text">str</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#list"><span class="nav-number">8.7.</span> <span class="nav-text">list</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#删除列表中的元素"><span class="nav-number">8.7.1.</span> <span class="nav-text">删除列表中的元素</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#正则表达式"><span class="nav-number">8.8.</span> <span class="nav-text">正则表达式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Others"><span class="nav-number">8.9.</span> <span class="nav-text">Others</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用模块"><span class="nav-number">9.</span> <span class="nav-text">常用模块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#os-模块"><span class="nav-number">9.1.</span> <span class="nav-text">os 模块</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考"><span class="nav-number">10.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
@@ -1541,7 +1537,7 @@ ga('send', 'pageview');
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">44.6k</span>
+    <span title="Site words total count">46.0k</span>
   
 </div>
 
