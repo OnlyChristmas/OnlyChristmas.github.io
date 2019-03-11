@@ -4,6 +4,37 @@
 
     
   <url>
+    <loc>https://imbowei.com/2018/07/19/python3-tips/</loc>
+    <lastmod>2019-03-11T07:17:00.272Z</lastmod>
+    <data>
+        <display>
+        <title>Python3语言特性备忘总结</title>
+        <pubTime>2018-07-19T11:59:45.000Z</pubTime>
+        
+        <tag>File_operations</tag>
+         
+        <tag>python</tag>
+         
+        <tag>deepcopy</tag>
+         
+        <tag>copy</tag>
+         
+        <tag>generator</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming_language" url="https://imbowei.com/categories/Programming-language/"/>
+          
+             
+              <breadCrumb title="Python3" url="https://imbowei.com/categories/Programming-language/Python3/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://imbowei.com/2018/07/20/Use-linux-well/</loc>
     <lastmod>2018-12-21T02:59:10.000Z</lastmod>
     <data>
