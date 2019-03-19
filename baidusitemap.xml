@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>https://imbowei.com/2018/07/20/Use-linux-well/</loc>
+    <lastmod>2019-03-19T01:43:33.580Z</lastmod>
+    <data>
+        <display>
+        <title>linux 常用命令备忘</title>
+        <pubTime>2018-07-20T11:56:19.000Z</pubTime>
+        
+        <tag>Linux</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="https://imbowei.com/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://imbowei.com/2019/01/19/python3-tips/</loc>
     <lastmod>2019-03-11T12:36:13.374Z</lastmod>
     <data>
@@ -30,26 +50,6 @@
           
              
               <breadCrumb title="Python3" url="https://imbowei.com/categories/Programming-language/Python3/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://imbowei.com/2018/07/20/Use-linux-well/</loc>
-    <lastmod>2018-12-21T02:59:10.000Z</lastmod>
-    <data>
-        <display>
-        <title>linux 常用命令备忘</title>
-        <pubTime>2018-07-20T11:56:19.000Z</pubTime>
-        
-        <tag>Linux</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux" url="https://imbowei.com/categories/Linux/"/>
           
         </display>
     </data>
