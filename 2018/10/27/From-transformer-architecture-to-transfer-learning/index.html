@@ -112,7 +112,7 @@
 <meta property="og:image" content="https://i.loli.net/2018/11/06/5be197e531ba6.png">
 <meta property="og:image" content="https://i.loli.net/2018/11/07/5be2ed16e4dcd.png">
 <meta property="og:image" content="https://i.loli.net/2018/11/08/5be39de16d099.png">
-<meta property="og:updated_time" content="2018-11-09T00:40:14.000Z">
+<meta property="og:updated_time" content="2019-04-15T01:22:50.538Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BERT：From Transformer Architecture to Transfer Learning">
 <meta name="twitter:description" content="半个月前BERT横空出世，在数十个数据集上屠榜，一时风头无两。外加国内一些科技自媒体的“UC式”标题推波助澜，也给这篇文章博得了更多的关注。为了更好的理解BERT，我们需要先理解Attention和Transformer结构。然后可以集中精力从Transfer Learning的角度来比较ELMo，GPT，BERT这三篇文章的优劣异同。">
@@ -619,8 +619,8 @@ ga('send', 'pageview');
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-11-09T08:40:14+08:00">
-                2018-11-09
+              <time title="Post modified" itemprop="dateModified" datetime="2019-04-15T09:22:50+08:00">
+                2019-04-15
               </time>
             
           </span>
@@ -823,8 +823,8 @@ where\ head_i = Attention(QW_i^Q,KW_i^K,VW_i^V)</script><p>最后我们来观察
 <li>浅层<strong>语法</strong>，深层<strong>语义</strong>；</li>
 <li>层级输出线性加权，可以根据任务需要自训练不同的权重；</li>
 </ul>
-<h3 id="GPT"><a href="#GPT" class="headerlink" title="GPT"></a>GPT</h3><p>趁热打铁，AllenNLP 又从迁移学习 Fine-tuning的角度发布了另一个重要工作——Improving Language Understanding by Generative Pre-training(GPT)。这个工作也直接引导出了Google的重磅论文BERT。如果说ELMo的野心只是想要取代Word2vec，成为NLP领域文本输入的标准操作。那GPT显然野心更大，其试图提出一个通用的框架网络，想要成为类似于图像领域的ResNet那样的神经网络骨架，以扭转现在研究task-specific方法愈演愈烈的风气。拯救近期国内外一些公司在某些固定的数据集上穷尽奇淫巧技去调试出一个个过拟合模型，抢占所谓的STOA。</p>
-<p>GPT提出了一个两阶段的模型。第一阶段，在大规模的无监督文本上训练一个单向的Transformer模型；第二阶段，只需要根据不同的任务要求，仅需要少量的特定标注数据进行调优训练，即可获得若干任务数据集上STOA级别的表现。这样的迁移学习方法，极大的节省了为不同的特定任务进行人工标注数据的高昂成本需求。</p>
+<h3 id="GPT"><a href="#GPT" class="headerlink" title="GPT"></a>GPT</h3><p>趁热打铁，AllenNLP 又从迁移学习 Fine-tuning的角度发布了另一个重要工作——Improving Language Understanding by Generative Pre-training(GPT)。这个工作也直接引导出了Google的重磅论文BERT。如果说ELMo的野心只是想要取代Word2vec，成为NLP领域文本输入的标准操作。那GPT显然野心更大，其试图提出一个通用的框架网络，想要成为类似于图像领域的ResNet那样的神经网络骨架，以扭转现在研究task-specific方法愈演愈烈的风气。拯救近期国内外一些公司在某些固定的数据集上穷尽奇淫巧技去调试出一个个过拟合模型，抢占所谓的SOTA。</p>
+<p>GPT提出了一个两阶段的模型。第一阶段，在大规模的无监督文本上训练一个单向的Transformer模型；第二阶段，只需要根据不同的任务要求，仅需要少量的特定标注数据进行调优训练，即可获得若干任务数据集上SOTA级别的表现。这样的迁移学习方法，极大的节省了为不同的特定任务进行人工标注数据的高昂成本需求。</p>
 <p>GPT已经取得了很令人实验结果，有以下几个点值得我们多加关注：</p>
 <ol>
 <li>继续增加生语料，模型效果是否会继续提升？</li>

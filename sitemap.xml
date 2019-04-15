@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://imbowei.com/2018/10/27/From-transformer-architecture-to-transfer-learning/</loc>
+    
+    <lastmod>2019-04-15T01:22:50.538Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://imbowei.com/about/index.html</loc>
     
     <lastmod>2019-04-12T01:29:52.868Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>https://imbowei.com/2018/11/16/an-unknown-person-is-not-unknown/</loc>
     
     <lastmod>2018-11-17T12:26:16.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://imbowei.com/2018/10/27/From-transformer-architecture-to-transfer-learning/</loc>
-    
-    <lastmod>2018-11-09T00:40:14.000Z</lastmod>
     
   </url>
   
