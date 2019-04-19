@@ -4,6 +4,39 @@
 
     
   <url>
+    <loc>https://imbowei.com/2019/01/19/python3-tips/</loc>
+    <lastmod>2019-04-17T13:27:17.131Z</lastmod>
+    <data>
+        <display>
+        <title>Python3复习总结</title>
+        <pubTime>2019-01-19T11:59:45.000Z</pubTime>
+        
+        <tag>File_operations</tag>
+         
+        <tag>Python3</tag>
+         
+        <tag>Deepcopy</tag>
+         
+        <tag>Copy</tag>
+         
+        <tag>Generator</tag>
+         
+        <tag>Iterator</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming_language" url="https://imbowei.com/categories/Programming-language/"/>
+          
+             
+              <breadCrumb title="Python3" url="https://imbowei.com/categories/Programming-language/Python3/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://imbowei.com/2018/10/27/From-transformer-architecture-to-transfer-learning/</loc>
     <lastmod>2019-04-15T01:22:50.538Z</lastmod>
     <data>
@@ -63,39 +96,6 @@
            
              
               <breadCrumb title="Linux" url="https://imbowei.com/categories/Linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://imbowei.com/2019/01/19/python3-tips/</loc>
-    <lastmod>2019-03-11T12:36:13.374Z</lastmod>
-    <data>
-        <display>
-        <title>Python3复习总结</title>
-        <pubTime>2019-01-19T11:59:45.000Z</pubTime>
-        
-        <tag>File_operations</tag>
-         
-        <tag>Python3</tag>
-         
-        <tag>Deepcopy</tag>
-         
-        <tag>Copy</tag>
-         
-        <tag>Generator</tag>
-         
-        <tag>Iterator</tag>
-         
-         
-           
-             
-              <breadCrumb title="Programming_language" url="https://imbowei.com/categories/Programming-language/"/>
-          
-             
-              <breadCrumb title="Python3" url="https://imbowei.com/categories/Programming-language/Python3/"/>
           
         </display>
     </data>
