@@ -100,7 +100,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://pc1z7pynx.bkt.clouddn.com/markdown-img-paste-20180822161350179.png">
 <meta property="og:image" content="http://pc1z7pynx.bkt.clouddn.com/markdown-img-paste-20180822181641573.png">
-<meta property="og:updated_time" content="2018-10-20T11:30:26.000Z">
+<meta property="og:updated_time" content="2019-04-22T08:30:39.163Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法的时间复杂度和空间复杂度">
 <meta name="twitter:description" content="趁假期复习了算法基础的时间复杂度和空间复杂度，整理一遍。">
@@ -607,8 +607,8 @@ ga('send', 'pageview');
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-10-20T19:30:26+08:00">
-                2018-10-20
+              <time title="Post modified" itemprop="dateModified" datetime="2019-04-22T16:30:39+08:00">
+                2019-04-22
               </time>
             
           </span>
@@ -678,7 +678,7 @@ ga('send', 'pageview');
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  3,046
+                  3,096
                 </span>
               
 
@@ -716,7 +716,8 @@ ga('send', 'pageview');
 <li>有效性（Effectiveness）：算法中描述的操作都是可以通过已经实现的基本运算执行有限次来实现（又称可行性）。</li>
 </ul>
 <p>根据以上的定义，不难发现。每个算法只能解决具有特定特征的一类问题。然而，每个有固定输入输出的问题可以采取多种算法来决解。<br>那么，要怎么来比较解决同一个问题的不同算法之间的优劣呢？<br>这个时候，时间复杂度和空间复杂度就有了用武之地。</p>
-<h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p>算法的时间复杂度反映了程序执行时间随输入规模增长而增长的量级，在很大程度上能很好反映出算法的优劣与否。<br>验证算法的时间复杂度，我们有以下两个方法。</p>
+<h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p>所谓时间复杂度就是从初始状态到达最终状态中间需要多少步！</p>
+<p>算法的时间复杂度反映了程序执行时间随输入规模增长而增长的量级，在很大程度上能很好反映出算法的优劣与否。<br>验证算法的时间复杂度，我们有以下两个方法。</p>
 <h4 id="事后统计"><a href="#事后统计" class="headerlink" title="事后统计"></a>事后统计</h4><p>一个算法执行所耗费的时间，从理论上是不能算出来的，必须上机运行测试才能知道。所以就有了事后统计的方法。<br>计算算法的时间复杂度，往往是为了评测算法的性能，设计更好的算法。这就给事后统计的方法带来了两个弊端。</p>
 <ul>
 <li>需要先实现算法设计，并至少运行一次。</li>
@@ -785,7 +786,7 @@ ga('send', 'pageview');
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">   &#123;</span><br><span class="line">      <span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;i;j++)</span><br><span class="line">      &#123;</span><br><span class="line">         <span class="keyword">for</span>(k=<span class="number">0</span>;k&lt;j;k++)</span><br><span class="line">            x=x+<span class="number">2</span>;             ①</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h3><p>设计算法的时候，我们还会关注空间复杂度，空间复杂度是算法在运行过程中临时占用的存储空间大小的度量, 同样是关于问题规模n的函数。<br>但根本上，算法的时间运行效率才是最重要的。只要算法占用的存储空间不要达到计算机无法接受的程度即可。所以，常常通过牺牲空间复杂度来换取算法更加高效的运行时间效率。</p>
+<h3 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h3><p>设计算法的时候，我们还会关注空间复杂度，空间复杂度是算法在运行过程中临时占用的存储空间大小的度量, 同样是关于问题规模n的函数。表示为了支持你的计算所必需存储的状态最多有多少。<br>但根本上，算法的时间运行效率才是最重要的。只要算法占用的存储空间不要达到计算机无法接受的程度即可。所以，常常通过牺牲空间复杂度来换取算法更加高效的运行时间效率。</p>
 <p>算法在计算机存储器上占用的空间包括三个部分。</p>
 <h4 id="输入输出"><a href="#输入输出" class="headerlink" title="输入输出"></a>输入输出</h4><p>算法的输入输出数据所占用的存储空间是由要解决的问题决定的，是通过参数表由调用函数传递而来的，它不会随算法的不同而改变。这不是我们需要考虑的部分。</p>
 <h4 id="算法本身"><a href="#算法本身" class="headerlink" title="算法本身"></a>算法本身</h4><p>存储算法本身所占用的存储空间与算法书写的长短成正比，要压缩这部分存储空间，就必须编写出较短的算法。然而，算法想要实际应用需要根据需求采取不同的编程语言来实现，不同编程语言实现的代码长短差别很大，然而存储空间都在可接受范围之内（通常不同编程语言的效率更受关注）。</p>
@@ -1157,7 +1158,7 @@ ga('send', 'pageview');
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">32.9k</span>
+    <span title="Site words total count">33.0k</span>
   
 </div>
 
