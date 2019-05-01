@@ -98,7 +98,7 @@
 <meta property="og:site_name" content="Cape of Good Hope">
 <meta property="og:description" content="与我而言，建立个人博客存在的意义有两个。一方面，当作自己的备忘录，记录零散的知识点，避免重复的搜索工作；另一方面，可以更好的分享一些自己的心得，方便与大家交流。选择GitHub Hexo Next的组合的主要原因就是方便、便宜、简单，为从来没有接触过前端的自己降低难度。为了能让博客漂亮一点，这几天来的折腾过程记录整理在此，以备遗忘。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-05-01T09:04:49.811Z">
+<meta property="og:updated_time" content="2019-05-01T09:07:48.994Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo_Next_博客搭建记">
 <meta name="twitter:description" content="与我而言，建立个人博客存在的意义有两个。一方面，当作自己的备忘录，记录零散的知识点，避免重复的搜索工作；另一方面，可以更好的分享一些自己的心得，方便与大家交流。选择GitHub Hexo Next的组合的主要原因就是方便、便宜、简单，为从来没有接触过前端的自己降低难度。为了能让博客漂亮一点，这几天来的折腾过程记录整理在此，以备遗忘。">
@@ -604,7 +604,7 @@ ga('send', 'pageview');
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-05-01T17:04:49+08:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2019-05-01T17:07:48+08:00">
                 2019-05-01
               </time>
             
@@ -675,7 +675,7 @@ ga('send', 'pageview');
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  1,209
+                  304
                 </span>
               
 
@@ -715,59 +715,6 @@ ga('send', 'pageview');
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;我就是试试博客搭建好没&quot;</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h4 id="关联GitHub"><a href="#关联GitHub" class="headerlink" title="关联GitHub"></a>关联GitHub</h4><p>要想将本地博客部署到gitpages上，按照下面步骤操作即可。</p>
-<ul>
-<li><p>安装分布式版本控制系统Git， <a href="https://git-scm.com/download/win" target="_blank" rel="noopener">这是下载地址</a> 、<a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="noopener">这是git教程</a></p>
-</li>
-<li><p>没有github账户的先注册一个</p>
-</li>
-<li><p>要将本地的git和github账户绑定，打开git bash ,配置如下信息。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;OnlyChristmas&quot;</span><br><span class="line">git config --global user.email &quot;OnlyChristmas@hh.com&quot;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>生成ssh密钥文件的命令：<code>ssh-keygen -t rsa -C &quot;OnlyChristmas@hh.com&quot;</code>,中间不需要设置什么，直接三个回车。</p>
-</li>
-<li><p><a href="https://github.com/settings/keys" target="_blank" rel="noopener">在这里</a> 点击 <span id="inline-green">New SSH key</span> 新建一个链接，并将<span id="inline-red">C://users/用户名/.ssh/id_rsa.pub</span>文件中的密钥复制进去（标题随便填）。</p>
-</li>
-<li><p>bash中输入<code>ssh git@github.com</code>验证是否配置成功。如果出现</p>
-<blockquote>
-<p><code>Hi 你的用户名！You&#39;ve successfully authenticated ,,,bala,,,Connection to github.com closed</code><br>证明连接成功，以后推送的时候只需第一次输入密码，以后直接推送即可。</p>
-</blockquote>
-</li>
-</ul>
-<ul>
-<li><p>在github中新建一个仓库，名字是默认写法<span id="inline-black">用户名.github.io</span>  例如:<a href="http://OnlyChristmas.github.io" target="_blank" rel="noopener">OnlyChristmas.github.io</a></p>
-</li>
-<li><p>在<span id="inline-blue"> 站点配置文件 </span> 配置如下信息：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">type: git</span><br><span class="line">repo: https://github.com/OnlyChristmas/OnlyChristmas.github.io.git # 你的代码仓库地址，记得后面加上`.git`</span><br><span class="line">branch: master</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>然后保存你的配置文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>让你的博客上线！</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-<div class="note danger"><p>博客上线后，chrome浏览器页面通常会直接载入缓存，无法正常显示我们上传的新内容。 </p></div>
-<div class="note info"><p>这时按`F12`进入后台，然后右键单击浏览器的刷新按钮，选择<span id="inline-black">清空缓存并硬性重新加载</span>即可正常浏览页面</p></div>
-
-
-
-
-
-</li>
-</ul>
-<h4 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h4><p>不来不准备弄的，但是不折腾不舒服啊，最终还是配置完成了，链接如下。<br><a href="http://imbowei.com/2018/07/29/Github-and-Coding-bulid-blog/#more">用Github和Coding双线绑定自定义域名,并申请全站SSL</a></p>
-<h4 id="初探Hexo"><a href="#初探Hexo" class="headerlink" title="初探Hexo"></a>初探Hexo</h4><ul>
-<li><p>下面是常用的及条命令以及简写，更多命令<a href="https://hexo.io/zh-cn/docs/commands.html" target="_blank" rel="noopener">参考官方文档</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo -g #安装Hexo</span><br><span class="line">npm update hexo -g #升级</span><br><span class="line">hexo init #初始化博客</span><br><span class="line"></span><br><span class="line"># 主要命令的含义以及简写</span><br><span class="line"></span><br><span class="line">hexo n &quot;我的博客&quot; == hexo new &quot;我的博客&quot; #新建文章</span><br><span class="line">hexo g == hexo generate #生成</span><br><span class="line">hexo s == hexo server #启动服务预览</span><br><span class="line">hexo d == hexo deploy #部署</span><br><span class="line"></span><br><span class="line"># 可能用到的设置命令</span><br><span class="line"></span><br><span class="line">hexo server #Hexo会监视文件变动并自动更新，无须重启服务器</span><br><span class="line">hexo server -s #静态模式</span><br><span class="line">hexo server -p 5000 #更改端口</span><br><span class="line">hexo server -i 192.168.1.1 #自定义 IP</span><br><span class="line">hexo clean #清除缓存，若是网页正常情况下可以忽略这条命令</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>图片是博客必不可少的一部分，但它们会造成加载缓慢。所以对于我们严肃的技术博客来说，就要少贴图，多敲代码，哈哈~。<br>但是偶尔也是要贴几张图，才能说得更明白，这个时候推荐使用<a href="https://portal.qiniu.com/signup?code=3lgfr7lh13uj6" target="_blank" rel="noopener">七牛云的外链</a>，来提高速度。<a href="https://sspai.com/post/40499" target="_blank" rel="noopener">为什么选用七牛云</a></p>
-</li>
-<li><p>虽然我们是个严肃的技术博客，要有学术风格（就是丑！），但也不能太丑吧！？所以我这里换用<a href="https://theme-next.iissnan.com/" target="_blank" rel="noopener">Next主题</a>，配置方式如下。当然也有<a href="https://hexo.io/themes/" target="_blank" rel="noopener">更多的漂亮主题可供挑选</a>，只是在配置的时候如是出现问题，更难解决，新手慎用。<br>在blog文件夹下的shell中输入，下载主题文件。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">git clone https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
-<p>然后在<span id="inline-blue"> 站点配置文件 </span> 配置如下信息：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># Extensions</span><br><span class="line"></span><br><span class="line">## Plugins: https://hexo.io/plugins/</span><br><span class="line"></span><br><span class="line">## Themes: https://hexo.io/themes/</span><br><span class="line"></span><br><span class="line"># theme: landscape</span><br><span class="line"></span><br><span class="line">theme: next</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<hr>
 
       
     </div>
@@ -1084,7 +1031,7 @@ ga('send', 'pageview');
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#博客搭建"><span class="nav-number">1.</span> <span class="nav-text">博客搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#本地构建博客"><span class="nav-number">1.1.</span> <span class="nav-text">本地构建博客</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关联GitHub"><span class="nav-number">1.2.</span> <span class="nav-text">关联GitHub</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#绑定域名"><span class="nav-number">1.3.</span> <span class="nav-text">绑定域名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#初探Hexo"><span class="nav-number">1.4.</span> <span class="nav-text">初探Hexo</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#博客搭建"><span class="nav-number">1.</span> <span class="nav-text">博客搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#本地构建博客"><span class="nav-number">1.1.</span> <span class="nav-text">本地构建博客</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1122,7 +1069,7 @@ ga('send', 'pageview');
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">34.3k</span>
+    <span title="Site words total count">33.4k</span>
   
 </div>
 
