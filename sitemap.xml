@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://imbowei.com/2018/07/20/Use-linux-well/</loc>
+    
+    <lastmod>2019-05-07T11:26:42.502Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://imbowei.com/2018/07/14/Hexo_Next_%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0/</loc>
     
     <lastmod>2019-05-01T09:15:13.411Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>https://imbowei.com/about/index.html</loc>
     
     <lastmod>2019-04-12T01:29:52.868Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://imbowei.com/2018/07/20/Use-linux-well/</loc>
-    
-    <lastmod>2019-03-19T01:43:33.580Z</lastmod>
     
   </url>
   
