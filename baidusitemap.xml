@@ -4,6 +4,65 @@
 
     
   <url>
+    <loc>https://imbowei.com/2019/05/11/Recommended-system/</loc>
+    <lastmod>2019-05-24T03:04:26.899Z</lastmod>
+    <data>
+        <display>
+        <title>【阅读笔记】项亮前辈的《推荐系统实战》</title>
+        <pubTime>2019-05-11T02:15:41.000Z</pubTime>
+        
+        <tag>UserCF</tag>
+         
+        <tag>ItemCF</tag>
+         
+        <tag>Collaborative-filtering</tag>
+         
+        <tag>Social-recommendation</tag>
+         
+         
+           
+             
+              <breadCrumb title="Recommend-system" url="https://imbowei.com/categories/Recommend-system/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://imbowei.com/2019/01/19/python3-tips/</loc>
+    <lastmod>2019-05-21T08:53:58.688Z</lastmod>
+    <data>
+        <display>
+        <title>Python3复习总结</title>
+        <pubTime>2019-01-19T11:59:45.000Z</pubTime>
+        
+        <tag>File_operations</tag>
+         
+        <tag>Python3</tag>
+         
+        <tag>Deepcopy</tag>
+         
+        <tag>Copy</tag>
+         
+        <tag>Generator</tag>
+         
+        <tag>Iterator</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming_language" url="https://imbowei.com/categories/Programming-language/"/>
+          
+             
+              <breadCrumb title="Python3" url="https://imbowei.com/categories/Programming-language/Python3/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://imbowei.com/2018/07/20/Use-linux-well/</loc>
     <lastmod>2019-05-07T11:26:42.502Z</lastmod>
     <data>
@@ -43,39 +102,6 @@
            
              
               <breadCrumb title="blog" url="https://imbowei.com/categories/blog/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://imbowei.com/2019/01/19/python3-tips/</loc>
-    <lastmod>2019-04-23T11:31:33.487Z</lastmod>
-    <data>
-        <display>
-        <title>Python3复习总结</title>
-        <pubTime>2019-01-19T11:59:45.000Z</pubTime>
-        
-        <tag>File_operations</tag>
-         
-        <tag>Python3</tag>
-         
-        <tag>Deepcopy</tag>
-         
-        <tag>Copy</tag>
-         
-        <tag>Generator</tag>
-         
-        <tag>Iterator</tag>
-         
-         
-           
-             
-              <breadCrumb title="Programming_language" url="https://imbowei.com/categories/Programming-language/"/>
-          
-             
-              <breadCrumb title="Python3" url="https://imbowei.com/categories/Programming-language/Python3/"/>
           
         </display>
     </data>

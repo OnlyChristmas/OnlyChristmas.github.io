@@ -1,0 +1,2081 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+<!-- 添加DaoVioce -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/imagess/玮.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/imagess/玮_32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/imagess/玮_16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/imagess/玮.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="UserCF,ItemCF,Collaborative-filtering,Social-recommendation," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Cape of Good Hope" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="这段时间 推荐系统是个有意思的方向。项亮前辈的《推荐系统实战》来当作入门的第一本书还是很合适的，这段时间在断断续续的抽空阅读了一遍。本书写的浅显易懂，很好的勾勒出了推荐引擎十年前的主流算法，以及工业推荐系统是如何打磨的。从这个角度讲，项亮前辈很好地完成了”让学生了解如何将自己了解的算法实现到一个工业系统中去“这一写作目标。 看书的过程中简单记录了一些内容，夹杂着自己突然产生的一些想法。用以过段时间">
+<meta name="keywords" content="UserCF,ItemCF,Collaborative-filtering,Social-recommendation">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【阅读笔记】项亮前辈的《推荐系统实战》">
+<meta property="og:url" content="https://imbowei.com/2019/05/11/Recommended-system/index.html">
+<meta property="og:site_name" content="Cape of Good Hope">
+<meta property="og:description" content="这段时间 推荐系统是个有意思的方向。项亮前辈的《推荐系统实战》来当作入门的第一本书还是很合适的，这段时间在断断续续的抽空阅读了一遍。本书写的浅显易懂，很好的勾勒出了推荐引擎十年前的主流算法，以及工业推荐系统是如何打磨的。从这个角度讲，项亮前辈很好地完成了”让学生了解如何将自己了解的算法实现到一个工业系统中去“这一写作目标。 看书的过程中简单记录了一些内容，夹杂着自己突然产生的一些想法。用以过段时间">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://imbowei.com/2019/05/11/imagess/Recsys/推荐系统架构.png">
+<meta property="og:image" content="https://imbowei.com/2019/05/11/imagess/Recsys/推荐系统架构1.png">
+<meta property="og:image" content="https://imbowei.com/2019/05/11/imagess/Recsys/推荐系统架构2.png">
+<meta property="og:updated_time" content="2019-05-24T03:04:26.899Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【阅读笔记】项亮前辈的《推荐系统实战》">
+<meta name="twitter:description" content="这段时间 推荐系统是个有意思的方向。项亮前辈的《推荐系统实战》来当作入门的第一本书还是很合适的，这段时间在断断续续的抽空阅读了一遍。本书写的浅显易懂，很好的勾勒出了推荐引擎十年前的主流算法，以及工业推荐系统是如何打磨的。从这个角度讲，项亮前辈很好地完成了”让学生了解如何将自己了解的算法实现到一个工业系统中去“这一写作目标。 看书的过程中简单记录了一些内容，夹杂着自己突然产生的一些想法。用以过段时间">
+<meta name="twitter:image" content="https://imbowei.com/2019/05/11/imagess/Recsys/推荐系统架构.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: 'FHEEI2Y7D7',
+      apiKey: '702daefe9c477cadc0f4905f578f5bf3',
+      indexName: 'personal_blog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"不好意思，木有'${query}'的搜索结果😂","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://imbowei.com/2019/05/11/Recommended-system/"/>
+
+
+
+
+
+
+<!-- 网页加载条 -->
+<script src="https://neveryu.github.io/js/src/pace.min.js"></script>
+
+
+
+  <title>【阅读笔记】项亮前辈的《推荐系统实战》 | Cape of Good Hope</title>
+  
+
+
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-122082724-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Cape of Good Hope</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">I miss you</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-top">
+          <a href="/top/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-signal"></i> <br />
+            
+            Top
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+
+           <!-- 自定义High一下的功能 -->
+           <!-- 现有歌单  1、#Lov3 #Ngẫu Hứng 2、骄傲的少年 3、博主原有-->
+      <li class="menu-item"> <a title="把这个链接拖到你的工具栏中,任何网页都可以High" href='javascript:(
+    /*
+     * Copyright (C) 2016 Never_yu (Neveryu.github.io) <React.dong.yu@gmail.com>
+     * Sina Weibo (http://weibo.com/Neveryu)
+     *
+     * Licensed under the Apache License, Version 2.0 (the "License");
+     * you may not use this file except in compliance with the License.
+     * You may obtain a copy of the License at
+     *
+     *      http://www.apache.org/licenses/LICENSE-2.0
+     *
+     * Unless required by applicable law or agreed to in writing, software
+     * distributed under the License is distributed on an "AS IS" BASIS,
+     * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     * See the License for the specific language governing permissions and
+     * limitations under the License.
+     */
+
+
+
+
+    function go() {
+
+    var songs = [
+         "http://www.170mv.com/kw/other.web.ri01.sycdn.kuwo.cn/resource/n3/43/85/4088203395.mp3",
+         "http://www.170mv.com/kw/other.web.rm01.sycdn.kuwo.cn/resource/n3/10/77/3147640053.mp3",
+         "http://7xoiki.com1.z0.glb.clouddn.com/Music-sunburst.mp3",
+         ""
+    ];
+
+
+    function c() {
+        var e = document.createElement("link");
+        e.setAttribute("type", "text/css");
+        e.setAttribute("rel", "stylesheet");
+        e.setAttribute("href", f);
+        e.setAttribute("class", l);
+        document.body.appendChild(e)
+    }
+
+    function h() {
+        var e = document.getElementsByClassName(l);
+        for (var t = 0; t < e.length; t++) {
+            document.body.removeChild(e[t])
+        }
+    }
+
+    function p() {
+        var e = document.createElement("div");
+        e.setAttribute("class", a);
+        document.body.appendChild(e);
+        setTimeout(function() {
+            document.body.removeChild(e)
+        }, 100)
+    }
+
+    function d(e) {
+        return {
+            height : e.offsetHeight,
+            width : e.offsetWidth
+        }
+    }
+
+    function v(i) {
+        var s = d(i);
+        return s.height > e && s.height < n && s.width > t && s.width < r
+    }
+
+    function m(e) {
+        var t = e;
+        var n = 0;
+        while (!!t) {
+            n += t.offsetTop;
+            t = t.offsetParent
+        }
+        return n
+    }
+
+    function g() {
+        var e = document.documentElement;
+        if (!!window.innerWidth) {
+            return window.innerHeight
+        } else if (e && !isNaN(e.clientHeight)) {
+            return e.clientHeight
+        }
+        return 0
+    }
+
+    function y() {
+        if (window.pageYOffset) {
+            return window.pageYOffset
+        }
+        return Math.max(document.documentElement.scrollTop, document.body.scrollTop)
+    }
+
+    function E(e) {
+        var t = m(e);
+        return t >= w && t <= b + w
+    }
+
+    function S() {
+        var e = document.getElementById("audio_element_id");
+        if(e != null){
+            var index = parseInt(e.getAttribute("curSongIndex"));
+            if(index > songs.length - 2) {
+                index = 0;
+            } else {
+                index++;
+            }
+            e.setAttribute("curSongIndex", index);
+            N();
+        }
+
+        e.src = i;
+        e.play()
+    }
+
+    function x(e) {
+        e.className += " " + s + " " + o
+    }
+
+    function T(e) {
+        e.className += " " + s + " " + u[Math.floor(Math.random() * u.length)]
+    }
+
+    function N() {
+        var e = document.getElementsByClassName(s);
+        var t = new RegExp("\\b" + s + "\\b");
+        for (var n = 0; n < e.length; ) {
+            e[n].className = e[n].className.replace(t, "")
+        }
+    }
+
+    function initAudioEle() {
+        var e = document.getElementById("audio_element_id");
+        if(e === null){
+            e = document.createElement("audio");
+            e.setAttribute("class", l);
+            e.setAttribute("curSongIndex", 0);
+            e.id = "audio_element_id";
+            e.loop = false;
+            e.bgcolor = 0;
+            e.addEventListener("canplay", function() {
+            setTimeout(function() {
+                x(k)
+            }, 500);
+            setTimeout(function() {
+                N();
+                p();
+                for (var e = 0; e < O.length; e++) {
+                    T(O[e])
+                }
+            }, 15500)
+        }, true);
+        e.addEventListener("ended", function() {
+            N();
+            h();
+            go();
+        }, true);
+        e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+        document.body.appendChild(e);
+        }
+    }
+
+    initAudioEle();
+    var e = 30;
+    var t = 30;
+    var n = 350;
+    var r = 350;
+
+    var curSongIndex = parseInt(document.getElementById("audio_element_id").getAttribute("curSongIndex"));
+    var i = songs[curSongIndex];
+
+    var s = "mw-harlem_shake_me";
+    var o = "im_first";
+    var u = ["im_drunk", "im_baked", "im_trippin", "im_blown"];
+    var a = "mw-strobe_light";
+
+    /* harlem-shake-style.css，替换成你的位置，也可以直接使用：//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css */
+    var f = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css";
+
+    var l = "mw_added_css";
+    var b = g();
+    var w = y();
+    var C = document.getElementsByTagName("*");
+    var k = null;
+    for (var L = 0; L < C.length; L++) {
+        var A = C[L];
+        if (v(A)) {
+            if (E(A)) {
+                k = A;
+                break
+            }
+        }
+    }
+    if (A === null) {
+        console.warn("Could not find a node of the right size. Please try a different page.");
+        return
+    }
+    c();
+    S();
+    var O = [];
+    for (var L = 0; L < C.length; L++) {
+        var A = C[L];
+        if (v(A)) {
+            O.push(A)
+        }
+    }
+    })()'><i class="menu-item-icon fa fa-music fa-fw"></i>Interesting</a> </li>
+      <!-- end High一下 -->
+
+    </ul>
+
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://imbowei.com/2019/05/11/Recommended-system/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Christmas">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/christmas_ID_round.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cape of Good Hope">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">【阅读笔记】项亮前辈的《推荐系统实战》</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+
+              <!-- 注释掉图片 --->
+        <!--  <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span> -->
+
+
+              
+                <span class="post-meta-item-text">Posted on:</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-11T10:15:41+08:00">
+                2019-05-11
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+
+              <!-- 注释掉图片 --->
+       <!--   <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>  -->
+
+
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2019-05-24T11:04:26+08:00">
+                2019-05-24
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            <!-- 注释掉图片 -->
+        <!--  <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span> -->
+
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Recommend-system/" itemprop="url" rel="index">
+                    <span itemprop="name">Recommend-system</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/05/11/Recommended-system/" class="leancloud_visitors" data-flag-title="【阅读笔记】项亮前辈的《推荐系统实战》">
+               <span class="post-meta-divider">|</span>
+
+               <!-- 注释掉了图片 -->
+          <!-- <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>   -->
+
+               
+                 <span class="post-meta-item-text">Heat&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+
+                <!-- 注释掉图片 -->
+         <!--   <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>  -->
+
+                
+                  <span class="post-meta-item-text">Words&#58;</span>
+                
+                <span title="Words">
+                  9,526
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>这段时间</p>
+<p>推荐系统是个有意思的方向。项亮前辈的《推荐系统实战》来当作入门的第一本书还是很合适的，这段时间在断断续续的抽空阅读了一遍。本书写的浅显易懂，很好的勾勒出了推荐引擎十年前的主流算法，以及工业推荐系统是如何打磨的。从这个角度讲，项亮前辈很好地完成了”让学生了解如何将自己了解的算法实现到一个工业系统中去“这一写作目标。</p>
+<p>看书的过程中简单记录了一些内容，夹杂着自己突然产生的一些想法。用以过段时间后的来重新复习消化本书。</p>
+<a id="more"></a>
+<hr>
+<h2 id="序-amp-前言"><a href="#序-amp-前言" class="headerlink" title="序&amp;前言"></a>序&amp;前言</h2><p>随着互联网信息技术的快速发展，我们逐渐从信息匮乏的时代进入了信息过载（information overload）的时代。在这种情况下，不论是对于想要快速找到目标信息的消费者，还是想要让自己的信息脱颖而出的生产者，都是严峻的考验。推荐系统正是在这种环境下有了生长的土壤，它一方面可以提高用户获取有效信息的能力，另一方面可以提升高质量信息的曝光度，实现双赢。但不可避免地，也会产生信息蚕房这样的桎梏。我们该何如构建一个高效的信息推荐系统呢？我们该入何如避免信息蚕房的桎梏呢？</p>
+<p>在写一本书前，应该思考这样几个问题。其实不论做什么事情都是一样的道理。</p>
+<ul>
+<li>为什么要写这本书？</li>
+<li>写给谁看？</li>
+<li>有几种角度去写这本书？</li>
+</ul>
+<blockquote>
+<p>推荐系统的应用前景早在2010年的时候就已经被挖掘出来，并且开始被总结成书……虽然最早提出是在上世纪90年代。那么下一个重要领域是什么？强化学习吗?</p>
+</blockquote>
+<h2 id="评价推荐系统"><a href="#评价推荐系统" class="headerlink" title="评价推荐系统"></a>评价推荐系统</h2><h3 id="什么是推荐系统"><a href="#什么是推荐系统" class="headerlink" title="什么是推荐系统"></a>什么是推荐系统</h3><p>在互联网经济初兴之时，信息还没有那么的爆炸。一些公司可以人为地收集一些热门网站，对于信息分类组织，方便人们找到自己想要的信息。这个商机造就了第一代互联网巨头，美国有雅虎，中国有腾讯新浪搜狐网易四大门户。当技术发展，人们在明确知道自己的需求的时候，可以通过搜索功能寻找信息，这样的商机成就了Google、百度这样的第二代互联网巨头。而很多时候，人们并没有明确的需求，仅仅是想要从海量信息中找到一些自己感兴趣的信息来进行消遣。这个时候，能够通过历史数据准确捕捉用户兴趣的千人千面推荐系统就派上了用途，第三代巨头字节跳动崛起。</p>
+<p>搜索系统什么时候比较有用呢？当<strong>信息过载</strong>，且用户有明确需求的的时候。但如果用户只是想消遣一下，并<strong>没有明确的需求</strong>该怎么办？你需要一个人或者一个工具来帮你对于过载的信息进行筛选，给出一些建议供你选择。然而人力总是昂贵且不是是实时可得的，这个时候个性化推荐系统就派上了用场。它就是一个能够自动联系物品和用户的工具。</p>
+<h3 id="推荐系统的应用"><a href="#推荐系统的应用" class="headerlink" title="推荐系统的应用"></a>推荐系统的应用</h3><p>推荐系统严重依赖于用户的历史行为数据，因此并不能向搜索引擎那样独立存在，往往内嵌于各个领域之中，成为一个提高网站/APP用户存留，活跃度的利器。</p>
+<p>推荐系统的应用包括不限于</p>
+<ul>
+<li>电子商务商品推荐（例如淘宝有好货）<ul>
+<li>基于购物记录的推荐；基于好友信息的推荐；当前购买物品的相关推荐（打包销售策略）</li>
+</ul>
+</li>
+<li>视频 / 电影推荐<ul>
+<li>基于以往看过 / 喜欢的电影记录进行推荐</li>
+</ul>
+</li>
+<li>音乐推荐<ul>
+<li>标注歌曲计算歌曲之间的相似度推给用户；根据用户行为计算歌曲相似度的推荐</li>
+</ul>
+</li>
+<li>社交网络好友推荐<ul>
+<li>利用社交网络推荐物品；根据社交关系给用户推荐好友；信息流会话的排序推荐</li>
+</ul>
+</li>
+<li>个性化阅读推荐<ul>
+<li>手动关注特定人 / 领域的推荐（Google reader）； 基于文章特征的推荐（Zite / 头条）；基于协同过滤的推荐</li>
+</ul>
+</li>
+<li>LBS 基于位置的服务（各种网上预订服务）</li>
+<li>个性化邮件<ul>
+<li>根据用户的使用历史，对每天处理的大量邮件进行整理分类推荐</li>
+</ul>
+</li>
+<li>个性化广告推荐系统————计算广告学（互联网公司命根子）<ul>
+<li>广告推荐系统是帮助广告找到对它感兴趣的用户，而普通的推荐是帮助用户找到感兴趣的信息，这是它们之间的根本差别。</li>
+<li>搜索广告：根据用户的搜索历史，判断用户的搜索目的，投放相关目的的广告。</li>
+<li>上下文广告：根据用户当前浏览的网页内容推荐相关内容的广告。</li>
+</ul>
+</li>
+</ul>
+<p>尽管推荐系统用于不同的领域，但是他们的内在构造逻辑却基本一致。都是由前台的展示页面（要设计用户的反馈机制，以不断迭代调整后台的算法），后台算法，以及日志系统这三部分组成。</p>
+<blockquote>
+<p>为什么淘宝不建造会员之间添加好友的功能，这样小白用户就可以跟着购物达人去消费。可能是考虑隐私问题？因为淘宝的评论也都是默认匿名。</p>
+<p>为什么音乐电台的个性化推荐这个商机早就存在，网易云音乐（2013）能用推荐系统将它做火？我觉得是因为它构造了一个音乐社区，让大家抒发出获得新奇的音乐推荐的感受，引起用户之间的共鸣，增强产品的使用粘性（听歌之前先看评论已经变成了病……）。推荐引擎也可以通过用户的这些评论反馈用NLU技术作为提取强特征去优化推荐算法，不知道猪场有没有做……应该做了吧……</p>
+<p>未来社交网络的广告的发展空间大概率会超过搜索广告，微信QQ他们沉淀了太多有用的用户数据了！鹅厂的部门墙导致数据的利用率太低了！不知道架构调整之后有没有点起色……微信朋友圈现在全面开放第三条广告商业化不知道是不是为时已晚？现在用户的朋友圈使用时间是不是都快被抖音快手吸干了……</p>
+<p>据说淘宝系现在的推荐、搜索流量比是六比四？</p>
+</blockquote>
+<h3 id="推荐系统评测"><a href="#推荐系统评测" class="headerlink" title="推荐系统评测"></a>推荐系统评测</h3><p>推荐系统本质上是想要消除搜素引擎带来的信息马太效应。但其实基于协同过滤算法的也会在一定程度上造成马太效应。</p>
+<h4 id="评测方法"><a href="#评测方法" class="headerlink" title="评测方法"></a>评测方法</h4><p>一个完整的推荐系统有三个参与方：用户，信息生产者，推荐平台。</p>
+<p>推荐系统是帮助用户挖掘那些他们可能感兴趣却又不那么容易发现的内容（那些埋没在长尾中的信息内容），而不是去一昧的追求高的预测准确率，去预测很多没有新意的东西。（比如：明天太阳一定从东方升起）因为高预测准确率并不等于高的用户满意度。</p>
+<p>通常来说，一个新的推荐系统上线需要走过以下的三个流程：</p>
+<ul>
+<li>离线测试，通过日志系统存留的用户数据对新模型进行离线指标的评测，与现有算法的离线指标比较。</li>
+<li>用户调查，选取一部分用户（注意要与真实用户的分布一致）进行双盲测评（实验人员和用户都不知道测试目标），尽量保证用户和实验人员在评测中不参杂主观性。</li>
+<li>在线AB test，用控制变量的方法，将新系统和原有系统分别给用户成分相似的两个用户组使用，观察两个用户组不同的表现情况，需要长时间的实验才能得到关于新旧系统对比的可靠实验结果。</li>
+</ul>
+<h4 id="评测指标"><a href="#评测指标" class="headerlink" title="评测指标"></a>评测指标</h4><h5 id="用户满意度"><a href="#用户满意度" class="headerlink" title="用户满意度"></a>用户满意度</h5><p>这是推荐系统最重要的指标。但是这个指标只能在用户调查和在线实验中获得。最常用的离线实验中无法使用。</p>
+<h5 id="预测准确度"><a href="#预测准确度" class="headerlink" title="预测准确度"></a>预测准确度</h5><p>推荐系统离线测评中最重要的指标。</p>
+<h6 id="评分预测"><a href="#评分预测" class="headerlink" title="评分预测"></a>评分预测</h6><p>作为一个回归问题，常用以下两种评测指标，均方根误差 $RMSE = \sqrt{ \sum{(r_i - \hat{r} )^2}/|T|} $，以及平均绝对值误差 $MAE= \sum{| r_i - \hat{r}|}/|T|$。相比较之下，RMSE对于预测不准确的评分惩罚更大，是一个更加苛刻的评测指标。</p>
+<h6 id="Top-N推荐"><a href="#Top-N推荐" class="headerlink" title="Top N推荐"></a>Top N推荐</h6><p>推荐的真实应用场景是给用户一个推荐列表，我们对这个列表中的结果进行准确率和召回率的计算。有些时候会选取不同的推荐列表长度N，计算一组评测结果，画出准确率 / 召回率曲线。因为我们更加关心的是用户会不会选取我们推荐列表中的内容，而没有那么关心用户对于选取内容的评价。因此TopN推荐是我们更加关注的一个指标。</p>
+<h5 id="覆盖率"><a href="#覆盖率" class="headerlink" title="覆盖率"></a>覆盖率</h5><p>描述推荐系统对于物品长尾的挖掘能力，这是一个内容生产者极为关心的目标。简单的想，每个内容至少被推荐给用户一下，证明了推荐系统挖掘长尾的能力。但实际情况下，不同物品的流行度极为不同，因为通过研究所有物品的流行度分布可以证明推荐系统长尾信息挖掘能力的差异。物品流行度分布越是平整，这种能力越强，覆盖率也就越高。</p>
+<p>信息论中的信息熵的概念可以评价覆盖率，$H = - \sum p(i)logp(i)$，分布越均匀的时候，信息熵越大，覆盖率越大。</p>
+<p>经济学中的基尼系数也可以评价覆盖率，$i_j$ 是按照物品流行度从小到大排列。 $ G = 1/(n-1) \sum_{j = 1}^{n} (2j - n -1) P(i_j)​$， 分布越平均，基尼系数越小（趋近于零），覆盖率越大。</p>
+<h5 id="多样性"><a href="#多样性" class="headerlink" title="多样性"></a>多样性</h5><p>用户的兴趣不是单一的，而是多样的。尽管用户的兴趣在较长的跨度中是不一样的，但是具体到用户访问系统的某一个时刻，这个时刻的兴趣点是确定的。理想化的推荐列表中的内容应该是和用户的兴趣同分布的。</p>
+<p>相似性和多样性是一个相对应的概念。假设$s(i , j)​$定义了物品i，j之间的相似性，那么 用户u 的推荐列表R(u)的多样性定义如下：</p>
+<p>$Diversity(R(u)) = 1 - 2*\sum s(i,j) / |R(u)|(|R(u) - 1|)​$</p>
+<h5 id="新颖性"><a href="#新颖性" class="headerlink" title="新颖性"></a>新颖性</h5><p>推荐系统提高推荐内容新颖性方法很简单，直接过滤掉用户已经关注过的内容就好。但是这种方法不能排除掉用户通过其他途径获得过的信息。另一个想法是，如果推荐物品中的平均流行度更低，那么其对于用户的新颖性是更大的。这很容易做到，其难点在于如何在不牺牲推荐精度的情况下提升推荐内容的多样性和新颖度。</p>
+<h5 id="惊喜度"><a href="#惊喜度" class="headerlink" title="惊喜度"></a>惊喜度</h5><p>惊喜度这个指标乍一看和新颖性关联性很强。但这只是英文翻译成中文后词语之间的相似性对于我们带来的困扰。</p>
+<p>当推荐的一个内容与用户以往的使用记录相关性很低，却又使用户很满意的时候，用户是惊喜的。这就是惊喜度的定性定义。换个角度思考，为了提高用户的惊喜度，需要首先降低推荐内容与用户以往使用记录的相关性，另一方面需要提升用户的满意度。由于第一方面因素的限制，是的惊喜度成为了一个推荐系统比较难以提高的指标。并且，提高这个指标还会冒着相对较大的风险，因为一个与用户以往使用记录不类似的内容不可控因素也会更大。但是这个点倒是可以和强化学习的“探索”结合起来，进一步优化系统。</p>
+<h5 id="信任度"><a href="#信任度" class="headerlink" title="信任度"></a>信任度</h5><p>在电商的推荐场景下，这是一个很重要的指标。当用户信任推荐系统的推荐和不信任时做出的选择是完全不同的。一般来说有以下两种方式：</p>
+<ul>
+<li>提供推荐内容的解释信息；</li>
+<li>根据用户的好友信息进行推荐，博得用户的信任感。</li>
+</ul>
+<h5 id="实时性"><a href="#实时性" class="headerlink" title="实时性"></a>实时性</h5><p>在某些场景下，信息的时效性是非常重要的。比如：新闻的推荐。推荐系统的实效性一般来说分为两个方面。</p>
+<ul>
+<li>实时的更新推荐列表莱曼需用户新的变化行为。这可以通过推荐列表的变化速率来进行测评。如果推荐列表在用户有行为后变化不大或者没有变化，说明其实时性不够高。</li>
+<li>实时的将新加入系统的内容推荐给感兴趣的用户，这主要考验了系统的冷启动能力。可以通过记录用户的推荐列表中有多大比例的物品是当天新加入的来判断这个方面的实时性。</li>
+</ul>
+<h5 id="健壮性"><a href="#健壮性" class="headerlink" title="健壮性"></a>健壮性</h5><p>任何一个能带来利益的算法都会被人攻击，反作弊能力这个时候就至关重要了，也就是系统的鲁棒性。算法健壮性的检测主要依靠模拟攻击。用常用的攻击方法是向推荐系统中注入噪声，比较攻击前后两次系统生成的推荐列表的内容差异，如果没有太大变化，证明系统比较鲁棒。</p>
+<p>另外，在算法设计的时候，尽量主要考虑使用代价比较高的用户行为特征。这样的数据由于攻击代价较高，因此更不容易受到攻击；另一方面，由于攻击代价较高，这样的数据中本身的混有的噪声也更少。</p>
+<h5 id="商业目标"><a href="#商业目标" class="headerlink" title="商业目标"></a>商业目标</h5><p>对于公司而言，推荐系统是为了提高公司的营收额，本质上是想要提高每个用户为公司带来的营收额。而这种计算指标计算一次的代价过于高昂，不同的公司根据其具体情况设计了不同的商业目标。有的是商品消费额，有的是广告点击总数，有的是广告展示总数等等。</p>
+<h4 id="评测维度"><a href="#评测维度" class="headerlink" title="评测维度"></a>评测维度</h4><p>推荐系统不存在银弹，我们需要根据我们的数据状况，以及实际的应用背景选择合适的推荐系统。这就需要我们从多个维度全面的考虑算法的优劣。一般来说，分为如下三个方面：</p>
+<ul>
+<li>用户维度：新旧用户，活跃度，用户的人口统计学信息。</li>
+<li>物品维度：物品属性、流行度、新旧程度</li>
+<li>时间维度：季节，白天 / 晚上，工作日 / 周末</li>
+</ul>
+<h2 id="利用用户行为数据"><a href="#利用用户行为数据" class="headerlink" title="利用用户行为数据"></a>利用用户行为数据</h2><p>用户的行为数据分为两大类，一类是通过设计的用户反馈模块返回的显性反馈，通常这类数据数量较小，产生代价更高，对于用户画像的描述贡献更大；另一类是用户在网站上的一般性操作（例如浏览）返回的隐性反馈。这类数据并不会十分明确地表达出用户的喜好，但数据量比较大，对于推荐系统的构造也起到了不可忽视的作用。</p>
+<blockquote>
+<p>隐形数据中的大量噪音如何消除？（例如用户被虚假标题诱导的错误点击，或者交互不合理导致的错误点击）</p>
+</blockquote>
+<h3 id="基于邻域的算法"><a href="#基于邻域的算法" class="headerlink" title="基于邻域的算法"></a>基于邻域的算法</h3><h4 id="基于用户的协同过滤算法"><a href="#基于用户的协同过滤算法" class="headerlink" title="基于用户的协同过滤算法"></a>基于用户的协同过滤算法</h4><p>基于邻域的用户协同过滤算法是最古老的推荐算法之一。这个算法有两个关键任务。</p>
+<ul>
+<li>如何找到与目标用户兴趣相似的用户集合？<ul>
+<li>两个用户有过正反馈的物品集合越大说明两个用户的相似性越大，但很明显，所有物品在这个方法下的权重不应该是相同的，需要对热门的物品的权重进行一个惩罚。</li>
+</ul>
+</li>
+<li>何如找到这个集合中用户喜欢的，且目标用户没有听说过的物品推荐给用户（新奇）。<ul>
+<li>是否推荐一个物品有两方面因素决定，一方面这个集合中的用户有多少个对这个物品有过正反馈操作？另一方面，这些有正反馈操作的用户与目标用户的兴趣相似度有多大？</li>
+</ul>
+</li>
+</ul>
+<h4 id="基于物品的协同过滤算法"><a href="#基于物品的协同过滤算法" class="headerlink" title="基于物品的协同过滤算法"></a>基于物品的协同过滤算法</h4><p>这是2010年左右业界最常用的算法。用以解决基于用户的协同过滤算法的两个弊端。第一，基于用户的协同过滤算法要探究所有用用户之间的相似性，那么随着用户的增加，用户相似度矩阵将越来越大。时间复杂度和空间复杂度也以平方的级别增加，矩阵难以维护。其次，基于用户的协同过滤算法做出推荐的时候没有办法做出推荐解释，用户的信任度比较低。</p>
+<p>基于物品的协同过滤算法有两个关键任务。</p>
+<ul>
+<li>何如获取物品之间的相似度？<ul>
+<li>物品的相似性用后验概率来表示，喜欢物品A的用户中有多少人同时喜欢B，人数越多，说明两个物品的相似度越高。（这里需要对特别活跃的用户降权重）</li>
+</ul>
+</li>
+<li>何如根据物品相似度和用户的历史行为给用户生成推荐列表。<ul>
+<li>某物品与目标用户历史上正反馈的的物品的相似度越高越容易被推荐。相似度归一化可以提高性能。</li>
+</ul>
+</li>
+</ul>
+<h4 id="UserCF-与-ItemCF之间的比较"><a href="#UserCF-与-ItemCF之间的比较" class="headerlink" title="UserCF 与 ItemCF之间的比较"></a>UserCF 与 ItemCF之间的比较</h4><p>UserCF的推荐结果更加着重于反应和用户兴趣相似的小群体的热点，也就是说大家都关心的东西就推荐给新用户，新用户也大概率会关心；ItemCF 的推荐结果更着重于维系用户的历史兴趣，不同用户也有自己所关心的领域。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>UserCF</th>
+<th>ItemCF</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>性能</td>
+<td>适用于用户较少的场合，如果用户很多，计算用户相似度矩阵代价很大</td>
+<td>适用于物品数明显小于用户数的场合，如果物品很多（网页），计算物品相似度矩阵代价很大</td>
+</tr>
+<tr>
+<td>领域</td>
+<td>时效性较强，用户个性化兴趣不太明显的领域</td>
+<td>长尾物品丰富，用户个性化需求强烈的领域</td>
+</tr>
+<tr>
+<td>实时性</td>
+<td>用户有新行为，不一定造成推荐结果的立即变化</td>
+<td>用户有新行为，一定会导致推荐结果的实时变化</td>
+</tr>
+<tr>
+<td>冷启动</td>
+<td>在新用户对很少的物品产生行为后，不能立即对他进行个性化推荐，因为用户相似度表是每隔一段时间离线计算的</td>
+<td>新用户只要对一个物品产生行为，就可以给他推荐和该物品相关的其他物品</td>
+</tr>
+<tr>
+<td></td>
+<td>新物品上线后一段时间，一旦有用户对物品产生行</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>为，就可以将新物品推荐给和对它产生行为的用户兴趣相似的其他用户 | 但没有办法在不离线更新物品相似度表的情况下将新物品推荐给用户 |<br>| 推荐理由 | 很难提供令用户信服的推荐解释                                 | 利用用户的历史行为给用户做推荐解释，可以令用户比较信服       |</p>
+<p>没有“银弹”，在不同的业务场景下，在不同的数据背景下。算法的表现不尽相同，真实的推荐结果往往是扬长避短，多种推荐算法的集成。</p>
+<blockquote>
+<p>一个推荐系统可不可以用户连续的使用时长为标准切换不同的算法。例如抖音，用户刚登陆可以用UserCF推荐一波热点视频，随着用户连续使用的时常增加，可以逐步平滑的切换到ItemCF实时变化，推荐更多兴趣化的内容。</p>
+</blockquote>
+<h3 id="隐语义算法"><a href="#隐语义算法" class="headerlink" title="隐语义算法"></a>隐语义算法</h3><p>就是文本挖掘领域中的主题模型（LSI、pLSA、LDA等）。一方面提取待推荐物品的主题向量，另一方面提取目标用户的兴趣主题向量。当两个向量相似度越高说明越合适被推荐。</p>
+<p>这里有个构造负样本的点需要注意。应该选取那些比较热门但是用户却没有行为的样本作为负样本。</p>
+<p>这类方法有个弊端就是很难做到较高的实时性。因为计算用户隐向量的时候需要扫描用户之前的所有的操作记录，很耗时。在实时性要求比较高的新闻推荐领域不适合使用这种方法。</p>
+<h3 id="基于图的模型"><a href="#基于图的模型" class="headerlink" title="基于图的模型"></a>基于图的模型</h3><p>基于图的推荐算法算法是构造基于用户和物品的二分图，用基于大数据量统计的随机游走算法（PersonalRank）来衡量顶点之间的相似性，进而选择推荐的物品。顶点之间的相似性需要从以下三个方面衡量</p>
+<ul>
+<li>两个顶点之间的路径数（相关性高的两个节点之间的路径数多）</li>
+<li>两个顶点之间的路径长度（相关性高的两个节点之间的路径长度短）</li>
+<li>两个顶点之间的路径经过的顶点（相关性高的两个节点之间的路径不会经过出度比较大的节点）</li>
+</ul>
+<p>随机游走算法就是每次从目标点出发，按照特定的概率$ \alpha $决定是继续走下去还是返回起始点。如果继续走下去，就按照均匀分布的方式随机选择下一个节点作为下次需要经过的结点。循环往复这个过程。但是随机游走算法需要多次迭代才能收敛，只能用早停或者构造转移概率矩阵的方式求解。</p>
+<h2 id="推荐系统冷启动"><a href="#推荐系统冷启动" class="headerlink" title="推荐系统冷启动"></a>推荐系统冷启动</h2><p>推荐系统冷启动就是如何淘来第一桶金的问题。根据对象的不同分为三个方面。</p>
+<ul>
+<li>用户的冷启动</li>
+<li>物品的冷启动</li>
+<li>系统的冷启动</li>
+</ul>
+<h3 id="用户的冷启动"><a href="#用户的冷启动" class="headerlink" title="用户的冷启动"></a>用户的冷启动</h3><p>用户的冷启动指的是一个新用户刚加入网站后没有对应的历史行为数据，如何为他推荐物品。</p>
+<p>首先可以考虑从用户的注册信息破局。其实从引入额外信息的角度考虑，用户的冷启动越来越是个伪问题。随着每个用户再互联网上留下的蛛丝马迹越来越多，冷启动问题也就越来越不是个问题了。</p>
+<p>用户的注册信息分为以下三种：</p>
+<ul>
+<li>人口统计学特征：年龄，性别、职业、民族、学历、居住地等等一系列。</li>
+<li>用户兴趣描述：新用户注册界面可以给之以少许的标签（或者典型物品）选择来让用户表述自己的兴趣。</li>
+<li>建立账号体系：从其它网站导流（社交网站为最佳，可以借助社交推荐的力量）。</li>
+</ul>
+<p>可以根据已有的信息，选择用树状结构对用户进行分组，对新用户进行粗粒度的个性化推荐。或者辅以最热门物品的加权推荐。</p>
+<h3 id="物品冷启动"><a href="#物品冷启动" class="headerlink" title="物品冷启动"></a>物品冷启动</h3><p>UserCF算法对于物品的冷启动是不敏感的。要知道，目标用户获取新推荐物品的方式是根据相似人群喜欢的物品，知道将新物品加入到系统中，只要被一个用户有正反馈就必然会逐步扩散开来。</p>
+<p>对于ItemCF算法来说，新物品的冷启动显然更加的困难。我们想要将一个物品推荐给用户需要先找到与其相似的物品，但是在没有物品使用记录的时候就无法更新物品的相关性表。这时候可以根据物品不同类型的特征构造特征向量，运用向量的相似性度量方法去寻找相似物品（内容过滤算法）。但是这样的方法却没有考虑到用户行为，也忽略了物品流行度，精确性就相对差一些。</p>
+<h3 id="系统冷启动"><a href="#系统冷启动" class="headerlink" title="系统冷启动"></a>系统冷启动</h3><p>在一个新系统一穷二白的时候可以先用热门排行榜（这也是一种推荐方法）的方式积累原始数据。或者用大的代价请专家迅速建立起现有物品的相关性表，就可以初始时候就采用ItemCF的推荐方式。</p>
+<h2 id="利用用户标签数据"><a href="#利用用户标签数据" class="headerlink" title="利用用户标签数据"></a>利用用户标签数据</h2><p>推荐系统中的用户标签数据是重要的用户反馈。相比于用户的行为数据，这样的显性反馈对于捕捉用户的兴趣准确性会更高。但是再或者标签数据的时候，也要关注如何获得更高质量的数据，显然给用户推荐他可能选择的标签可以显著降低用户反馈的成本，同时也能提高反馈标签的质量（用户自己写新标签可能写错，或者新构造出了与现有某标签的同义标签）。因此，关于这个点主要有以下两个问题需要解决。</p>
+<ul>
+<li>如何利用标签数据为用户更好的推荐物品？</li>
+<li>如何为用户推荐标签，以提高标签数据的质量？</li>
+</ul>
+<p>以用户反馈标签构造推荐算法，最简单的想法。首先可以找到用户最喜欢用的若干标签，然后找到拥有这些标签最多的对应物品，将这些物品推荐给用户。这个算法会非常倾向于热门标签对应的热门物品，为了提高推荐系统的新颖性，可以通过TF-IDF的方法去降低热门标签的权重，甚至同时惩罚热门物品。</p>
+<p>复杂一点的算法，可以将用户，标签，物品三部分分别分开，构造成图结构的三部分顶点，然后同样用随机游走算法去推荐物品。基于标签的系统还有一个优点就是可以很好的根据标签生成推荐理由，增加用户的信任度，从而提高点击通过率。</p>
+<p>为用户推荐标签的算法可以简单到只有一行代码，因为仅是一个排序算法。第一种，可以推荐系统中最常出现的标签；第二种方法，可以推荐给用户其本身最喜欢用的标签；第三种，推荐给用户的标签是待打标签物品最经常被打的标签。然后，还可以进一步地将它们线性加权起来使用。当然还可以用图结构下的随机游走算法确定所推荐的标签。</p>
+<h2 id="利用上下文信息"><a href="#利用上下文信息" class="headerlink" title="利用上下文信息"></a>利用上下文信息</h2><p>一个好的推荐系统往往要考虑多方面的信息。前面所述的所有推荐算法都可以增加关于用户时间信息，地理信息，用户心情信息等等上下文信息来辅助进行推荐。</p>
+<p>以时间效应为例，我们在周中搜索的内容往往是工作相关的内容，周末搜索的往往是个人兴趣，呈现出强周期性；我们在冬天想要买的鞋子显然和夏天想要买的鞋子不是一样的种类；一个体育新闻只有刚发生时才是用户想要的，时间越久用户对于他的兴趣是越低的。如果能够基于此能够特定调整推荐系统的推荐内容，相信会提高用户的满意度。加上时间信息之后，推荐系统就相当于多了一个时间的维度，成为一个时变系统。</p>
+<p>推荐系统的时效性分为近期和远期两种。这需要算法平衡用户近期行为和远期行为。既要让推荐列表反映出用户近期行为所体现出的兴趣变化，又不能让推荐列表完全受用户近期行为的影响，保证推荐列表对用户兴趣的预测延续性。</p>
+<p>另一方面，推荐系统应该在时间维度上体现出多样性这一特点。这要求加入用户有一段时间没有操作，推荐列表也能表现出一些变化。要做到这一点比较容易，大体有以下三种方法：</p>
+<ul>
+<li>推荐算法生成的时候本身就加入一些随机性。比如最后展示的是个结果是从排名前二十的结果中随机采样获取的。</li>
+<li>对之前看到过的内容进行降权。减小再次生成的概率。</li>
+<li>推荐系统集成若干种算法，可以根据时间信息，采取不同的算法推荐。</li>
+</ul>
+<p>如果从地理信息的位置信息考虑个性化推荐系统，有一种金字塔模型的集成算法思路。根据用户的地理位置信息进行树结构的划分，可以划分若干层。基于每一层的位置信息进行推荐内容的生成，最后展示的推荐信息是每一层信息的加权结合。心情信息也可以参照此思路采取类似的算法。</p>
+<h2 id="利用社交网络信息"><a href="#利用社交网络信息" class="headerlink" title="利用社交网络信息"></a>利用社交网络信息</h2><p>根据社交网络的推荐给推荐系统带来最大的好处就是可以增加用户的信任度，其实是可以辅助解决新用户的冷启动问题。推荐系统的根本目的是提高用户点击率（满意度），而提升推荐物品的被信任程度和提升被推荐物品的准确度（惊喜度）是同时存在的两种实现方式。这种社会化推荐对于提升用户的广告接受度有着非常强烈的作用。</p>
+<h3 id="基于社交网络的推荐"><a href="#基于社交网络的推荐" class="headerlink" title="基于社交网络的推荐"></a>基于社交网络的推荐</h3><p>最主要的社交网络信息从用户的注册邮件 / 手机通信录来获得，当然了，如果用户愿意绑定 自己的社交帐号到新网站。新网站有可能会获取用户的在社交网络中的关系以及兴趣点，以实现根据社交网络关系的推荐。</p>
+<p>社交网络的数据一般分为三种，基于社区（小组）的弱关联社交关系；基于单向关注的社交关系（例如微博）；基于双向确认的强社交关系（例如微信）。</p>
+<p>社交推荐同样可以采用基于邻域的推荐方法，以及基于图的推荐方法。值得注意的是，同热门物品权重过大的问题一样。社交网络关系中也存在”大V“这样的热门人物，需要有特殊的权重处理。另外，在实际应用中，UserCF的实用价值不高，因为在给一个用户作推荐的时候，需要他所有好友的历史行为数据，计算起来会比较缓慢。现有的社交网络推荐主要以信息流的方式存在，当某用户产生一条内容后，这条内容会出现在所有关注他的人的消息队列当中。如果这个消息是一条广告推荐，非常有利于提升其他用户对于广告品牌的好感以及对广告内容的接受程度。</p>
+<h3 id="给用户推荐好友"><a href="#给用户推荐好友" class="headerlink" title="给用户推荐好友"></a>给用户推荐好友</h3><p>好友推荐系统的目的是根据用户的现有好友、以及用户的行为记录，给用户推荐信的朋友，从而提升整个社区的社交网络稠密性，提升用户粘性以及活跃度。</p>
+<p>具体的推荐思路有以下几种。</p>
+<ul>
+<li>基于用户基本信息：例如用户的地点，年龄，性别，学校，职业等等信息推荐潜在的好友。</li>
+<li>基于共同兴趣：UGC社区中一定会设计若干机制让用户对内容反馈。可以利用这些反馈数据构造用户的兴趣向量，通过计算向量相似度的方式找到潜在的好友。</li>
+<li>基于社交网络图：根据用户的社交关系链进行推荐，就是著名的六度人脉网络理论。</li>
+</ul>
+<h2 id="推荐系统的架构"><a href="#推荐系统的架构" class="headerlink" title="推荐系统的架构"></a>推荐系统的架构</h2><p>推荐系统一般有UI设计，日志系统，后台存储系统，推荐算法等几个部分。</p>
+<p><img src="../imagess/Recsys/推荐系统架构.png" alt=""></p>
+<p>推荐系统往往有多个推荐引擎组成，每个推荐引擎负责一类特征和一种任务，而推荐系统的任务只是将推荐引擎的结果按照一定权重或者优先级合并、排序然后返回。所以Ranking组是一个比较核心的组？</p>
+<p>这样组合一方面方便增加或者删除不同推荐引擎；另一方面在使用不同的推荐引擎的时候，可以获得到推荐引擎级别的用户反馈。</p>
+<p><img src="../imagess/Recsys/推荐系统架构1.png" alt=""></p>
+<p><img src="../imagess/Recsys/推荐系统架构2.png" alt=""></p>
+<ul>
+<li>A模块：负责从用户的基本统计信息，或者隐性、显性的用户行为数据中提取特征向量。</li>
+<li>B模块：维护着若干项物品相关性表（从不同的角度分析）。</li>
+<li>过滤功能：去掉用户已经见过的物品；去掉质量很差的物品；去掉不符合推荐候选（商业因素）的物品</li>
+<li>排名模块：将推荐引擎得到的结果进一步排序（内容展现顺序很影响用户点击率），以期提高用户的满意度。<ul>
+<li>新颖性：将匹配度较高，且流行度较低的长尾物品推荐给过滤模块。</li>
+<li>多样性：精心选择内容属性（影响很大），尽量防止同一个推荐原因出现多次。已经被用过的推荐理由下次采样得到的权重减半就是一个常见的处理方式。</li>
+<li>时间多样性：也就是所谓的实时性。可以记录用户上次的推荐内容，即使上次用户没有操作，用户下次登陆也不会再次推荐重复的内容（对已经看过的内容进行降权）。</li>
+<li>用户反馈：排名模块<strong>最重要的部分</strong>就是用户反馈模块。用户反馈模块主要通过分析用户之前和推荐结果的交互日志，预测用户会对什么样的推荐结果比较感兴趣。如果推荐系统的目标是提高用户对推荐结果的点击率，那么可以利用点击模型（click model）预测用户是否会点击推荐结果。点击模型需要离线计算好，在线将模型加载到内存中。</li>
+</ul>
+</li>
+</ul>
+<h2 id="设计推荐系统的十个建议"><a href="#设计推荐系统的十个建议" class="headerlink" title="设计推荐系统的十个建议"></a>设计推荐系统的十个建议</h2><ol>
+<li>确定你真的需要推荐系统：只有信息过载时候才需要，不要为了推荐而推荐。无论算法是否复杂，能过达到目的的系统就是好的系统。</li>
+<li>确定商业目标和用户满意度之间的关系：用户满意度和商业目标并不一定是完全吻合的。商业目标更多关注短期，用户满意度则是长期收益。</li>
+<li>选择合适的开发人员。</li>
+<li>忘记冷启动：互联网大潮席卷每一个人，每个用户都不断的在互联网都吓自己的蛛丝马迹。我们有越来越多的初始数据来了解一个人，冷启动问题将慢慢消逝。</li>
+<li>数据与算法：深刻理解数据是设计一个好的算法的必要前提。数据分析决定了如何设计模型，算法只是去优化这个模型。</li>
+<li>呈现方式：找到相关值得推荐的物品不难，难的是以何种方式展现给用户，以提高用户的点击率。</li>
+<li>社交网络的力量：社交推荐势必会慢慢替代陈旧的基于邻域的协同过滤算法，这是推荐系统的高地。</li>
+<li>不断提高系统的、模型的可拓展性。</li>
+<li>选择恰当的用户反馈方式。</li>
+<li>设计合理的测评系统，关注推荐系统各个方面的性能。</li>
+</ol>
+<hr>
+<p><a href="https://www.jianshu.com/p/282d1e90aaf9" target="_blank" rel="noopener">十年Recsys 总结</a></p>
+<p><a href="https://blog.csdn.net/s1162276945/article/details/85177861" target="_blank" rel="noopener">2018 推荐系统总结</a></p>
+
+      
+    </div>
+    
+    
+    
+
+
+    <div>
+      
+        <div>
+    
+        <blockquote class="blockquote-center">
+        <div style="text-align:center;color: #FF5733;font-size:24px;">-------------本文结束 <i class="fa fa-heart"></i> 感谢您的时间-------------</div>
+        </blockquote>
+    
+</div>
+      
+    </div>
+
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/Wachat_money.png" alt="Christmas WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay_money.png" alt="Christmas Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:</strong>
+    Christmas
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link:</strong>
+    <a href="https://imbowei.com/2019/05/11/Recommended-system/" title="【阅读笔记】项亮前辈的《推荐系统实战》">https://imbowei.com/2019/05/11/Recommended-system/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice: </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/UserCF/" <i class="fa fa-tag"></i> UserCF</a>
+          
+            <a href="/tags/ItemCF/" <i class="fa fa-tag"></i> ItemCF</a>
+          
+            <a href="/tags/Collaborative-filtering/" <i class="fa fa-tag"></i> Collaborative-filtering</a>
+          
+            <a href="/tags/Social-recommendation/" <i class="fa fa-tag"></i> Social-recommendation</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/19/python3-tips/" rel="next" title="Python3复习总结">
+                <i class="fa fa-chevron-left"></i> Python3复习总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/christmas_ID_round.png"
+                alt="Christmas" />
+            
+              <p class="site-author-name" itemprop="name">Christmas</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">73</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/OnlyChristmas" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:m_christmas@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i></a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://imbowei.com/" title="(●ˇ∀ˇ●)" target="_blank">(●ˇ∀ˇ●)</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#序-amp-前言"><span class="nav-number">1.</span> <span class="nav-text">序&amp;前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#评价推荐系统"><span class="nav-number">2.</span> <span class="nav-text">评价推荐系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是推荐系统"><span class="nav-number">2.1.</span> <span class="nav-text">什么是推荐系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#推荐系统的应用"><span class="nav-number">2.2.</span> <span class="nav-text">推荐系统的应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#推荐系统评测"><span class="nav-number">2.3.</span> <span class="nav-text">推荐系统评测</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#评测方法"><span class="nav-number">2.3.1.</span> <span class="nav-text">评测方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#评测指标"><span class="nav-number">2.3.2.</span> <span class="nav-text">评测指标</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#用户满意度"><span class="nav-number">2.3.2.1.</span> <span class="nav-text">用户满意度</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#预测准确度"><span class="nav-number">2.3.2.2.</span> <span class="nav-text">预测准确度</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#评分预测"><span class="nav-number">2.3.2.2.1.</span> <span class="nav-text">评分预测</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Top-N推荐"><span class="nav-number">2.3.2.2.2.</span> <span class="nav-text">Top N推荐</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#覆盖率"><span class="nav-number">2.3.2.3.</span> <span class="nav-text">覆盖率</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#多样性"><span class="nav-number">2.3.2.4.</span> <span class="nav-text">多样性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#新颖性"><span class="nav-number">2.3.2.5.</span> <span class="nav-text">新颖性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#惊喜度"><span class="nav-number">2.3.2.6.</span> <span class="nav-text">惊喜度</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#信任度"><span class="nav-number">2.3.2.7.</span> <span class="nav-text">信任度</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#实时性"><span class="nav-number">2.3.2.8.</span> <span class="nav-text">实时性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#健壮性"><span class="nav-number">2.3.2.9.</span> <span class="nav-text">健壮性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#商业目标"><span class="nav-number">2.3.2.10.</span> <span class="nav-text">商业目标</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#评测维度"><span class="nav-number">2.3.3.</span> <span class="nav-text">评测维度</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用用户行为数据"><span class="nav-number">3.</span> <span class="nav-text">利用用户行为数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基于邻域的算法"><span class="nav-number">3.1.</span> <span class="nav-text">基于邻域的算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基于用户的协同过滤算法"><span class="nav-number">3.1.1.</span> <span class="nav-text">基于用户的协同过滤算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基于物品的协同过滤算法"><span class="nav-number">3.1.2.</span> <span class="nav-text">基于物品的协同过滤算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UserCF-与-ItemCF之间的比较"><span class="nav-number">3.1.3.</span> <span class="nav-text">UserCF 与 ItemCF之间的比较</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#隐语义算法"><span class="nav-number">3.2.</span> <span class="nav-text">隐语义算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于图的模型"><span class="nav-number">3.3.</span> <span class="nav-text">基于图的模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#推荐系统冷启动"><span class="nav-number">4.</span> <span class="nav-text">推荐系统冷启动</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用户的冷启动"><span class="nav-number">4.1.</span> <span class="nav-text">用户的冷启动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#物品冷启动"><span class="nav-number">4.2.</span> <span class="nav-text">物品冷启动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#系统冷启动"><span class="nav-number">4.3.</span> <span class="nav-text">系统冷启动</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用用户标签数据"><span class="nav-number">5.</span> <span class="nav-text">利用用户标签数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用上下文信息"><span class="nav-number">6.</span> <span class="nav-text">利用上下文信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用社交网络信息"><span class="nav-number">7.</span> <span class="nav-text">利用社交网络信息</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基于社交网络的推荐"><span class="nav-number">7.1.</span> <span class="nav-text">基于社交网络的推荐</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#给用户推荐好友"><span class="nav-number">7.2.</span> <span class="nav-text">给用户推荐好友</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#推荐系统的架构"><span class="nav-number">8.</span> <span class="nav-text">推荐系统的架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计推荐系统的十个建议"><span class="nav-number">9.</span> <span class="nav-text">设计推荐系统的十个建议</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+<div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="heart">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Christmas</span>
+
+  
+    <span class="post-meta-divider">|</span>
+
+    <span class="post-meta-item-icon">
+      <i class="fa fa-thumbs-up"></i>
+    </span>
+
+
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">55.8k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="footer-custom">Hosted by <a href="https://pages.coding.me" >Coding Pages</a> and <a href="https://pages.github.com">GitHub Pages</a></div>
+
+
+
+
+
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("07/06/2018 11:11:00");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+setInterval("createtime()",250);
+
+
+</script>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 你是第
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      个小伙伴
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      人次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: '1557540941000' , 
+            owner: 'OnlyChristmas',
+            repo: 'OnlyChristmas.github.io',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '4ff9a983c2a12891885a77a529cb04ce17400d46',
+            
+                client_id: '8fc5c130c7429cb7d9aa'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("CYiT0KdkmU0LEo3kFuLb4TPP-gzGzoHsz", "6RIqigijTviGwWrSUQgaVMP7");</script>
+  <script>
+
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+
+
+  <!-- 页面点击小红心 -->
+ <!--  <script type="text/javascript" src="/js/src/love.js"></script> -->
+
+
+  <!-- 背景动画(不知道为什么，不起作用) -->
+  <!-- <script type="text/javascript" src="/js/src/particle.js"></script> -->
+
+
+  <!-- 页面点击烟花爆炸 -->
+  
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+  
+
+
+  <!-- 加载加速 -->
+  <script type="text/javascript" src= "/js/src/instantclick.min.js" data-no-instant></script>
+  <script data-no-instant>InstantClick.init();</script>
+
+  <!--崩溃欺骗-->
+  <!-- <script type="text/javascript" src="/js/src/custom_title.js"></script> -->
+
+
+  <!-- 代码块复制功能 -->
+  <script type="text/javascript" src="/js/src/clipboard.min.js"></script>
+  <script type="text/javascript" src="/js/src/clipboard-use.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+<script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>
