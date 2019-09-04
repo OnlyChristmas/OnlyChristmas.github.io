@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://imbowei.com/2019/01/19/python3-tips/</loc>
+    
+    <lastmod>2019-09-02T14:55:41.587Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://imbowei.com/about/index.html</loc>
     
     <lastmod>2019-07-19T13:55:12.364Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>https://imbowei.com/2019/05/11/Recommended-system/</loc>
     
     <lastmod>2019-06-22T13:49:32.916Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://imbowei.com/2019/01/19/python3-tips/</loc>
-    
-    <lastmod>2019-05-21T08:53:58.688Z</lastmod>
     
   </url>
   
