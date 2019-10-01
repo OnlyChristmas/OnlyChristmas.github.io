@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://imbowei.com/2018/09/07/Dual-NIC-configuration/</loc>
+    
+    <lastmod>2019-09-25T06:19:57.349Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://imbowei.com/2019/05/11/Recommended-system/</loc>
     
     <lastmod>2019-09-10T06:57:03.465Z</lastmod>
@@ -103,13 +110,6 @@
     <loc>https://imbowei.com/2018/09/17/Configuring-the-best-development-environment-with-pycharm-and-jupyter-notebook/</loc>
     
     <lastmod>2018-09-20T14:51:20.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://imbowei.com/2018/09/07/Dual-NIC-configuration/</loc>
-    
-    <lastmod>2018-09-07T14:27:06.000Z</lastmod>
     
   </url>
   
